@@ -1,0 +1,3627 @@
+[
+  {
+    "mode": "repurpose",
+    "provenance": "team2-design",
+    "id": "tshirt-towel",
+    "title": "T-Shirt Cleaning Towel",
+    "result": "cleaning towel",
+    "summary": "Cut an old tee into an absorbent, washable towel for everyday cleaning.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": true,
+    "materials": [
+      "Your old T-shirt"
+    ],
+    "tools": [
+      "Scissors",
+      "Ruler",
+      "Fabric clips or pins",
+      "Fabric glue or needle and thread"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Prepare your old T-shirt\n- Scissors\n- Ruler\n- Fabric clips or pins to help you cut the fabric evenly.",
+        "tip": "Choose a T-shirt made of absorbent fabric, such as cotton, for better cleaning results",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Fabric",
+        "heading": "Shape Your Towel:",
+        "detail": "Lay the T-shirt flat and cut the fabric into a rectangular shape using scissors. Avoid seams and thick areas for a smoother towel.",
+        "tip": "Use a ruler to measure your desired towel size before cutting",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Finish the Edges",
+        "heading": "Make It Neat:",
+        "detail": "Fold the raw edges inward and secure them with fabric glue or sew them to prevent fraying.",
+        "tip": "Keep the edges even for a neat, durable towel",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old T-shirt is now a cleaning towel! Use it to wipe surfaces and handle everyday cleaning tasks.",
+        "tip": "Wash the towel after use and reuse it whenever needed",
+        "symbol": "sparkles"
+      }
+    ],
+    "benefit": "Keeps fabric in use and cuts down on single-use paper towels.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "tshirt-tote",
+    "title": "No-Sew T-Shirt Tote",
+    "result": "tote bag",
+    "summary": "Turn a tee into a stretchy market bag with nothing but scissors and knots.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old T-shirt"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Ruler",
+      "Chalk or washable marker"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old T-shirt (thicker cotton works best)\n- Fabric scissors\n- Ruler\n- Chalk or a washable marker",
+        "tip": "Turn the T-shirt inside out first so the knots end up hidden",
+        "symbol": "basket"
+      },
+      {
+        "title": "Shape the Bag",
+        "heading": "Make the Handles:",
+        "detail": "Cut both sleeves off just inside the seam, then cut a U-shape around the neckline about 8 cm deep through both layers.",
+        "tip": "Fold the shirt in half lengthwise so both sides match",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Knot the Bottom",
+        "heading": "Close It Up:",
+        "detail": "Cut strips 2 cm wide and 8 cm tall along the hem through both layers, then tie each front strip to the back strip below it.",
+        "tip": "Double-knot every pair so heavier shopping can't slip through",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old T-shirt is now a tote bag! Turn it right side out and take it shopping.",
+        "tip": "Wash it inside a laundry bag so the knots stay tight",
+        "symbol": "bag"
+      }
+    ],
+    "benefit": "Gives a worn tee years of extra use and replaces new reusable bags.",
+    "symbol": "bag"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "tshirt-yarn",
+    "title": "T-Shirt Yarn",
+    "result": "ball of T-shirt yarn",
+    "summary": "Cut one continuous strip from a tee and roll it into chunky craft yarn.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop",
+      "hoodie"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": true,
+    "materials": [
+      "Your old T-shirt"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old T-shirt (seamless sides are best)\n- Fabric scissors\n- Ruler",
+        "tip": "Stretchy jersey makes the smoothest yarn",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Loops",
+        "heading": "Prepare the Body:",
+        "detail": "Cut off the hem and everything above the armpits. Fold the tube in half, then cut 2 cm strips, stopping 3 cm before the fold.",
+        "tip": "Keep your strips the same width for even yarn",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Make One Strip",
+        "heading": "Cut Diagonally:",
+        "detail": "Open the uncut band and cut diagonally from the edge to the first slit, then on to each next slit, so the loops become one long strip.",
+        "tip": "Pull the strip gently as you go so the edges curl into yarn",
+        "symbol": "scribble",
+        "action": "cut"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old T-shirt is now T-shirt yarn! Roll it into a ball and crochet a basket, coaster or rug.",
+        "tip": "Join a second shirt's yarn with a small knot to keep going",
+        "symbol": "circle.grid.cross"
+      }
+    ],
+    "benefit": "Even stained or holey tees become a craft material instead of waste.",
+    "symbol": "circle.grid.cross"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "tshirt-crop",
+    "title": "Raw-Edge Crop Top",
+    "result": "crop top",
+    "summary": "Give a tee you never reach for a fresh, cropped shape.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": true,
+    "materials": [
+      "Your old T-shirt"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Chalk",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old T-shirt\n- Fabric scissors\n- Chalk\n- Ruler",
+        "tip": "Try the T-shirt on first and decide where you want it to end",
+        "symbol": "basket"
+      },
+      {
+        "title": "Mark the Length",
+        "heading": "Measure Twice:",
+        "detail": "Put the T-shirt on, mark the new hem with chalk, then lay it flat and draw a straight line across both layers.",
+        "tip": "Leave 2 cm extra — jersey curls up after washing",
+        "symbol": "ruler",
+        "action": "measure"
+      },
+      {
+        "title": "Cut the Hem",
+        "heading": "One Clean Cut:",
+        "detail": "Cut along the chalk line through both layers in one smooth motion.",
+        "tip": "Stretch the new edge gently to make it roll softly",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old T-shirt is now a crop top! Style it over high-waisted jeans or a skirt.",
+        "tip": "Save the cut-off band — it makes a great headband",
+        "symbol": "tshirt"
+      }
+    ],
+    "benefit": "Restyles an under-worn tee into something you'll actually reach for.",
+    "symbol": "tshirt"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "drawstring-pouch",
+    "title": "Drawstring Pouch",
+    "result": "drawstring pouch",
+    "summary": "Sew a small pouch for chargers, toiletries or snacks.",
+    "sourceCategories": [
+      "tshirt",
+      "shirt",
+      "blouse",
+      "jeans",
+      "pants",
+      "shorts",
+      "skirt",
+      "dress",
+      "jumpsuit"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "denim",
+      "linen"
+    ],
+    "difficulty": "medium",
+    "minutes": 45,
+    "noSew": false,
+    "materials": [
+      "Your old garment",
+      "A shoelace or cord"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread",
+      "Safety pin",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old garment\n- A shoelace or cord (about 60 cm)\n- Fabric scissors\n- Needle and thread\n- Safety pin",
+        "tip": "Use the least damaged area of the fabric for the pouch",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut and Sew",
+        "heading": "Make the Pouch:",
+        "detail": "Cut two 20 × 25 cm rectangles. Place them right sides together and sew around the sides and bottom, 1 cm from the edge.",
+        "tip": "Leave the top open — that's where the drawstring goes",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Add the Drawstring",
+        "heading": "Make the Channel:",
+        "detail": "Fold the top edge down 2 cm and stitch it to form a channel. Pin the cord to a safety pin and thread it through.",
+        "tip": "Leave a small gap in the channel so the cord can come out",
+        "symbol": "lasso",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old garment is now a drawstring pouch! Fill it and pull the cord closed.",
+        "tip": "Make a few in different sizes for packing",
+        "symbol": "shippingbox"
+      }
+    ],
+    "benefit": "Uses offcuts and replaces small plastic pouches or zip bags.",
+    "symbol": "shippingbox"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "denim-tote",
+    "title": "Denim Tote Bag",
+    "result": "denim tote bag",
+    "summary": "Turn the legs of old jeans into a strong everyday tote.",
+    "sourceCategories": [
+      "jeans"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim"
+    ],
+    "difficulty": "medium",
+    "minutes": 90,
+    "noSew": false,
+    "materials": [
+      "Your old jeans"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and strong thread or a sewing machine",
+      "Pins",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jeans\n- Fabric scissors\n- Strong thread and needle (or a sewing machine)\n- Pins\n- Ruler",
+        "tip": "Denim is thick — use a denim needle if you sew by machine",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Panels",
+        "heading": "Shape Your Bag:",
+        "detail": "Cut both legs open along the inner seam and cut two 35 × 40 cm panels, plus two 6 × 60 cm strips for handles.",
+        "tip": "Keep a back pocket on one panel for a built-in pocket",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Sew It Together",
+        "heading": "Join and Attach:",
+        "detail": "Sew the panels right sides together on three sides. Fold and stitch the handle strips, then sew them inside the top edge.",
+        "tip": "Stitch a box with an X over each handle for extra strength",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old jeans are now a denim tote! Turn it right side out and fill it up.",
+        "tip": "Denim softens with every wash — it only gets better",
+        "symbol": "bag"
+      }
+    ],
+    "benefit": "Denim is durable — this keeps it in use for years instead of landfill.",
+    "symbol": "bag"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "denim-skirt",
+    "title": "Jeans to Mini Skirt",
+    "result": "mini skirt",
+    "summary": "Open the leg seams and turn jeans into a fitted mini skirt.",
+    "sourceCategories": [
+      "jeans"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [
+      "denim"
+    ],
+    "difficulty": "advanced",
+    "minutes": 120,
+    "noSew": false,
+    "materials": [
+      "Your old jeans",
+      "Extra denim from the legs"
+    ],
+    "tools": [
+      "Seam ripper",
+      "Fabric scissors",
+      "Pins",
+      "Sewing machine or needle and thread"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jeans\n- Seam ripper\n- Fabric scissors\n- Pins\n- Sewing machine or needle and thread",
+        "tip": "Jeans that fit well at the waist make the best skirts",
+        "symbol": "basket"
+      },
+      {
+        "title": "Open the Seams",
+        "heading": "Unpick and Cut:",
+        "detail": "Cut the legs off at your chosen length plus 3 cm. Unpick the inner leg seams and the curved crotch seam.",
+        "tip": "Take your time with the seam ripper — clean seams lie flatter",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Fill the Gaps",
+        "heading": "Sew the Panels:",
+        "detail": "Lay the front flat so it overlaps, pin a triangle of leftover denim behind the front and back gaps, and topstitch it in place.",
+        "tip": "Match the thread colour to the original jeans stitching",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old jeans are now a mini skirt! Trim the hem and wash it to fray the edge.",
+        "tip": "Wear it with the tee you cropped for a full upcycled look",
+        "symbol": "sparkles"
+      }
+    ],
+    "benefit": "Gives jeans that no longer fit at the leg a completely new look.",
+    "symbol": "scissors"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "jeans-shorts",
+    "title": "Cut-Off Shorts",
+    "result": "pair of shorts",
+    "summary": "Rescue jeans or trousers with damaged knees by cutting them into shorts.",
+    "sourceCategories": [
+      "jeans",
+      "pants"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton",
+      "linen"
+    ],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old jeans or trousers"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Chalk",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jeans or trousers\n- Fabric scissors\n- Chalk\n- Ruler",
+        "tip": "Damaged knees? Cut above them and the damage disappears",
+        "symbol": "basket"
+      },
+      {
+        "title": "Mark the Length",
+        "heading": "Measure First:",
+        "detail": "Try them on, mark your length with chalk, then add 3 cm. Fold one leg over the other so both match.",
+        "tip": "Cut slightly longer than you think — you can always trim more",
+        "symbol": "ruler",
+        "action": "measure"
+      },
+      {
+        "title": "Cut the Legs",
+        "heading": "Make the Cut:",
+        "detail": "Cut straight across both legs along your line, angling slightly lower at the outer seam.",
+        "tip": "Roll the hem twice for a neat cuff instead of a fray",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old trousers are now shorts! Wash them once to soften the edge.",
+        "tip": "Keep the cut-off legs for patches or a pouch",
+        "symbol": "sun.max"
+      }
+    ],
+    "benefit": "Rescues trousers with damaged knees or hems.",
+    "symbol": "scissors"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "denim-patches",
+    "title": "Patchwork Mending Patches",
+    "result": "set of mending patches",
+    "summary": "Cut sturdy patches from jeans to repair other clothes.",
+    "sourceCategories": [
+      "jeans",
+      "jacket",
+      "pants",
+      "shorts",
+      "shirt"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 25,
+    "noSew": false,
+    "materials": [
+      "Your old jeans or jacket"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and embroidery thread",
+      "Pins"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jeans or jacket\n- Fabric scissors\n- Needle and embroidery thread\n- Pins",
+        "tip": "Look for areas with no holes — the back of the leg is ideal",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Patches",
+        "heading": "Make a Stack:",
+        "detail": "Cut squares and rectangles 2 cm larger than the holes you want to cover, rounding the corners slightly.",
+        "tip": "Rounded corners stop patches from peeling up",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Stitch a Patch On",
+        "heading": "Mend Something:",
+        "detail": "Pin a patch behind or over a hole on another garment and sew around the edge with small running stitches.",
+        "tip": "Use a contrast thread colour to make the mend a feature",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old jeans are now mending patches! Keep the rest in a pouch for the next repair.",
+        "tip": "One pair of jeans can mend a whole wardrobe",
+        "symbol": "square.dashed"
+      }
+    ],
+    "benefit": "Mending extends the life of other clothes — one old item helps many.",
+    "symbol": "square.dashed"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shirt-pillow",
+    "title": "Button-Front Pillow Cover",
+    "result": "pillow cover",
+    "summary": "Use the shirt's own buttons as the opening of a cushion cover.",
+    "sourceCategories": [
+      "shirt",
+      "blouse"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "linen"
+    ],
+    "difficulty": "medium",
+    "minutes": 60,
+    "noSew": false,
+    "materials": [
+      "Your old button-up shirt",
+      "A cushion insert"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Pins",
+      "Needle and thread or sewing machine"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old button-up shirt\n- A cushion insert\n- Fabric scissors\n- Pins\n- Needle and thread",
+        "tip": "Button the shirt up before you start so the front lines up",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Square",
+        "heading": "Frame the Buttons:",
+        "detail": "Lay the cushion on the buttoned shirt with the buttons in the middle. Cut a square 2 cm larger than the cushion through both layers.",
+        "tip": "Keep the pocket on the front for a playful detail",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Sew the Edges",
+        "heading": "Close the Sides:",
+        "detail": "Turn the shirt inside out, pin the four edges and sew them 1 cm from the edge.",
+        "tip": "Clip the corners before turning it right side out",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shirt is now a pillow cover! Unbutton it, slip in the cushion and button it up.",
+        "tip": "Plaid and striped shirts look great as cushions",
+        "symbol": "bed.double"
+      }
+    ],
+    "benefit": "Refreshes your space with a piece that already has a story.",
+    "symbol": "bed.double"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shirt-tote",
+    "title": "Shirt Market Bag",
+    "result": "market bag",
+    "summary": "Turn a roomy shirt or dress into a light, foldable shopping bag.",
+    "sourceCategories": [
+      "shirt",
+      "blouse",
+      "dress"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "linen",
+      "polyester"
+    ],
+    "difficulty": "medium",
+    "minutes": 60,
+    "noSew": false,
+    "materials": [
+      "Your old shirt or dress"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Pins",
+      "Needle and thread"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shirt or dress\n- Fabric scissors\n- Pins\n- Needle and thread",
+        "tip": "Lightweight fabric folds small enough to carry in a pocket",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Shape",
+        "heading": "Make the Handles:",
+        "detail": "Cut off the sleeves and cut a deep U-shape around the collar. The shoulders become the handles.",
+        "tip": "Fold the shirt in half first so the shape is even",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Sew the Bottom",
+        "heading": "Close It Up:",
+        "detail": "Turn it inside out and sew straight across the hem. Then fold and stitch the raw armhole edges.",
+        "tip": "Sew across the bottom twice so it can carry heavier items",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shirt is now a market bag! Turn it right side out and fold it into its own pocket.",
+        "tip": "Keep it in your bag so you never need a plastic one",
+        "symbol": "bag"
+      }
+    ],
+    "benefit": "Replaces a new reusable bag with one made from fabric you already have.",
+    "symbol": "bag"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shirt-skirt",
+    "title": "Sleeve-Tie Shirt Skirt",
+    "result": "wrap skirt",
+    "summary": "Wrap a shirt around your waist and tie the sleeves — no cutting at all.",
+    "sourceCategories": [
+      "shirt"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 10,
+    "noSew": true,
+    "materials": [
+      "Your old button-up shirt"
+    ],
+    "tools": [
+      "A mirror"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old button-up shirt (oversized works best)\n- A mirror",
+        "tip": "No cutting — the shirt stays a shirt whenever you want",
+        "symbol": "basket"
+      },
+      {
+        "title": "Button and Wrap",
+        "heading": "Set the Waist:",
+        "detail": "Button the shirt fully, step into it and pull it up to your waist with the collar hanging inside.",
+        "tip": "Tuck the collar in so it doesn't show at the back",
+        "symbol": "arrow.triangle.2.circlepath",
+        "action": "wrap"
+      },
+      {
+        "title": "Tie the Sleeves",
+        "heading": "Make the Bow:",
+        "detail": "Bring the sleeves around your waist and tie them in a knot or bow at the front or side.",
+        "tip": "Roll the sleeves first for a neater knot",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shirt is now a wrap skirt! Pair it with a fitted top.",
+        "tip": "Try it with the buttons at the back for a different look",
+        "symbol": "sparkles"
+      }
+    ],
+    "benefit": "A reversible restyle — no cuts, so the shirt stays a shirt too.",
+    "symbol": "arrow.triangle.2.circlepath"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "sweater-gloves",
+    "title": "Sleeve Fingerless Gloves",
+    "result": "pair of fingerless gloves",
+    "summary": "Cut the cuffs of a sweater into cosy fingerless gloves.",
+    "sourceCategories": [
+      "sweater",
+      "hoodie"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit"
+    ],
+    "difficulty": "easy",
+    "minutes": 25,
+    "noSew": false,
+    "materials": [
+      "Your old sweater"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread",
+      "Chalk"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old sweater\n- Fabric scissors\n- Needle and thread\n- Chalk",
+        "tip": "Cuffs with ribbing make the snuggest gloves",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Sleeves",
+        "heading": "Measure Your Hand:",
+        "detail": "Slip a sleeve on, mark from the cuff to just past your knuckles and cut both sleeves at that length.",
+        "tip": "Sew around a knit edge right away so it doesn't unravel",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Make a Thumb Hole",
+        "heading": "Shape the Glove:",
+        "detail": "Put it on, mark where your thumb sits, cut a 3 cm slit and stitch around the slit to stop fraying.",
+        "tip": "Use a blanket stitch for a neat edge",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old sweater is now fingerless gloves! Wear them on cold mornings.",
+        "tip": "Hand wash to keep the knit soft",
+        "symbol": "hand.raised"
+      }
+    ],
+    "benefit": "Saves a knit that can't be worn as-is and keeps you warm without buying new.",
+    "symbol": "hand.raised"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "sweater-pillow",
+    "title": "Knit Cushion Cover",
+    "result": "cushion cover",
+    "summary": "Turn a cosy sweater into a soft cushion cover.",
+    "sourceCategories": [
+      "sweater",
+      "hoodie"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit",
+      "cotton"
+    ],
+    "difficulty": "medium",
+    "minutes": 45,
+    "noSew": false,
+    "materials": [
+      "Your old sweater",
+      "A cushion insert"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Pins",
+      "Needle and thread"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old sweater\n- A cushion insert\n- Fabric scissors\n- Pins\n- Needle and thread",
+        "tip": "Choose a cushion that fits inside the sweater body",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Square",
+        "heading": "Frame the Pattern:",
+        "detail": "Turn the sweater inside out, lay the cushion on it and cut a square 2 cm larger than the cushion through both layers.",
+        "tip": "Centre any pattern or cable knit on the front",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Sew Three Sides",
+        "heading": "Close It Up:",
+        "detail": "Pin and sew three sides, turn it right side out, insert the cushion and hand-sew the last side closed.",
+        "tip": "Use small stitches so the knit doesn't stretch",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old sweater is now a cushion cover! Add it to your sofa or bed.",
+        "tip": "Use the sleeves to make a matching smaller cushion",
+        "symbol": "bed.double"
+      }
+    ],
+    "benefit": "Keeps a beloved knit around even when it no longer fits.",
+    "symbol": "bed.double"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "dress-top",
+    "title": "Dress to Top",
+    "result": "top",
+    "summary": "Cut a dress that no longer works into a top you'll actually wear.",
+    "sourceCategories": [
+      "dress"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "linen",
+      "polyester",
+      "silk"
+    ],
+    "difficulty": "medium",
+    "minutes": 40,
+    "noSew": false,
+    "materials": [
+      "Your old dress"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Pins",
+      "Needle and thread",
+      "Chalk"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old dress\n- Fabric scissors\n- Pins\n- Needle and thread\n- Chalk",
+        "tip": "Damage at the hem? This idea cuts it away",
+        "symbol": "basket"
+      },
+      {
+        "title": "Mark the Length",
+        "heading": "Find the New Hem:",
+        "detail": "Put the dress on, mark where you want the top to end and add 3 cm for the hem. Cut straight across.",
+        "tip": "Lay it flat and use a ruler so the hem is level",
+        "symbol": "scissors",
+        "action": "measure"
+      },
+      {
+        "title": "Hem the Edge",
+        "heading": "Make It Neat:",
+        "detail": "Fold the raw edge under twice by 1.5 cm, pin and stitch it all the way around.",
+        "tip": "Iron the fold first for a crisp hem",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old dress is now a top! Tuck it into jeans or a skirt.",
+        "tip": "Use the leftover skirt fabric for a matching scrunchie",
+        "symbol": "tshirt"
+      }
+    ],
+    "benefit": "Turns a special-occasion piece into something you can rewear often.",
+    "symbol": "tshirt"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "scarf-headband",
+    "title": "Twisted Scarf Headband",
+    "result": "headband",
+    "summary": "Twist a forgotten scarf into a bold headband.",
+    "sourceCategories": [
+      "scarf"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 10,
+    "noSew": true,
+    "materials": [
+      "Your old scarf"
+    ],
+    "tools": [
+      "A mirror",
+      "Hair pins"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old scarf\n- A mirror\n- Hair pins",
+        "tip": "Silky square scarves twist the most neatly",
+        "symbol": "basket"
+      },
+      {
+        "title": "Fold the Scarf",
+        "heading": "Make a Band:",
+        "detail": "Fold the scarf into a triangle, then fold from the long edge in 4 cm sections until it is a long band.",
+        "tip": "Keep folds flat so the band doesn't bulge",
+        "symbol": "rectangle.compress.vertical",
+        "action": "fold"
+      },
+      {
+        "title": "Twist and Tie",
+        "heading": "Shape It:",
+        "detail": "Place the middle at the nape of your neck, bring the ends up, twist them together on top and tuck them under.",
+        "tip": "Secure the ends with two hair pins",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old scarf is now a headband! Wear it with your hair up or down.",
+        "tip": "Try a knot at the front for a retro look",
+        "symbol": "sparkles"
+      }
+    ],
+    "benefit": "A new way to wear an accessory that's been sitting in a drawer.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shoe-planter",
+    "title": "Sneaker Planter",
+    "result": "planter",
+    "summary": "Plant herbs or succulents in shoes that can't be worn anymore.",
+    "sourceCategories": [
+      "sneakers",
+      "boots",
+      "heels",
+      "flats",
+      "sandals"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old shoes",
+      "Potting soil",
+      "A small plant"
+    ],
+    "tools": [
+      "Scissors or a screwdriver",
+      "Small stones"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shoes\n- Potting soil\n- A small plant or seeds\n- Small stones\n- Scissors or a screwdriver",
+        "tip": "Canvas sneakers and boots hold the most soil",
+        "symbol": "basket"
+      },
+      {
+        "title": "Prepare the Shoe",
+        "heading": "Make Drainage:",
+        "detail": "Remove the laces and insole. Make a few small holes in the sole and add a layer of stones at the bottom.",
+        "tip": "Drainage keeps the roots from rotting",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Plant It",
+        "heading": "Add Soil and Plant:",
+        "detail": "Fill the shoe with soil, make a hole, place the plant and press the soil gently around it.",
+        "tip": "Succulents need the least care",
+        "symbol": "leaf",
+        "action": "grow"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shoes are now a planter! Put it on a sunny windowsill or balcony.",
+        "tip": "Water lightly — shoes dry slower than pots",
+        "symbol": "leaf"
+      }
+    ],
+    "benefit": "Gives unwearable shoes a fun second life at home.",
+    "symbol": "leaf"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "scrap-bunting",
+    "title": "Fabric Scrap Bunting",
+    "result": "string of bunting",
+    "summary": "Turn even small or stained pieces into colourful party bunting.",
+    "sourceCategories": [
+      "tshirt",
+      "shirt",
+      "blouse",
+      "dress",
+      "skirt",
+      "pants",
+      "shorts",
+      "jeans",
+      "scarf",
+      "jumpsuit",
+      "tankTop",
+      "hat",
+      "bag"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 35,
+    "noSew": true,
+    "materials": [
+      "Your old garment",
+      "A long ribbon or string"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Cardboard",
+      "Fabric glue"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old garment\n- A long ribbon or string\n- Fabric scissors\n- Cardboard for a template\n- Fabric glue",
+        "tip": "Mix several old garments for colourful bunting",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Flags",
+        "heading": "Make a Template:",
+        "detail": "Cut a triangle 15 cm wide and 20 cm tall from cardboard, trace it on the fabric and cut out as many flags as you can.",
+        "tip": "Cut around stains — they won't show",
+        "symbol": "triangle",
+        "action": "cut"
+      },
+      {
+        "title": "Attach the Flags",
+        "heading": "String Them Up:",
+        "detail": "Fold the top of each flag over the string by 1 cm and glue it closed, leaving 5 cm between flags.",
+        "tip": "Let the glue dry flat for an hour",
+        "symbol": "link",
+        "action": "glue"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old garment is now bunting! Hang it at a party or in your room.",
+        "tip": "Reuse it for every celebration instead of buying decorations",
+        "symbol": "flag"
+      }
+    ],
+    "benefit": "Uses up even small or stained pieces and replaces single-use decorations.",
+    "symbol": "flag"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "jacket-pet-bed",
+    "title": "Cosy Pet Bed",
+    "result": "pet bed",
+    "summary": "Stuff a jacket or hoodie into a soft bed for a cat or small dog.",
+    "sourceCategories": [
+      "jacket",
+      "coat",
+      "blazer",
+      "hoodie",
+      "sweater"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit",
+      "polyester",
+      "denim",
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": false,
+    "materials": [
+      "Your old jacket or hoodie",
+      "Old pillow or stuffing"
+    ],
+    "tools": [
+      "Needle and thread",
+      "Safety pins"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jacket or hoodie\n- An old pillow or stuffing\n- Needle and thread\n- Safety pins",
+        "tip": "Soft linings and fleece make the cosiest beds",
+        "symbol": "basket"
+      },
+      {
+        "title": "Close the Openings",
+        "heading": "Seal It Up:",
+        "detail": "Zip or button the jacket closed, then sew the neck opening and the bottom hem shut, leaving one sleeve open.",
+        "tip": "Safety-pin first, then sew, so nothing shifts",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Stuff and Shape",
+        "heading": "Make the Bed:",
+        "detail": "Push the stuffing into the body. Stuff the sleeves too, then curve them around the body and stitch the cuffs together.",
+        "tip": "The sleeves become a bolster pets love to lean on",
+        "symbol": "pawprint",
+        "action": "fold"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old jacket is now a pet bed! Place it somewhere warm and quiet.",
+        "tip": "Remove the stuffing to wash the cover",
+        "symbol": "pawprint"
+      }
+    ],
+    "benefit": "Gives outerwear that can't be worn a cosy second life.",
+    "symbol": "pawprint"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "belt-key-holder",
+    "title": "Belt Key Holder",
+    "result": "key holder",
+    "summary": "Cut an old belt into a wall strap that holds keys and small things.",
+    "sourceCategories": [
+      "belt"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "leather"
+    ],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old belt"
+    ],
+    "tools": [
+      "Scissors",
+      "Two screws",
+      "Screwdriver",
+      "Key rings"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old belt\n- Scissors\n- Two screws and a screwdriver\n- Key rings or small S-hooks",
+        "tip": "Thick leather belts make the strongest holders",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Strap",
+        "heading": "Choose the Length:",
+        "detail": "Cut a 25 cm piece that includes three or four of the belt holes.",
+        "tip": "Keep the buckle end as a decorative loop",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Fix It to the Wall",
+        "heading": "Mount It:",
+        "detail": "Screw both ends of the strap to the wall or a door, leaving it slightly loose so it forms a loop.",
+        "tip": "Check for pipes or wires before you drill",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old belt is now a key holder! Hang key rings from the belt holes.",
+        "tip": "Make a second one for headphones or sunglasses",
+        "symbol": "key"
+      }
+    ],
+    "benefit": "Keeps a worn belt useful instead of throwing it away.",
+    "symbol": "key"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shorts-wall-organizer",
+    "title": "Shorts Wall Organizer",
+    "result": "wall organizer",
+    "summary": "Hang old shorts flat on the wall and use their pockets for small things.",
+    "sourceCategories": [
+      "shorts",
+      "jeans"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 25,
+    "noSew": false,
+    "materials": [
+      "Your old shorts",
+      "A wooden dowel or hanger"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread",
+      "Two nails or hooks"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shorts (or jeans cut at the knee)\n- A wooden dowel or a trouser hanger\n- Fabric scissors\n- Needle and thread\n- Two nails or adhesive hooks",
+        "tip": "Shorts with four working pockets hold the most",
+        "symbol": "basket"
+      },
+      {
+        "title": "Close the Legs",
+        "heading": "Make a Flat Panel:",
+        "detail": "Turn the shorts inside out and sew straight across both leg openings, so the shorts become one flat panel with pockets.",
+        "tip": "Iron the panel flat before sewing for a neat finish",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Hang It Up",
+        "heading": "Mount the Panel:",
+        "detail": "Slide a dowel through the belt loops or clip the waistband to a trouser hanger, then hang it on two nails or hooks.",
+        "tip": "Hang it at eye level so the back pockets are easy to reach",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shorts are now a wall organizer! Fill the pockets with keys, chargers, letters or pens.",
+        "tip": "Add a small label to each pocket so everyone knows where things go",
+        "symbol": "tray"
+      }
+    ],
+    "benefit": "Keeps sturdy fabric and pockets in use instead of throwing them away.",
+    "symbol": "tray"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shorts-bag",
+    "title": "Shorts Shoulder Bag",
+    "result": "shoulder bag",
+    "summary": "Sew the legs closed and add a strap to make a casual bag with built-in pockets.",
+    "sourceCategories": [
+      "shorts"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton"
+    ],
+    "difficulty": "medium",
+    "minutes": 45,
+    "noSew": false,
+    "materials": [
+      "Your old shorts",
+      "A strap, belt or the cut-off waistband of another garment"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and strong thread",
+      "Pins"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shorts\n- A strap or an old belt\n- Fabric scissors\n- Needle and strong thread\n- Pins",
+        "tip": "Shorts with a zip fly make a bag that closes",
+        "symbol": "basket"
+      },
+      {
+        "title": "Sew the Bottom",
+        "heading": "Close the Legs:",
+        "detail": "Turn the shorts inside out, pin the leg openings shut and sew one straight seam across both legs, 1 cm from the edge.",
+        "tip": "Sew the seam twice — the bottom carries all the weight",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Add the Strap",
+        "heading": "Attach It:",
+        "detail": "Turn the shorts right side out, thread the strap through the belt loops on each side and knot or stitch the ends in place.",
+        "tip": "Make the strap long enough to wear across your body",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shorts are now a shoulder bag! Use the pockets for your phone and keys.",
+        "tip": "Wash it inside out on a gentle cycle",
+        "symbol": "bag"
+      }
+    ],
+    "benefit": "Turns shorts that no longer fit into a bag you can use every day.",
+    "symbol": "bag"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "jumpsuit-split",
+    "title": "Jumpsuit to Separates",
+    "result": "top and trousers",
+    "summary": "Cut a jumpsuit at the waist to get a top and trousers you can mix with the rest of your wardrobe.",
+    "sourceCategories": [
+      "jumpsuit"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "linen",
+      "polyester",
+      "denim"
+    ],
+    "difficulty": "advanced",
+    "minutes": 90,
+    "noSew": false,
+    "materials": [
+      "Your old jumpsuit",
+      "Elastic, 2.5 cm wide, your waist length"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Sewing machine or needle and thread",
+      "Safety pin",
+      "Chalk",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jumpsuit\n- Wide elastic (your waist measurement)\n- Fabric scissors\n- Needle and thread or a sewing machine\n- Safety pin\n- Chalk",
+        "tip": "Jumpsuits with a waist seam are the easiest to split",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut at the Waist",
+        "heading": "Separate the Halves:",
+        "detail": "Mark a line 3 cm below the waist seam with chalk and cut around the jumpsuit along it.",
+        "tip": "Cut below the seam so the trousers keep enough fabric for a casing",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Finish Both Edges",
+        "heading": "Hem and Add Elastic:",
+        "detail": "Hem the bottom of the top. On the trousers, fold the edge over 3 cm, stitch it to make a casing and thread the elastic through with a safety pin.",
+        "tip": "Overlap the elastic ends by 2 cm and stitch them firmly before closing the casing",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old jumpsuit is now a top and trousers! Wear them together or with other pieces.",
+        "tip": "Try the top over a skirt for a new outfit",
+        "symbol": "tshirt"
+      }
+    ],
+    "benefit": "Doubles the number of outfits a jumpsuit can make.",
+    "symbol": "tshirt"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "draught-stopper",
+    "title": "Sleeve Draught Stopper",
+    "result": "draught stopper",
+    "summary": "Stuff a coat or sweater sleeve to stop cold air coming under a door.",
+    "sourceCategories": [
+      "coat",
+      "jacket",
+      "sweater",
+      "hoodie"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit",
+      "polyester",
+      "cotton"
+    ],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": false,
+    "materials": [
+      "Your old coat or sweater",
+      "Old socks, rags or stuffing"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old coat, jacket or sweater\n- Old socks, rags or stuffing\n- Fabric scissors\n- Needle and thread",
+        "tip": "Heavy wool and padded sleeves block the most draught",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Sleeves",
+        "heading": "Make the Tube:",
+        "detail": "Cut both sleeves off at the shoulder seam and sew one sleeve to the other at the wide ends to make one long tube.",
+        "tip": "Measure your door — the tube should be as wide as the doorway",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Stuff and Close",
+        "heading": "Fill It Up:",
+        "detail": "Sew one cuff shut, push the stuffing in until the tube is firm, then sew the other cuff closed.",
+        "tip": "Add a handful of dry rice at the ends to help it stay in place",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old coat is now a draught stopper! Lay it along the bottom of a door or window.",
+        "tip": "Keeping draughts out means less heating — good for the planet and your bills",
+        "symbol": "wind"
+      }
+    ],
+    "benefit": "Turns a worn coat into something that saves heating energy.",
+    "symbol": "wind"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "laptop-sleeve",
+    "title": "Padded Laptop Sleeve",
+    "result": "laptop sleeve",
+    "summary": "Use the sturdy front of a blazer or coat, buttons and all, as a laptop or tablet case.",
+    "sourceCategories": [
+      "blazer",
+      "coat",
+      "jacket"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit",
+      "polyester",
+      "cotton",
+      "denim"
+    ],
+    "difficulty": "medium",
+    "minutes": 60,
+    "noSew": false,
+    "materials": [
+      "Your old blazer or coat"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread or a sewing machine",
+      "Pins",
+      "Ruler"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old blazer, coat or jacket\n- Your laptop or tablet to measure\n- Fabric scissors\n- Needle and thread\n- Pins\n- Ruler",
+        "tip": "Keep the lining — it protects the screen",
+        "symbol": "basket"
+      },
+      {
+        "title": "Measure and Cut",
+        "heading": "Size the Sleeve:",
+        "detail": "Button the garment and lay your laptop on the front. Cut a rectangle 4 cm bigger than the laptop on every side through both front and back, keeping the buttons in the middle.",
+        "tip": "Measure twice — the laptop should slide in snugly",
+        "symbol": "ruler",
+        "action": "measure"
+      },
+      {
+        "title": "Sew the Sides",
+        "heading": "Close It Up:",
+        "detail": "Turn it inside out, pin and sew the top, bottom and back edges, then turn it right side out. The buttons become the opening.",
+        "tip": "Use small, tight stitches at the corners, where the laptop pushes hardest",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old blazer is now a laptop sleeve! Unbutton it to slide your laptop in.",
+        "tip": "Keep your charger in the original breast pocket",
+        "symbol": "laptopcomputer"
+      }
+    ],
+    "benefit": "Keeps tailored fabric in use and replaces a new store-bought case.",
+    "symbol": "laptopcomputer"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "jacket-vest",
+    "title": "Jacket to Vest",
+    "result": "vest",
+    "summary": "Remove the sleeves of a jacket or blazer for a layering vest.",
+    "sourceCategories": [
+      "jacket",
+      "blazer"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton",
+      "polyester"
+    ],
+    "difficulty": "medium",
+    "minutes": 40,
+    "noSew": false,
+    "materials": [
+      "Your old jacket or blazer"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Seam ripper",
+      "Needle and thread",
+      "Pins"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old jacket or blazer\n- Fabric scissors\n- Seam ripper\n- Needle and thread\n- Pins",
+        "tip": "Damaged or stained sleeves? This is the perfect fix",
+        "symbol": "basket"
+      },
+      {
+        "title": "Remove the Sleeves",
+        "heading": "Cut Them Off:",
+        "detail": "Cut each sleeve off 1.5 cm outside the shoulder seam, or unpick the seam with a seam ripper for a cleaner edge.",
+        "tip": "Denim looks great with a raw edge — you can stop here",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Finish the Armholes",
+        "heading": "Neat Edges:",
+        "detail": "Fold the raw edge inward by 1 cm, pin it all around and hand-stitch it in place.",
+        "tip": "Clip the curve every few centimetres so it folds flat",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old jacket is now a vest! Layer it over a shirt or hoodie.",
+        "tip": "Use the cut sleeves to make patches or a pouch",
+        "symbol": "tshirt"
+      }
+    ],
+    "benefit": "Saves a jacket with worn sleeves and keeps it in your wardrobe.",
+    "symbol": "tshirt"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "boot-vase",
+    "title": "Boot Vase",
+    "result": "vase",
+    "summary": "Hide a jar inside a boot or high-top sneaker for a quirky flower vase.",
+    "sourceCategories": [
+      "boots",
+      "sneakers"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 10,
+    "noSew": true,
+    "materials": [
+      "Your old boots or high-tops",
+      "A tall glass jar or bottle",
+      "Fresh or dried flowers"
+    ],
+    "tools": [
+      "Small stones"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old boot or high-top sneaker\n- A tall jar or bottle that fits inside\n- Flowers\n- Small stones",
+        "tip": "Ankle and tall boots fit a jar best",
+        "symbol": "basket"
+      },
+      {
+        "title": "Fit the Jar",
+        "heading": "Make It Stable:",
+        "detail": "Remove the laces or insole if needed. Put a few stones in the toe and stand the jar upright inside the boot shaft.",
+        "tip": "Stones in the toe stop the boot from tipping over",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Add Flowers",
+        "heading": "Fill the Vase:",
+        "detail": "Fill the jar with water and arrange your flowers inside.",
+        "tip": "Use dried flowers if the boot is suede or leather — no spill worries",
+        "symbol": "leaf",
+        "action": "grow"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old boot is now a vase! Put it by the door or on a shelf.",
+        "tip": "Swap the flowers with the seasons",
+        "symbol": "leaf"
+      }
+    ],
+    "benefit": "Gives a single boot or worn-out pair a decorative second life.",
+    "symbol": "leaf"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shoe-jewelry-stand",
+    "title": "Shoe Jewellery Stand",
+    "result": "jewellery stand",
+    "summary": "Turn a heel, flat or sandal into a stand for rings, bracelets and necklaces.",
+    "sourceCategories": [
+      "heels",
+      "flats",
+      "sandals"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": true,
+    "materials": [
+      "Your old shoe"
+    ],
+    "tools": [
+      "Acrylic or spray paint",
+      "Paintbrush",
+      "Small cup hooks",
+      "Strong glue"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shoe\n- Paint and a paintbrush\n- Small cup hooks\n- Strong glue or a hot-glue gun",
+        "tip": "High heels give the most hanging space",
+        "symbol": "basket"
+      },
+      {
+        "title": "Paint the Shoe",
+        "heading": "Give It a New Look:",
+        "detail": "Wipe the shoe clean, then paint it in one bold colour. Let it dry and add a second coat.",
+        "tip": "Spray paint covers leather and fabric most evenly — use it outdoors",
+        "symbol": "paintbrush",
+        "action": "paint"
+      },
+      {
+        "title": "Add the Hooks",
+        "heading": "Make Places to Hang:",
+        "detail": "Screw or glue small hooks along the heel and the edge of the sole. Rings sit on the heel; necklaces hang from the hooks.",
+        "tip": "Space the hooks 2 cm apart so chains don't tangle",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shoe is now a jewellery stand! Put it on your dresser and hang your favourite pieces.",
+        "tip": "Make a pair — one for rings, one for necklaces",
+        "symbol": "sparkles"
+      }
+    ],
+    "benefit": "Turns a single shoe or broken pair into a statement storage piece.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "shoe-doorstop",
+    "title": "Shoe Doorstop",
+    "result": "doorstop",
+    "summary": "Fill an old shoe with a sealed bag of sand or rice so it holds a door open.",
+    "sourceCategories": [
+      "sneakers",
+      "boots",
+      "flats"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": false,
+    "materials": [
+      "Your old shoe",
+      "Sand, rice or small stones",
+      "A sturdy zip bag"
+    ],
+    "tools": [
+      "Needle and strong thread or strong glue"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shoe\n- About 1 kg of sand, rice or stones\n- A sturdy zip bag\n- Needle and strong thread or strong glue",
+        "tip": "Heavier shoes like boots hold doors best",
+        "symbol": "basket"
+      },
+      {
+        "title": "Fill the Weight Bag",
+        "heading": "Add the Weight:",
+        "detail": "Fill the bag with sand or rice, squeeze the air out and seal it. Push it into the shoe, deep into the toe.",
+        "tip": "Double-bag the sand so it can never leak",
+        "symbol": "drop",
+        "action": "fold"
+      },
+      {
+        "title": "Close the Shoe",
+        "heading": "Seal the Top:",
+        "detail": "Lace the shoe tightly, or sew or glue a piece of fabric across the opening so the bag stays inside.",
+        "tip": "An old sock pulled over the opening also works",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shoe is now a doorstop! Put it against a door to hold it open.",
+        "tip": "Paint it or add a fun lace to match your room",
+        "symbol": "door.left.hand.open"
+      }
+    ],
+    "benefit": "A heavy, worn shoe becomes a useful object instead of waste.",
+    "symbol": "door.left.hand.open"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "lace-lanyard",
+    "title": "Shoelace Key Lanyard",
+    "result": "key lanyard",
+    "summary": "Braid old shoelaces into a strong lanyard for keys or a badge.",
+    "sourceCategories": [
+      "sneakers",
+      "boots"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Laces from your old shoes",
+      "A key ring"
+    ],
+    "tools": [
+      "Scissors",
+      "Tape",
+      "Lighter or clear nail polish"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Three shoelaces (from one or more pairs)\n- A key ring\n- Scissors\n- Tape\n- Clear nail polish",
+        "tip": "Mix colours for a bold braid",
+        "symbol": "basket"
+      },
+      {
+        "title": "Braid the Laces",
+        "heading": "Make the Cord:",
+        "detail": "Tape the three laces together at one end and braid them tightly until you reach about 45 cm.",
+        "tip": "Tape the start to a table to keep the braid tight",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Close the Loop",
+        "heading": "Add the Ring:",
+        "detail": "Thread the braid through the key ring, fold it into a loop and tie the two ends together with a double knot. Trim and seal the ends with nail polish.",
+        "tip": "Sealing stops the ends from fraying",
+        "symbol": "lasso",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old laces are now a key lanyard! Clip your keys on and wear it round your neck or wrist.",
+        "tip": "Make extras as gifts for friends",
+        "symbol": "key"
+      }
+    ],
+    "benefit": "Uses the part of a shoe that usually gets thrown away first.",
+    "symbol": "key"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "strap-keyring",
+    "title": "Leather Strap Keyrings",
+    "result": "set of keyrings",
+    "summary": "Cut the straps of worn sandals, heels or boots into leather keyrings.",
+    "sourceCategories": [
+      "sandals",
+      "heels",
+      "flats",
+      "boots"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "leather"
+    ],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old shoes with leather straps",
+      "Key rings"
+    ],
+    "tools": [
+      "Scissors",
+      "Leather hole punch or a nail and hammer"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old shoes with leather straps or tabs\n- Key rings\n- Sharp scissors\n- Leather hole punch (or a nail and hammer)",
+        "tip": "Thicker straps make sturdier keyrings",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Straps",
+        "heading": "Free the Leather:",
+        "detail": "Cut the straps off the sole and trim each one into a 10 × 2 cm piece with rounded ends.",
+        "tip": "Round the corners so the keyring doesn't scratch your pocket",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Punch and Attach",
+        "heading": "Add the Ring:",
+        "detail": "Fold each piece in half, punch a hole through both ends and fix them onto a key ring.",
+        "tip": "Add a rivet or a few stitches for extra hold",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old shoes are now keyrings! Keep one and give the rest away.",
+        "tip": "Mark each keyring with a pen to tell your keys apart",
+        "symbol": "key"
+      }
+    ],
+    "benefit": "Saves good leather from shoes that can't be worn anymore.",
+    "symbol": "key"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "bag-hanging-planter",
+    "title": "Hanging Bag Planter",
+    "result": "hanging planter",
+    "summary": "Line an old tote or handbag and hang it as a planter for herbs.",
+    "sourceCategories": [
+      "bag"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old bag",
+      "Potting soil",
+      "Plants or seeds",
+      "A plastic bag or liner"
+    ],
+    "tools": [
+      "Scissors",
+      "A hook"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old tote or handbag\n- A plastic liner (an old bag works)\n- Potting soil\n- Herbs or seeds\n- Scissors\n- A sturdy hook",
+        "tip": "Canvas and fabric bags let the roots breathe",
+        "symbol": "basket"
+      },
+      {
+        "title": "Line the Bag",
+        "heading": "Prepare It:",
+        "detail": "Put the liner inside the bag and poke a few small holes in its bottom for drainage.",
+        "tip": "Add a layer of small stones before the soil",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Plant It",
+        "heading": "Add Soil and Plants:",
+        "detail": "Fill the bag two-thirds with soil and plant your herbs or seeds.",
+        "tip": "Mint, parsley and basil grow well in bags",
+        "symbol": "leaf",
+        "action": "grow"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old bag is now a hanging planter! Hang it by the handles on a hook outside or by a window.",
+        "tip": "Water a little and often — hanging pots dry out quickly",
+        "symbol": "leaf"
+      }
+    ],
+    "benefit": "Gives a bag that's no longer used a green second life.",
+    "symbol": "leaf"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "bag-seat-organizer",
+    "title": "Car Seat Organizer",
+    "result": "seat organizer",
+    "summary": "Strap an old bag to the back of a car seat to keep things tidy.",
+    "sourceCategories": [
+      "bag"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": true,
+    "materials": [
+      "Your old bag with pockets",
+      "An old belt or strap"
+    ],
+    "tools": [
+      "Scissors"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old bag (pockets are a bonus)\n- An old belt or strap\n- Scissors",
+        "tip": "Backpacks and messenger bags have the most pockets",
+        "symbol": "basket"
+      },
+      {
+        "title": "Prepare the Bag",
+        "heading": "Open It Up:",
+        "detail": "Empty the bag and remove any long shoulder strap that would get in the way.",
+        "tip": "Keep the strap — you can reuse it in the next step",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Strap It On",
+        "heading": "Fix It to the Seat:",
+        "detail": "Loop the belt around the headrest posts, then through the bag's handles or strap loops, and buckle it tight.",
+        "tip": "The bag should sit flat against the back of the seat",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old bag is now a car organizer! Fill it with snacks, wipes, books or toys.",
+        "tip": "Works on the back of a desk chair too",
+        "symbol": "car"
+      }
+    ],
+    "benefit": "A bag you no longer carry becomes useful every day.",
+    "symbol": "car"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "hat-planter-cover",
+    "title": "Hat Plant Pot Cover",
+    "result": "plant pot cover",
+    "summary": "Use an old hat as a soft cover for a plant pot.",
+    "sourceCategories": [
+      "hat"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 10,
+    "noSew": true,
+    "materials": [
+      "Your old hat",
+      "A plant in a small pot"
+    ],
+    "tools": [
+      "Scissors",
+      "A saucer"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old hat (bucket hats and beanies work best)\n- A potted plant that fits inside\n- A small saucer",
+        "tip": "Pick a pot slightly smaller than the hat",
+        "symbol": "basket"
+      },
+      {
+        "title": "Shape the Hat",
+        "heading": "Fold the Brim:",
+        "detail": "Turn the hat upside down. Fold or roll the brim or cuff down so the hat stands upright.",
+        "tip": "Stuff a little paper in the bottom if the hat is too deep",
+        "symbol": "scissors",
+        "action": "fold"
+      },
+      {
+        "title": "Place the Pot",
+        "heading": "Add the Plant:",
+        "detail": "Put the saucer inside the hat, then set the potted plant on it.",
+        "tip": "Keep the plant in its pot so watering never soaks the hat",
+        "symbol": "leaf",
+        "action": "grow"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old hat is now a plant pot cover! Display it on a shelf or windowsill.",
+        "tip": "Group a few hats together for a colourful plant corner",
+        "symbol": "leaf"
+      }
+    ],
+    "benefit": "A no-sew way to keep a hat you love on display.",
+    "symbol": "leaf"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "hat-mug-cosy",
+    "title": "Beanie Mug Cosy",
+    "result": "mug cosy",
+    "summary": "Cut the cuff of a knit beanie into a warm sleeve for your mug.",
+    "sourceCategories": [
+      "hat",
+      "sweater"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit"
+    ],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": false,
+    "materials": [
+      "Your old beanie or sweater cuff"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread",
+      "Button"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old knit beanie (or a sweater cuff)\n- Fabric scissors\n- Needle and thread\n- A button",
+        "tip": "Thick ribbed cuffs keep drinks warm longest",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Band",
+        "heading": "Make the Sleeve:",
+        "detail": "Cut a band about 8 cm tall from the cuff of the beanie, then cut it open so it becomes a strip.",
+        "tip": "Stitch along the cut edges right away so the knit doesn't unravel",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Add a Button",
+        "heading": "Close the Cosy:",
+        "detail": "Wrap the strip around your mug, leaving a gap for the handle. Sew a button on one end and a thread loop on the other.",
+        "tip": "Make the loop snug so the cosy stays put",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old beanie is now a mug cosy! Button it around your mug and enjoy a warm drink.",
+        "tip": "It works on jars too — use them as pen pots",
+        "symbol": "cup.and.saucer"
+      }
+    ],
+    "benefit": "Keeps soft knit in use, even when the hat has holes.",
+    "symbol": "cup.and.saucer"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "belt-wall-shelf",
+    "title": "Hanging Belt Shelf",
+    "result": "hanging shelf",
+    "summary": "Use two old belts as straps to hang a wooden plank as a shelf.",
+    "sourceCategories": [
+      "belt"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "leather"
+    ],
+    "difficulty": "medium",
+    "minutes": 40,
+    "noSew": true,
+    "materials": [
+      "Two old belts",
+      "A wooden plank about 60 × 15 cm"
+    ],
+    "tools": [
+      "Screws",
+      "Screwdriver",
+      "Spirit level",
+      "Pencil"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Two old belts of similar length\n- A wooden plank (about 60 × 15 cm)\n- Four screws and a screwdriver\n- Spirit level\n- Pencil",
+        "tip": "Leather belts at least 3 cm wide hold the most weight",
+        "symbol": "basket"
+      },
+      {
+        "title": "Make the Loops",
+        "heading": "Buckle the Belts:",
+        "detail": "Buckle each belt to make a loop. Slide both loops onto the plank, about 10 cm from each end.",
+        "tip": "Check that both loops are the same size so the shelf hangs level",
+        "symbol": "link",
+        "action": "tie"
+      },
+      {
+        "title": "Mount the Shelf",
+        "heading": "Fix It to the Wall:",
+        "detail": "Hold the shelf level against the wall, then screw the top of each belt loop into the wall. Use wall plugs if needed.",
+        "tip": "Check for pipes and wires before you drill",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old belts now hold a shelf! Use it for books, plants or small decorations.",
+        "tip": "Keep heavy things near the belts, not in the middle",
+        "symbol": "books.vertical"
+      }
+    ],
+    "benefit": "Gives belts that no longer fit a stylish, useful second life.",
+    "symbol": "books.vertical"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "belt-cable-ties",
+    "title": "Leather Cable Ties",
+    "result": "set of cable ties",
+    "summary": "Cut a belt into small straps that keep cables and earphones neat.",
+    "sourceCategories": [
+      "belt"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "leather"
+    ],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": true,
+    "materials": [
+      "Your old belt",
+      "Snap fasteners or small buttons"
+    ],
+    "tools": [
+      "Scissors",
+      "Leather hole punch or a nail and hammer"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old belt\n- Snap fasteners or small buttons\n- Sharp scissors\n- Leather hole punch (or a nail and hammer)",
+        "tip": "Thin belts make neater ties",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Strips",
+        "heading": "Make Small Straps:",
+        "detail": "Remove the buckle, then cut the belt into 12 cm strips with rounded ends.",
+        "tip": "Use a coin to draw neat rounded corners",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Add the Fastener",
+        "heading": "Close Each Tie:",
+        "detail": "Punch a hole near each end and fix a snap, or sew a button on one end and cut a slit on the other.",
+        "tip": "Test the fit around a rolled-up cable before fixing the snap",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old belt is now a set of cable ties! Wrap them around chargers and earphones.",
+        "tip": "Keep one in your bag for your phone charger",
+        "symbol": "cable.connector"
+      }
+    ],
+    "benefit": "Turns a cracked belt into small, long-lasting organisers.",
+    "symbol": "cable.connector"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "scarf-wrap-bag",
+    "title": "Knotted Scarf Bag",
+    "result": "knotted bag",
+    "summary": "Fold and knot a square scarf into a bag — no sewing needed.",
+    "sourceCategories": [
+      "scarf"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "silk",
+      "cotton",
+      "polyester",
+      "linen"
+    ],
+    "difficulty": "easy",
+    "minutes": 5,
+    "noSew": true,
+    "materials": [
+      "Your old square scarf"
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- A square scarf (at least 70 × 70 cm)",
+        "tip": "Thinner, slippery fabrics knot more neatly",
+        "symbol": "basket"
+      },
+      {
+        "title": "Tie the Sides",
+        "heading": "Make the Pouch:",
+        "detail": "Lay the scarf flat in a diamond shape and fold it into a triangle. Tie a knot at each of the two side corners.",
+        "tip": "Tie the knots close to the tips so the bag is deeper",
+        "symbol": "link",
+        "action": "fold"
+      },
+      {
+        "title": "Make the Handle",
+        "heading": "Knot the Top:",
+        "detail": "Turn the bag so the knots are inside. Tie the two remaining corners together to form the handle.",
+        "tip": "Untie it to wash or to wear as a scarf again",
+        "symbol": "lasso",
+        "action": "tie"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old scarf is now a bag! Carry snacks, a book or your shopping.",
+        "tip": "Use it as gift wrapping too — no paper needed",
+        "symbol": "bag"
+      }
+    ],
+    "benefit": "A forgotten scarf becomes a zero-waste bag.",
+    "symbol": "bag"
+  },
+  {
+    "mode": "repurpose",
+    "provenance": "authored",
+    "id": "skirt-apron",
+    "title": "Skirt Apron",
+    "result": "apron",
+    "summary": "Cut the back off a skirt or dress to make a kitchen or garden apron.",
+    "sourceCategories": [
+      "skirt",
+      "dress"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "denim",
+      "linen"
+    ],
+    "difficulty": "medium",
+    "minutes": 45,
+    "noSew": false,
+    "materials": [
+      "Your old skirt or dress",
+      "Ribbon or fabric strips for ties"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Needle and thread",
+      "Pins"
+    ],
+    "steps": [
+      {
+        "title": "Gather Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Your old skirt or dress\n- Two 70 cm ties (ribbon or fabric strips)\n- Fabric scissors\n- Needle and thread\n- Pins",
+        "tip": "Skirts with pockets make the most practical aprons",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut the Front",
+        "heading": "Shape the Apron:",
+        "detail": "Cut along both side seams and keep only the front panel. For a dress, cut at the waist and use the skirt part.",
+        "tip": "Keep the waistband — it becomes the top of the apron",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Hem and Add Ties",
+        "heading": "Finish It:",
+        "detail": "Fold the cut sides under 1 cm, sew them down, then sew a tie to each end of the waistband.",
+        "tip": "Stitch the ties in a small box for strength",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Put It to Use",
+        "heading": "Ready to Reuse:",
+        "detail": "Your old skirt is now an apron! Tie it on for cooking, painting or gardening.",
+        "tip": "Denim aprons are tough enough for woodwork",
+        "symbol": "fork.knife"
+      }
+    ],
+    "benefit": "Turns a skirt you don't wear into something you'll use weekly.",
+    "symbol": "fork.knife"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "team2-design",
+    "id": "bleach-stain-design",
+    "title": "Bleach Stain Design",
+    "result": "one-of-a-kind bleach design",
+    "summary": "Turn a bleach stain into an intentional pattern so it looks designed, not damaged.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop",
+      "hoodie",
+      "sweater",
+      "shirt",
+      "jeans",
+      "pants"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "denim"
+    ],
+    "difficulty": "easy",
+    "minutes": 40,
+    "noSew": true,
+    "materials": [
+      "Your stained garment",
+      "Bleach"
+    ],
+    "tools": [
+      "Small paintbrush",
+      "Protective gloves",
+      "Cardboard"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Bleach\n- Small paintbrush\n- Protective gloves\n- Cardboard (to place inside the shirt)",
+        "tip": "Make sure the item is ready for its next use",
+        "symbol": "basket"
+      },
+      {
+        "title": "Create Your Design",
+        "heading": "Turn the stain into creative item:",
+        "detail": "Turn the bleach stain into a creative pattern by adding intentional bleach designs to your clothing.",
+        "tip": "Start with a simple pattern, such as stars, flowers, or abstract shapes",
+        "symbol": "paintbrush.pointed",
+        "action": "paint"
+      },
+      {
+        "title": "Apply Your Pattern",
+        "heading": "Let’s Get Creative:",
+        "detail": "Use the paintbrush to carefully apply small amounts of bleach to create your chosen design on the stained area.",
+        "tip": "Test the bleach on a hidden area first, and avoid applying too much at once.",
+        "symbol": "paintbrush",
+        "action": "paint"
+      },
+      {
+        "title": "Let It Set",
+        "heading": "Almost There!",
+        "detail": "Allow the design to develop, then rinse and wash the garment according to its care label before wearing it again.",
+        "tip": "Always follow the care label and never mix bleach with other cleaning products.",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A stain becomes a signature detail, so the piece stays in your wardrobe.",
+    "symbol": "paintbrush.pointed"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "embroidery-cover",
+    "title": "Embroidered Stain Cover",
+    "result": "embroidered detail",
+    "summary": "Stitch a small flower, heart or star right over a stain.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop",
+      "shirt",
+      "blouse",
+      "hoodie",
+      "sweater",
+      "dress",
+      "jumpsuit",
+      "skirt",
+      "jeans",
+      "shorts",
+      "scarf",
+      "hat"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "linen",
+      "denim"
+    ],
+    "difficulty": "medium",
+    "minutes": 45,
+    "noSew": false,
+    "materials": [
+      "Your stained garment",
+      "Embroidery thread"
+    ],
+    "tools": [
+      "Embroidery needle",
+      "Embroidery hoop",
+      "Washable marker"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Embroidery thread in 2–3 colours\n- Embroidery needle\n- Embroidery hoop\n- Washable marker",
+        "tip": "Pick thread colours that already appear in your outfit",
+        "symbol": "basket"
+      },
+      {
+        "title": "Draw Your Motif",
+        "heading": "Plan the Shape:",
+        "detail": "Draw a simple flower, heart or star over the stain with a washable marker, a little bigger than the mark.",
+        "tip": "Small motifs in a cluster look intentional",
+        "symbol": "pencil",
+        "action": "measure"
+      },
+      {
+        "title": "Stitch It",
+        "heading": "Fill It In:",
+        "detail": "Put the area in the hoop and fill the shape with close satin stitches until the stain is hidden.",
+        "tip": "Keep the stitches close together so no stain peeks through",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Finish and Wear",
+        "heading": "Almost There!",
+        "detail": "Tie off on the inside, remove the hoop and rinse away the marker. Your piece is ready to wear again.",
+        "tip": "Wash embroidered clothes inside out on a gentle cycle",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Covers a stain with something personal instead of retiring the piece.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "visible-mend",
+    "title": "Visible Mending",
+    "result": "visible mend",
+    "summary": "Patch a hole with contrast stitches so the repair becomes a feature.",
+    "sourceCategories": [
+      "jeans",
+      "pants",
+      "shorts",
+      "jumpsuit",
+      "jacket",
+      "coat",
+      "blazer",
+      "shirt",
+      "sweater",
+      "hoodie",
+      "skirt"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton",
+      "knit"
+    ],
+    "difficulty": "medium",
+    "minutes": 40,
+    "noSew": false,
+    "materials": [
+      "Your garment with a hole",
+      "A fabric scrap for the patch"
+    ],
+    "tools": [
+      "Needle",
+      "Contrast thread",
+      "Fabric scissors",
+      "Pins"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- A fabric scrap bigger than the hole\n- Needle and contrast thread\n- Fabric scissors\n- Pins",
+        "tip": "Old jeans make great patches for other jeans",
+        "symbol": "basket"
+      },
+      {
+        "title": "Place the Patch",
+        "heading": "Cover the Hole:",
+        "detail": "Cut a patch 3 cm larger than the hole on every side and pin it behind the hole on the inside.",
+        "tip": "Round the corners so the patch doesn't peel",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Stitch the Lines",
+        "heading": "Make It Show:",
+        "detail": "Sew rows of small running stitches across the patch, 5 mm apart, through both layers.",
+        "tip": "Straight rows look neat; a grid looks bold — both are right",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Ready to Wear",
+        "heading": "Almost There!",
+        "detail": "Trim loose threads and wear it proudly — the mend is now part of the design.",
+        "tip": "Add a few stitches whenever the area starts to wear again",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Repairing is one of the simplest ways to keep a garment in use.",
+    "symbol": "scribble.variable"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "fabric-paint",
+    "title": "Fabric Paint Makeover",
+    "result": "painted design",
+    "summary": "Hide stains or scuffs — or liven up a plain piece — under a painted pattern.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop",
+      "hoodie",
+      "jacket",
+      "jeans",
+      "shorts",
+      "skirt",
+      "jumpsuit",
+      "scarf",
+      "hat",
+      "bag",
+      "sneakers"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "denim",
+      "polyester"
+    ],
+    "difficulty": "easy",
+    "minutes": 35,
+    "noSew": true,
+    "materials": [
+      "Your garment",
+      "Fabric paint"
+    ],
+    "tools": [
+      "Paintbrush",
+      "Cardboard",
+      "Washable marker"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Fabric paint\n- Paintbrush\n- Cardboard to put inside\n- Washable marker",
+        "tip": "Wash the garment first so the paint sticks",
+        "symbol": "basket"
+      },
+      {
+        "title": "Sketch the Design",
+        "heading": "Plan It:",
+        "detail": "Slide cardboard inside and sketch a design that covers every stain or scuff.",
+        "tip": "Repeating dots or stripes are easy and hide a lot",
+        "symbol": "pencil",
+        "action": "measure"
+      },
+      {
+        "title": "Paint",
+        "heading": "Bring It to Life:",
+        "detail": "Fill in the design with thin coats of fabric paint, letting each coat dry before the next.",
+        "tip": "Two thin coats beat one thick coat",
+        "symbol": "paintbrush",
+        "action": "paint"
+      },
+      {
+        "title": "Set the Paint",
+        "heading": "Almost There!",
+        "detail": "Let it dry for 24 hours, then iron it on the reverse side (or follow the paint's instructions) before washing.",
+        "tip": "Wash inside out in cold water to keep the colour bright",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Gives a marked piece a new look instead of a new purchase.",
+    "symbol": "paintbrush"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "dye-refresh",
+    "title": "Colour Refresh Dye",
+    "result": "fresh new colour",
+    "summary": "Over-dye a faded or lightly stained piece in a deeper shade.",
+    "sourceCategories": [
+      "tshirt",
+      "tankTop",
+      "shirt",
+      "blouse",
+      "hoodie",
+      "sweater",
+      "jeans",
+      "pants",
+      "shorts",
+      "dress",
+      "jumpsuit",
+      "skirt",
+      "scarf"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "cotton",
+      "linen",
+      "denim"
+    ],
+    "difficulty": "medium",
+    "minutes": 90,
+    "noSew": true,
+    "materials": [
+      "Your faded garment",
+      "Fabric dye"
+    ],
+    "tools": [
+      "Bucket or washing machine",
+      "Rubber gloves",
+      "Salt"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Fabric dye (darker than the garment)\n- Rubber gloves\n- Salt\n- Bucket or washing machine",
+        "tip": "Natural fibres like cotton take dye best",
+        "symbol": "basket"
+      },
+      {
+        "title": "Prepare the Dye",
+        "heading": "Mix It Up:",
+        "detail": "Wear gloves and mix the dye with hot water and salt following the packet instructions.",
+        "tip": "A darker colour hides stains best",
+        "symbol": "drop",
+        "action": "dye"
+      },
+      {
+        "title": "Dye the Garment",
+        "heading": "Soak and Stir:",
+        "detail": "Wet the garment, add it to the dye bath and stir regularly for the time on the packet.",
+        "tip": "Stirring keeps the colour even",
+        "symbol": "drop.fill",
+        "action": "dye"
+      },
+      {
+        "title": "Rinse It Out",
+        "heading": "Almost There!",
+        "detail": "Rinse in cold water until it runs clear, then wash on its own and dry.",
+        "tip": "Wash it separately for the first few washes",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A faded piece looks new again without buying anything.",
+    "symbol": "drop.fill"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "fun-patch",
+    "title": "Statement Patch",
+    "result": "statement patch",
+    "summary": "Cover a hole or stain with a playful patch.",
+    "sourceCategories": [
+      "jeans",
+      "jacket",
+      "bag",
+      "hoodie",
+      "pants",
+      "hat",
+      "shorts"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton",
+      "polyester"
+    ],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": true,
+    "materials": [
+      "Your garment",
+      "An iron-on or sew-on patch"
+    ],
+    "tools": [
+      "Iron",
+      "Thin cloth",
+      "Needle and thread (optional)"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- An iron-on or sew-on patch\n- Iron\n- A thin cloth\n- Needle and thread (optional)",
+        "tip": "Choose a patch a bit bigger than the damage",
+        "symbol": "basket"
+      },
+      {
+        "title": "Position the Patch",
+        "heading": "Find the Spot:",
+        "detail": "Lay the garment flat and place the patch over the hole or stain. Try it on to check the placement.",
+        "tip": "Slightly off-centre looks more natural",
+        "symbol": "square.dashed",
+        "action": "measure"
+      },
+      {
+        "title": "Attach It",
+        "heading": "Press or Stitch:",
+        "detail": "Cover with a thin cloth and press with a hot iron for 30 seconds, or sew around the edge.",
+        "tip": "A few stitches around an iron-on patch make it last longer",
+        "symbol": "scribble.variable",
+        "action": "glue"
+      },
+      {
+        "title": "Ready to Wear",
+        "heading": "Almost There!",
+        "detail": "Let it cool fully before wearing. Your piece now has a detail nobody else has.",
+        "tip": "Wash inside out to protect the patch",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A quick fix that keeps a damaged piece in rotation.",
+    "symbol": "star.fill"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "button-swap",
+    "title": "Statement Button Swap",
+    "result": "new set of buttons",
+    "summary": "Replace a lost or broken button with a fun, mismatched set.",
+    "sourceCategories": [
+      "shirt",
+      "blouse",
+      "jacket",
+      "coat",
+      "blazer",
+      "dress",
+      "jumpsuit",
+      "sweater"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 20,
+    "noSew": false,
+    "materials": [
+      "Your garment",
+      "New or spare buttons"
+    ],
+    "tools": [
+      "Needle",
+      "Thread",
+      "Scissors"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Spare buttons (from old clothes is perfect)\n- Needle and thread\n- Scissors",
+        "tip": "Buttons from old clothes are free and unique",
+        "symbol": "basket"
+      },
+      {
+        "title": "Remove the Old Buttons",
+        "heading": "Clear the Way:",
+        "detail": "Carefully snip the threads of the old buttons and pull out any loose ends.",
+        "tip": "Keep the old buttons for another project",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Sew on the New Ones",
+        "heading": "Stitch Them Tight:",
+        "detail": "Sew each new button in the same place, passing the needle through the holes 6–8 times, then knot on the inside.",
+        "tip": "Wrap the thread around the base a few times so it doesn't wobble",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Button Up",
+        "heading": "Almost There!",
+        "detail": "Check every buttonhole fits and wear your refreshed piece.",
+        "tip": "Mix sizes or colours on purpose for a bolder look",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "One missing button is no reason to stop wearing something.",
+    "symbol": "circle.circle"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "sneaker-refresh",
+    "title": "Sneaker Refresh",
+    "result": "refreshed pair of shoes",
+    "summary": "Clean, repaint scuffs and add new laces to tired shoes.",
+    "sourceCategories": [
+      "sneakers",
+      "boots",
+      "flats",
+      "heels",
+      "sandals"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 40,
+    "noSew": true,
+    "materials": [
+      "Your shoes",
+      "New laces"
+    ],
+    "tools": [
+      "Old toothbrush",
+      "Mild soap",
+      "Fabric or leather paint",
+      "Small brush"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Old toothbrush and mild soap\n- Fabric or leather paint\n- Small brush\n- New laces (optional)",
+        "tip": "Remove the laces before you start",
+        "symbol": "basket"
+      },
+      {
+        "title": "Paint the Scuffs",
+        "heading": "Cover the Marks:",
+        "detail": "Clean the shoes, let them dry, then dab paint over scuffs or add your own small design.",
+        "tip": "Use tape to protect the soles while painting",
+        "symbol": "paintbrush",
+        "action": "paint"
+      },
+      {
+        "title": "Lace Them Up",
+        "heading": "Add New Laces:",
+        "detail": "Thread new laces through the eyelets — try a bright colour or a different lacing pattern.",
+        "tip": "Laces are the cheapest way to change a shoe's whole look",
+        "symbol": "lasso",
+        "action": "tie"
+      },
+      {
+        "title": "Step Out",
+        "heading": "Almost There!",
+        "detail": "Let the paint dry overnight, then wear your refreshed shoes.",
+        "tip": "Clean shoes regularly to keep them looking new",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Keeps shoes on your feet and out of the bin.",
+    "symbol": "shoe.fill"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "belt-refit",
+    "title": "Belt Refit",
+    "result": "better-fitting belt",
+    "summary": "Add a new hole so a belt fits again instead of sitting in a drawer.",
+    "sourceCategories": [
+      "belt"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "leather"
+    ],
+    "difficulty": "easy",
+    "minutes": 10,
+    "noSew": true,
+    "materials": [
+      "Your belt"
+    ],
+    "tools": [
+      "Leather hole punch or a nail and hammer",
+      "Ruler",
+      "Pen"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Leather hole punch (or a nail and hammer)\n- Ruler\n- Pen",
+        "tip": "Measure the gap between the existing holes first",
+        "symbol": "basket"
+      },
+      {
+        "title": "Mark the Hole",
+        "heading": "Measure:",
+        "detail": "Wear the belt, mark where it should fasten, and match the spacing of the other holes.",
+        "tip": "Mark on the back so mistakes don't show",
+        "symbol": "ruler",
+        "action": "measure"
+      },
+      {
+        "title": "Punch It",
+        "heading": "Make the Hole:",
+        "detail": "Punch through the mark on a firm surface, or tap a nail through with a hammer on scrap wood.",
+        "tip": "Protect your table with a wooden board",
+        "symbol": "hammer",
+        "action": "fix"
+      },
+      {
+        "title": "Buckle Up",
+        "heading": "Almost There!",
+        "detail": "Smooth the hole edges and wear your belt again.",
+        "tip": "Leather conditioner keeps old belts from cracking",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A tiny fix that brings a belt back into use.",
+    "symbol": "checkmark.seal"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "leather-revival",
+    "title": "Leather Polish Revival",
+    "result": "polished leather",
+    "summary": "Clean, condition and polish scuffed leather shoes, belts and bags so they look cared for again.",
+    "sourceCategories": [
+      "boots",
+      "heels",
+      "flats",
+      "sandals",
+      "belt",
+      "bag"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "leather"
+    ],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": true,
+    "materials": [
+      "Your leather item",
+      "Leather cleaner or saddle soap",
+      "Leather conditioner",
+      "Shoe polish in a matching colour"
+    ],
+    "tools": [
+      "Soft cloths",
+      "Old toothbrush"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Leather cleaner or saddle soap\n- Leather conditioner\n- Matching shoe polish\n- Two soft cloths\n- Old toothbrush",
+        "tip": "Test the polish on a hidden spot first",
+        "symbol": "basket"
+      },
+      {
+        "title": "Clean and Condition",
+        "heading": "Bring Back the Leather:",
+        "detail": "Brush off dirt, wipe the leather with cleaner, then rub in a thin layer of conditioner and let it soak in for 10 minutes.",
+        "tip": "Conditioner stops dry leather from cracking further",
+        "symbol": "drop",
+        "action": "dye"
+      },
+      {
+        "title": "Polish the Scuffs",
+        "heading": "Cover the Marks:",
+        "detail": "Work a little polish into the scuffs in small circles, let it dry, then buff with a clean cloth until it shines.",
+        "tip": "Two thin coats look better than one thick one",
+        "symbol": "paintbrush",
+        "action": "paint"
+      },
+      {
+        "title": "Wear It Again",
+        "heading": "Almost There!",
+        "detail": "Let the polish set for an hour, then wear or carry your revived piece.",
+        "tip": "Polish every few months and leather can last for decades",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Good leather can last for decades — a little care keeps it in use.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "shoe-clips",
+    "title": "Shoe Clip Cover-Up",
+    "result": "dressed-up shoes",
+    "summary": "Hide a scuff or a worn toe under a clip-on bow, brooch or fabric flower.",
+    "sourceCategories": [
+      "heels",
+      "flats",
+      "sandals"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": false,
+    "materials": [
+      "Your shoes",
+      "Two shoe clips or brooches",
+      "Fabric scraps or ribbon"
+    ],
+    "tools": [
+      "Needle and thread",
+      "Fabric glue"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Two blank shoe clips or old brooches\n- Fabric scraps or ribbon\n- Needle and thread\n- Fabric glue",
+        "tip": "Make the decoration bigger than the scuff it covers",
+        "symbol": "basket"
+      },
+      {
+        "title": "Make the Decoration",
+        "heading": "Create a Bow or Flower:",
+        "detail": "Fold a strip of fabric or ribbon into a bow, or roll it into a flower, and stitch it in the middle to hold its shape.",
+        "tip": "Scraps from an old garment make a matching set",
+        "symbol": "scribble.variable",
+        "action": "tie"
+      },
+      {
+        "title": "Attach the Clip",
+        "heading": "Fix It On:",
+        "detail": "Glue the bow onto the shoe clip, let it dry, then clip it over the scuff at the toe of each shoe.",
+        "tip": "Clips come off, so you can change the look any time",
+        "symbol": "drop.fill",
+        "action": "glue"
+      },
+      {
+        "title": "Step Out in Style",
+        "heading": "Almost There!",
+        "detail": "Wear your shoes with their new decoration — no one will know there was a scuff.",
+        "tip": "Move the clips to other shoes to dress them up too",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A simple trick that keeps worn shoes wearable.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "strap-wrap",
+    "title": "Wrapped Strap Makeover",
+    "result": "wrapped straps",
+    "summary": "Wrap worn or peeling sandal straps in ribbon or fabric strips.",
+    "sourceCategories": [
+      "sandals",
+      "heels"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": false,
+    "materials": [
+      "Your sandals",
+      "Ribbon, cord or thin fabric strips"
+    ],
+    "tools": [
+      "Fabric glue",
+      "Scissors"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Ribbon, cord or 1 cm fabric strips\n- Fabric glue\n- Scissors",
+        "tip": "Pick a ribbon that's slightly narrower than the strap",
+        "symbol": "basket"
+      },
+      {
+        "title": "Start the Wrap",
+        "heading": "Secure the End:",
+        "detail": "Glue the end of the ribbon to the inside of the strap, right where it meets the sole.",
+        "tip": "Hold it for a minute so the glue grips",
+        "symbol": "drop.fill",
+        "action": "glue"
+      },
+      {
+        "title": "Wrap the Strap",
+        "heading": "Cover the Wear:",
+        "detail": "Wind the ribbon tightly around the strap, overlapping each turn slightly, until you reach the other end. Glue the end on the inside.",
+        "tip": "Keep every turn at the same angle for a neat finish",
+        "symbol": "lasso",
+        "action": "wrap"
+      },
+      {
+        "title": "Let It Dry",
+        "heading": "Almost There!",
+        "detail": "Leave the sandals to dry overnight, then wear them again.",
+        "tip": "Seal the ribbon with fabric protector spray for summer",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Keeps comfortable sandals on your feet when the straps start to wear.",
+    "symbol": "sparkles"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "elbow-patches",
+    "title": "Elbow Patches",
+    "result": "elbow patches",
+    "summary": "Sew classic patches over thin or worn elbows.",
+    "sourceCategories": [
+      "blazer",
+      "jacket",
+      "coat",
+      "sweater",
+      "shirt"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "knit",
+      "cotton",
+      "polyester"
+    ],
+    "difficulty": "medium",
+    "minutes": 40,
+    "noSew": false,
+    "materials": [
+      "Your garment",
+      "Two patches of suede, felt or sturdy fabric"
+    ],
+    "tools": [
+      "Needle and thread",
+      "Fabric scissors",
+      "Pins",
+      "Chalk"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Two oval patches (about 10 × 14 cm)\n- Needle and strong thread\n- Fabric scissors\n- Pins\n- Chalk",
+        "tip": "Cut patches from an old garment for a perfect match",
+        "symbol": "basket"
+      },
+      {
+        "title": "Place the Patches",
+        "heading": "Mark the Elbows:",
+        "detail": "Put the garment on, bend your arms and mark the elbow point with chalk. Pin a patch centred over each mark.",
+        "tip": "Slip a piece of card inside the sleeve so you only sew through one layer",
+        "symbol": "ruler",
+        "action": "measure"
+      },
+      {
+        "title": "Sew Them On",
+        "heading": "Stitch Around:",
+        "detail": "Sew around the edge of each patch with small, even stitches, about 3 mm from the edge.",
+        "tip": "A blanket stitch gives a classic, hand-made look",
+        "symbol": "scribble.variable",
+        "action": "sew"
+      },
+      {
+        "title": "Wear It Proudly",
+        "heading": "Almost There!",
+        "detail": "Remove the card and pins, and your garment is ready to wear again.",
+        "tip": "Patches protect the elbows, so the sleeves last much longer",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "Protects worn elbows and keeps a favourite layer in your wardrobe.",
+    "symbol": "scribble.variable"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "fringe-hem",
+    "title": "Frayed Fringe Hem",
+    "result": "fringe hem",
+    "summary": "Turn a worn or frayed hem into a deliberate fringe.",
+    "sourceCategories": [
+      "jeans",
+      "shorts",
+      "skirt",
+      "scarf"
+    ],
+    "suitableConditions": [
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [
+      "denim",
+      "cotton",
+      "linen"
+    ],
+    "difficulty": "easy",
+    "minutes": 30,
+    "noSew": true,
+    "materials": [
+      "Your garment"
+    ],
+    "tools": [
+      "Fabric scissors",
+      "Ruler",
+      "Chalk",
+      "Pin or tweezers"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Fabric scissors\n- Ruler\n- Chalk\n- A pin or tweezers",
+        "tip": "Woven fabrics like denim fray best",
+        "symbol": "basket"
+      },
+      {
+        "title": "Cut a Clean Edge",
+        "heading": "Remove the Damage:",
+        "detail": "Mark a straight line just above the worn part of the hem and cut along it.",
+        "tip": "Try it on first so you keep the length you want",
+        "symbol": "scissors",
+        "action": "cut"
+      },
+      {
+        "title": "Pull the Threads",
+        "heading": "Make the Fringe:",
+        "detail": "Use a pin or tweezers to pull out the horizontal threads along the edge, until the fringe is 2–3 cm long.",
+        "tip": "Stop at the same height all the way round for an even fringe",
+        "symbol": "scribble",
+        "action": "cut"
+      },
+      {
+        "title": "Wash and Wear",
+        "heading": "Almost There!",
+        "detail": "Wash the garment once to soften and fluff the fringe, then trim any long threads.",
+        "tip": "A line of stitching above the fringe stops it from growing",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A worn edge becomes a style choice, so the piece stays in use.",
+    "symbol": "scissors"
+  },
+  {
+    "mode": "reuse",
+    "provenance": "authored",
+    "id": "hat-band",
+    "title": "New Hat Band",
+    "result": "new hat band",
+    "summary": "Cover a stained or faded hat band with a ribbon, scarf or strip of fabric.",
+    "sourceCategories": [
+      "hat"
+    ],
+    "suitableConditions": [
+      "great",
+      "worn",
+      "damaged"
+    ],
+    "bestFabrics": [],
+    "difficulty": "easy",
+    "minutes": 15,
+    "noSew": false,
+    "materials": [
+      "Your hat",
+      "Ribbon, an old scarf or a fabric strip"
+    ],
+    "tools": [
+      "Needle and thread",
+      "Fabric glue",
+      "Scissors"
+    ],
+    "steps": [
+      {
+        "title": "Check Your Supplies",
+        "heading": "Prepare:",
+        "detail": "- Ribbon, an old scarf or a fabric strip\n- Needle and thread\n- Fabric glue\n- Scissors",
+        "tip": "Measure around the crown before cutting",
+        "symbol": "basket"
+      },
+      {
+        "title": "Wrap the Crown",
+        "heading": "Cover the Band:",
+        "detail": "Wrap the ribbon around the base of the crown, over the old band, and overlap the ends by 2 cm.",
+        "tip": "Pull it snug but not tight, so the hat keeps its shape",
+        "symbol": "lasso",
+        "action": "wrap"
+      },
+      {
+        "title": "Fix the Ends",
+        "heading": "Finish It:",
+        "detail": "Glue or stitch the overlap at the side, then add a small knot or bow on top to hide the join.",
+        "tip": "A few hidden stitches hold better than glue alone",
+        "symbol": "scribble.variable",
+        "action": "glue"
+      },
+      {
+        "title": "Ready to Wear",
+        "heading": "Almost There!",
+        "detail": "Let the glue dry, then wear your hat with its new band.",
+        "tip": "Swap the band to match different outfits",
+        "symbol": "checkmark.seal"
+      }
+    ],
+    "benefit": "A quick fix that hides wear and keeps a hat in use.",
+    "symbol": "sparkles"
+  }
+]

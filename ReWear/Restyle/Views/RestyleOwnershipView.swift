@@ -1,0 +1,360 @@
+
+import SwiftUI
+import UIKit
+
+struct RestyleOwnershipView: View {
+
+    @Environment(\.dismiss) private var dismiss
+
+    // MARK: - Recommendation Data
+
+    let suggestedItem: String
+    let recommendations: [OCMCFRecommendation]
+
+    // MARK: - State
+
+    @State private var showAlternatives = false
+    @State private var showLeaveConfirmation = false
+    @State private var showNextStepAlert = false
+
+    // MARK: - Initializer
+
+    init(
+        suggestedItem: String,
+        recommendations: [OCMCFRecommendation] = []
+    ) {
+        self.suggestedItem = suggestedItem
+        self.recommendations = recommendations
+    }
+
+    // MARK: - Computed Properties
+
+    private var bestRecommendation: OCMCFRecommendation? {
+        recommendations.first
+    }
+
+    private var otherRecommendations: [OCMCFRecommendation] {
+        Array(recommendations.dropFirst())
+    }
+
+    private var alternativeNames: [String] {
+        otherRecommendations.map { $0.garment.name }
+    }
+
+    private var suggestedCategory: String {
+        guard let category = bestRecommendation?.garment.category else {
+            return "clothing piece"
+        }
+
+        switch category {
+        case "tops":
+            return "top"
+        case "bottoms":
+            return "bottom"
+        case "outerwear":
+            return "jacket or outerwear piece"
+        default:
+            return "clothing piece"
+        }
+    }
+
+    // MARK: - Main View
+
+    var body: some View {
+
+        VStack(spacing: 0) {
+
+            // MARK: - Header
+
+            HStack {
+
+                Button {
+                    dismiss()
+                } label: {
+                    headerButton("chevron.left")
+                }
+
+                Spacer()
+
+                Button {
+                    showLeaveConfirmation = true
+                } label: {
+                    headerButton("xmark")
+                }
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 12)
+
+            // MARK: - Progress Bar
+
+            HStack(spacing: 8) {
+
+                ForEach(0..<3, id: \.self) { index in
+
+                    Capsule()
+                        .fill(
+                            index < 2
+                            ? RestyleColors.coral
+                            : Color(hex: 0xCAC9CC)
+                        )
+                        .frame(height: 5)
+                }
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 24)
+
+            // MARK: - Main Content
+
+            ScrollView {
+
+                VStack(alignment: .leading, spacing: 18) {
+
+                    Text("DO YOU OWN\nSOMETHING SIMILAR?")
+                        .font(RestyleTypography.editorial(38))
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
+                        .fixedSize(
+                            horizontal: false,
+                            vertical: true
+                        )
+
+                    Text(
+                        "OCMCF recommended this \(suggestedCategory) for your outfit."
+                    )
+                    .font(RestyleTypography.body)
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
+
+                    // MARK: - Recommended Garment
+
+                    VStack(spacing: 14) {
+
+                        if let bestRecommendation,
+                           let image =
+                            RestyleOCMCFRecommendationService.shared.image(
+                                for: bestRecommendation.garment
+                            ) {
+
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 230)
+                                .frame(maxWidth: .infinity)
+                                .accessibilityLabel(
+                                    bestRecommendation.garment.name
+                                )
+
+                        } else {
+
+                            Image("Ownership")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 230)
+                                .frame(maxWidth: .infinity)
+                        }
+
+                        Text(suggestedItem)
+                            .font(
+                                .system(
+                                    size: 19,
+                                    weight: .semibold
+                                )
+                            )
+                            .foregroundStyle(
+                                RestyleColors.textPrimary
+                            )
+                            .multilineTextAlignment(.center)
+                            .fixedSize(
+                                horizontal: false,
+                                vertical: true
+                            )
+
+                        Text(
+                            "You don't need this exact item. A similar piece from your wardrobe works too."
+                        )
+                        .font(.system(size: 13))
+                        .foregroundStyle(
+                            RestyleColors.textSecondary
+                        )
+                        .multilineTextAlignment(.center)
+                        .fixedSize(
+                            horizontal: false,
+                            vertical: true
+                        )
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(18)
+                    .background(
+                        Color.white,
+                        in: RoundedRectangle(cornerRadius: 22)
+                    )
+
+                    Text(
+                        "We'll only build your styling challenge around garments you confirm you own."
+                    )
+                    .font(RestyleTypography.body)
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
+                    .fixedSize(
+                        horizontal: false,
+                        vertical: true
+                    )
+                }
+                .padding(.horizontal, 24)
+                .padding(.top, 32)
+                .padding(.bottom, 24)
+            }
+            .scrollIndicators(.hidden)
+
+            // MARK: - Yes / No Buttons
+
+            VStack(spacing: 12) {
+
+                Button {
+                    showNextStepAlert = true
+                } label: {
+
+                    Text("Yes, I have something similar")
+                        .font(
+                            .system(
+                                size: 17,
+                                weight: .semibold
+                            )
+                        )
+                        .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 60)
+                        .background(
+                            RestyleColors.lime,
+                            in: Capsule()
+                        )
+                }
+
+                Button {
+                    showAlternatives = true
+                } label: {
+
+                    Text("No, show alternatives")
+                        .font(
+                            .system(
+                                size: 17,
+                                weight: .semibold
+                            )
+                        )
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 60)
+                        .background(
+                            Color.white,
+                            in: Capsule()
+                        )
+                        .overlay {
+                            Capsule()
+                                .stroke(
+                                    Color(hex: 0xE8E8E8),
+                                    lineWidth: 1
+                                )
+                        }
+                }
+                .disabled(otherRecommendations.isEmpty)
+                .opacity(
+                    otherRecommendations.isEmpty ? 0.5 : 1
+                )
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, 24)
+            .padding(.bottom, 12)
+        }
+        .background(
+            RestyleColors.background.ignoresSafeArea()
+        )
+        .navigationBarBackButtonHidden(true)
+
+        // MARK: - Alternatives Navigation
+
+        .navigationDestination(
+            isPresented: $showAlternatives
+        ) {
+            RestyleAlternativesView(
+                recommendations: otherRecommendations
+            )
+        }
+
+        // MARK: - Leave Confirmation
+
+        .confirmationDialog(
+            "Leave Restyle?",
+            isPresented: $showLeaveConfirmation,
+            titleVisibility: .visible
+        ) {
+
+            Button("Go Back") {
+                dismiss()
+            }
+
+            Button("Keep Styling", role: .cancel) {}
+
+        } message: {
+
+            Text(
+                "Your current Restyle session will remain on the previous screen."
+            )
+        }
+
+        // MARK: - Ownership Confirmation
+
+        .alert(
+            "Piece Confirmed",
+            isPresented: $showNextStepAlert
+        ) {
+
+            Button("OK", role: .cancel) {}
+
+        } message: {
+
+            Text(
+                "Great! We'll use the similar piece you own for your styling challenge."
+            )
+        }
+    }
+
+    // MARK: - Header Button
+
+    private func headerButton(
+        _ symbol: String
+    ) -> some View {
+
+        Image(systemName: symbol)
+            .font(
+                .system(
+                    size: 20,
+                    weight: .medium
+                )
+            )
+            .foregroundStyle(
+                RestyleColors.textPrimary
+            )
+            .frame(width: 48, height: 48)
+            .background(
+                Color(hex: 0xF2F1F3),
+                in: RoundedRectangle(cornerRadius: 16)
+            )
+    }
+}
+
+// MARK: - Preview
+
+#Preview {
+
+    NavigationStack {
+
+        RestyleOwnershipView(
+            suggestedItem: "Black V-Neck Sweater"
+        )
+    }
+}

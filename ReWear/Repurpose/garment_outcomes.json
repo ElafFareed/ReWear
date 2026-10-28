@@ -1,0 +1,659 @@
+{
+ "source": {
+  "name": "Clothing Dataset for Second-Hand Fashion",
+  "publisher": "RISE Research Institutes of Sweden, Warg\u00f6n Innovation and Myrorna",
+  "url": "https://zenodo.org/records/13788681",
+  "license": "CC BY 4.0"
+ },
+ "itemCount": 21359,
+ "categories": {
+  "blazer": {
+   "any": {
+    "reuse": 153,
+    "export": 73,
+    "repair": 0,
+    "remake": 1,
+    "recycle": 28,
+    "energyRecovery": 0
+   },
+   "damaged": {
+    "reuse": 2,
+    "export": 45,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 16,
+    "energyRecovery": 0
+   },
+   "great": {
+    "reuse": 119,
+    "export": 3,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 0,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 32,
+    "export": 25,
+    "repair": 0,
+    "remake": 1,
+    "recycle": 12,
+    "energyRecovery": 0
+   }
+  },
+  "blouse": {
+   "any": {
+    "reuse": 635,
+    "export": 326,
+    "repair": 4,
+    "remake": 10,
+    "recycle": 89,
+    "energyRecovery": 0
+   },
+   "damaged": {
+    "reuse": 7,
+    "export": 148,
+    "repair": 0,
+    "remake": 7,
+    "recycle": 54,
+    "energyRecovery": 0
+   },
+   "great": {
+    "reuse": 556,
+    "export": 58,
+    "repair": 3,
+    "remake": 2,
+    "recycle": 4,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 72,
+    "export": 120,
+    "repair": 1,
+    "remake": 1,
+    "recycle": 31,
+    "energyRecovery": 0
+   }
+  },
+  "coat": {
+   "any": {
+    "reuse": 175,
+    "export": 177,
+    "repair": 1,
+    "remake": 3,
+    "recycle": 24,
+    "energyRecovery": 3
+   },
+   "damaged": {
+    "reuse": 9,
+    "export": 124,
+    "repair": 0,
+    "remake": 3,
+    "recycle": 12,
+    "energyRecovery": 2
+   },
+   "great": {
+    "reuse": 93,
+    "export": 1,
+    "repair": 1,
+    "remake": 0,
+    "recycle": 2,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 73,
+    "export": 52,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 10,
+    "energyRecovery": 1
+   }
+  },
+  "dress": {
+   "any": {
+    "reuse": 1126,
+    "export": 635,
+    "repair": 14,
+    "remake": 14,
+    "recycle": 138,
+    "energyRecovery": 4
+   },
+   "damaged": {
+    "reuse": 23,
+    "export": 334,
+    "repair": 6,
+    "remake": 8,
+    "recycle": 78,
+    "energyRecovery": 4
+   },
+   "great": {
+    "reuse": 900,
+    "export": 79,
+    "repair": 4,
+    "remake": 1,
+    "recycle": 8,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 203,
+    "export": 222,
+    "repair": 4,
+    "remake": 5,
+    "recycle": 52,
+    "energyRecovery": 0
+   }
+  },
+  "hoodie": {
+   "any": {
+    "reuse": 137,
+    "export": 301,
+    "repair": 1,
+    "remake": 1,
+    "recycle": 48,
+    "energyRecovery": 7
+   },
+   "damaged": {
+    "reuse": 6,
+    "export": 202,
+    "repair": 0,
+    "remake": 1,
+    "recycle": 35,
+    "energyRecovery": 7
+   },
+   "great": {
+    "reuse": 104,
+    "export": 14,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 1,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 27,
+    "export": 85,
+    "repair": 1,
+    "remake": 0,
+    "recycle": 12,
+    "energyRecovery": 0
+   }
+  },
+  "jacket": {
+   "any": {
+    "reuse": 316,
+    "export": 363,
+    "repair": 4,
+    "remake": 6,
+    "recycle": 36,
+    "energyRecovery": 4
+   },
+   "damaged": {
+    "reuse": 9,
+    "export": 239,
+    "repair": 2,
+    "remake": 2,
+    "recycle": 26,
+    "energyRecovery": 4
+   },
+   "great": {
+    "reuse": 243,
+    "export": 19,
+    "repair": 0,
+    "remake": 1,
+    "recycle": 0,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 64,
+    "export": 105,
+    "repair": 2,
+    "remake": 3,
+    "recycle": 10,
+    "energyRecovery": 0
+   }
+  },
+  "jeans": {
+   "any": {
+    "reuse": 609,
+    "export": 338,
+    "repair": 2,
+    "remake": 34,
+    "recycle": 82,
+    "energyRecovery": 3
+   },
+   "damaged": {
+    "reuse": 39,
+    "export": 235,
+    "repair": 0,
+    "remake": 21,
+    "recycle": 66,
+    "energyRecovery": 3
+   },
+   "great": {
+    "reuse": 464,
+    "export": 22,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 0,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 106,
+    "export": 81,
+    "repair": 2,
+    "remake": 13,
+    "recycle": 16,
+    "energyRecovery": 0
+   }
+  },
+  "pants": {
+   "any": {
+    "reuse": 1030,
+    "export": 871,
+    "repair": 8,
+    "remake": 12,
+    "recycle": 258,
+    "energyRecovery": 8
+   },
+   "damaged": {
+    "reuse": 42,
+    "export": 569,
+    "repair": 1,
+    "remake": 8,
+    "recycle": 161,
+    "energyRecovery": 6
+   },
+   "great": {
+    "reuse": 765,
+    "export": 38,
+    "repair": 3,
+    "remake": 0,
+    "recycle": 7,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 223,
+    "export": 264,
+    "repair": 4,
+    "remake": 4,
+    "recycle": 90,
+    "energyRecovery": 2
+   }
+  },
+  "shirt": {
+   "any": {
+    "reuse": 785,
+    "export": 594,
+    "repair": 6,
+    "remake": 11,
+    "recycle": 128,
+    "energyRecovery": 4
+   },
+   "damaged": {
+    "reuse": 12,
+    "export": 321,
+    "repair": 0,
+    "remake": 8,
+    "recycle": 92,
+    "energyRecovery": 3
+   },
+   "great": {
+    "reuse": 610,
+    "export": 70,
+    "repair": 2,
+    "remake": 0,
+    "recycle": 2,
+    "energyRecovery": 1
+   },
+   "worn": {
+    "reuse": 163,
+    "export": 203,
+    "repair": 4,
+    "remake": 3,
+    "recycle": 34,
+    "energyRecovery": 0
+   }
+  },
+  "shorts": {
+   "any": {
+    "reuse": 426,
+    "export": 320,
+    "repair": 3,
+    "remake": 2,
+    "recycle": 78,
+    "energyRecovery": 3
+   },
+   "damaged": {
+    "reuse": 16,
+    "export": 188,
+    "repair": 1,
+    "remake": 2,
+    "recycle": 53,
+    "energyRecovery": 2
+   },
+   "great": {
+    "reuse": 313,
+    "export": 16,
+    "repair": 1,
+    "remake": 0,
+    "recycle": 4,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 97,
+    "export": 116,
+    "repair": 1,
+    "remake": 0,
+    "recycle": 21,
+    "energyRecovery": 1
+   }
+  },
+  "skirt": {
+   "any": {
+    "reuse": 436,
+    "export": 192,
+    "repair": 1,
+    "remake": 3,
+    "recycle": 41,
+    "energyRecovery": 2
+   },
+   "damaged": {
+    "reuse": 8,
+    "export": 113,
+    "repair": 1,
+    "remake": 1,
+    "recycle": 26,
+    "energyRecovery": 2
+   },
+   "great": {
+    "reuse": 349,
+    "export": 17,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 1,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 79,
+    "export": 62,
+    "repair": 0,
+    "remake": 2,
+    "recycle": 14,
+    "energyRecovery": 0
+   }
+  },
+  "sweater": {
+   "any": {
+    "reuse": 1154,
+    "export": 1351,
+    "repair": 35,
+    "remake": 4,
+    "recycle": 230,
+    "energyRecovery": 4
+   },
+   "damaged": {
+    "reuse": 36,
+    "export": 698,
+    "repair": 12,
+    "remake": 3,
+    "recycle": 138,
+    "energyRecovery": 2
+   },
+   "great": {
+    "reuse": 847,
+    "export": 116,
+    "repair": 7,
+    "remake": 0,
+    "recycle": 11,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 271,
+    "export": 537,
+    "repair": 16,
+    "remake": 1,
+    "recycle": 81,
+    "energyRecovery": 2
+   }
+  },
+  "tankTop": {
+   "any": {
+    "reuse": 426,
+    "export": 485,
+    "repair": 0,
+    "remake": 3,
+    "recycle": 66,
+    "energyRecovery": 2
+   },
+   "damaged": {
+    "reuse": 8,
+    "export": 263,
+    "repair": 0,
+    "remake": 2,
+    "recycle": 44,
+    "energyRecovery": 1
+   },
+   "great": {
+    "reuse": 361,
+    "export": 56,
+    "repair": 0,
+    "remake": 0,
+    "recycle": 3,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 57,
+    "export": 166,
+    "repair": 0,
+    "remake": 1,
+    "recycle": 19,
+    "energyRecovery": 1
+   }
+  },
+  "tshirt": {
+   "any": {
+    "reuse": 1063,
+    "export": 1231,
+    "repair": 9,
+    "remake": 16,
+    "recycle": 360,
+    "energyRecovery": 16
+   },
+   "damaged": {
+    "reuse": 32,
+    "export": 723,
+    "repair": 4,
+    "remake": 6,
+    "recycle": 229,
+    "energyRecovery": 14
+   },
+   "great": {
+    "reuse": 866,
+    "export": 107,
+    "repair": 3,
+    "remake": 4,
+    "recycle": 12,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 165,
+    "export": 401,
+    "repair": 2,
+    "remake": 6,
+    "recycle": 119,
+    "energyRecovery": 2
+   }
+  }
+ },
+ "groups": {
+  "bottoms": {
+   "any": {
+    "reuse": 2708,
+    "export": 1934,
+    "repair": 15,
+    "remake": 54,
+    "recycle": 521,
+    "energyRecovery": 18
+   },
+   "damaged": {
+    "reuse": 109,
+    "export": 1234,
+    "repair": 3,
+    "remake": 35,
+    "recycle": 341,
+    "energyRecovery": 14
+   },
+   "great": {
+    "reuse": 2053,
+    "export": 105,
+    "repair": 4,
+    "remake": 0,
+    "recycle": 13,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 546,
+    "export": 595,
+    "repair": 8,
+    "remake": 19,
+    "recycle": 167,
+    "energyRecovery": 4
+   }
+  },
+  "onePiece": {
+   "any": {
+    "reuse": 1126,
+    "export": 635,
+    "repair": 14,
+    "remake": 14,
+    "recycle": 138,
+    "energyRecovery": 4
+   },
+   "damaged": {
+    "reuse": 23,
+    "export": 334,
+    "repair": 6,
+    "remake": 8,
+    "recycle": 78,
+    "energyRecovery": 4
+   },
+   "great": {
+    "reuse": 900,
+    "export": 79,
+    "repair": 4,
+    "remake": 1,
+    "recycle": 8,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 203,
+    "export": 222,
+    "repair": 4,
+    "remake": 5,
+    "recycle": 52,
+    "energyRecovery": 0
+   }
+  },
+  "outerwear": {
+   "any": {
+    "reuse": 644,
+    "export": 613,
+    "repair": 5,
+    "remake": 10,
+    "recycle": 88,
+    "energyRecovery": 7
+   },
+   "damaged": {
+    "reuse": 20,
+    "export": 408,
+    "repair": 2,
+    "remake": 5,
+    "recycle": 54,
+    "energyRecovery": 6
+   },
+   "great": {
+    "reuse": 455,
+    "export": 23,
+    "repair": 1,
+    "remake": 1,
+    "recycle": 2,
+    "energyRecovery": 0
+   },
+   "worn": {
+    "reuse": 169,
+    "export": 182,
+    "repair": 2,
+    "remake": 4,
+    "recycle": 32,
+    "energyRecovery": 1
+   }
+  },
+  "tops": {
+   "any": {
+    "reuse": 5850,
+    "export": 5520,
+    "repair": 85,
+    "remake": 58,
+    "recycle": 1255,
+    "energyRecovery": 43
+   },
+   "damaged": {
+    "reuse": 126,
+    "export": 3056,
+    "repair": 24,
+    "remake": 34,
+    "recycle": 811,
+    "energyRecovery": 36
+   },
+   "great": {
+    "reuse": 4653,
+    "export": 515,
+    "repair": 25,
+    "remake": 6,
+    "recycle": 47,
+    "energyRecovery": 1
+   },
+   "worn": {
+    "reuse": 1071,
+    "export": 1949,
+    "repair": 36,
+    "remake": 18,
+    "recycle": 397,
+    "energyRecovery": 6
+   }
+  }
+ },
+ "all": {
+  "any": {
+   "reuse": 10328,
+   "export": 8702,
+   "repair": 119,
+   "remake": 136,
+   "recycle": 2002,
+   "energyRecovery": 72
+  },
+  "damaged": {
+   "reuse": 278,
+   "export": 5032,
+   "repair": 35,
+   "remake": 82,
+   "recycle": 1284,
+   "energyRecovery": 60
+  },
+  "great": {
+   "reuse": 8061,
+   "export": 722,
+   "repair": 34,
+   "remake": 8,
+   "recycle": 70,
+   "energyRecovery": 1
+  },
+  "worn": {
+   "reuse": 1989,
+   "export": 2948,
+   "repair": 50,
+   "remake": 46,
+   "recycle": 648,
+   "energyRecovery": 11
+  }
+ }
+}

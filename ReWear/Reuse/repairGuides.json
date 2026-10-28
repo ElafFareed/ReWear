@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "1.3",
+  "datasetName": "Repair & Rewear Guides",
+  "description": "Repair guide content for offline use. Each guide has one optional illustration reference; steps contain text only. UI layout, navigation, and buttons are implemented separately in SwiftUI. The imageName values are asset-name placeholders and do not include actual image files.",
+  "language": "en",
+  "guides": [
+    {
+      "id": "bleach_marks",
+      "problem": {
+        "name": "Bleach Marks",
+        "description": "Color loss or small bleached areas."
+      },
+      "repair": {
+        "title": "REWORK THE MARK.",
+        "summary": "Bleach removes color. A decorative patch can hide a stable mark without applying more chemicals.",
+        "bestFor": "Clean, sturdy fabric with no thinning or holes.",
+        "beforeYouBegin": "Never apply more bleach. Do not patch fragile or chemically contaminated fabric.",
+        "materials": [
+          "Fabric patch",
+          "Needle",
+          "Thread",
+          "Pins"
+        ],
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Check the care label. Make sure the marked fabric is still strong and dry."
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "Choose a washable patch that covers the discolored area with a margin."
+          },
+          {
+            "stepNumber": 3,
+            "instruction": "Keep fabric layers separate; pin the patch flat and stitch around its edges."
+          },
+          {
+            "stepNumber": 4,
+            "instruction": "Secure thread ends and check comfort before washing as the label allows."
+          }
+        ],
+        "imageName": "bleach_marks_illustration"
+      }
+    },
+    {
+      "id": "stubborn_stains",
+      "problem": {
+        "name": "Stubborn Stains",
+        "description": "Marks that cannot be washed away."
+      },
+      "repair": {
+        "title": "RECLAIM THE STAIN.",
+        "summary": "When a washable garment has a permanent cosmetic stain, disguise it using a decorative patch.",
+        "bestFor": "Clean, safe garment: stain is cosmetic, not a hazardous residue.",
+        "beforeYouBegin": "Do not conceal chemical contamination. Delicate fabrics may need professional care.",
+        "materials": [
+          "Fabric patch",
+          "Needle",
+          "Thread",
+          "Pins"
+        ],
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Follow the care label first. Do not work on contaminated or unwashed items."
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "Choose a suitable patch larger than the visible stain."
+          },
+          {
+            "stepNumber": 3,
+            "instruction": "Protect the second fabric layer and sew the patch around all sides."
+          },
+          {
+            "stepNumber": 4,
+            "instruction": "Check that the patch is secure and the garment remains comfortable."
+          }
+        ],
+        "imageName": "stubborn_stains_illustration"
+      }
+    },
+    {
+      "id": "small_tears_holes",
+      "problem": {
+        "name": "Small Tears & Holes",
+        "description": "Minor tears, punctures or tiny holes."
+      },
+      "repair": {
+        "title": "MEND IN PLAIN SIGHT.",
+        "summary": "Give a small tear a new personality with a visible, reinforced hand-sewn patch.",
+        "bestFor": "Small opening with sturdy surrounding fabric; not on safety-critical seams.",
+        "beforeYouBegin": "Handle needles carefully. Large, stretched or load-bearing tears need expert repair.",
+        "materials": [
+          "Scrap fabric",
+          "Needle",
+          "Thread",
+          "Pins"
+        ],
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Lay the garment flat and inspect the tear and surrounding fabric."
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "Cut a similar-weight backing patch slightly larger than the opening."
+          },
+          {
+            "stepNumber": 3,
+            "instruction": "Keep layers separate and secure the patch with small, even stitches."
+          },
+          {
+            "stepNumber": 4,
+            "instruction": "Fasten thread ends and gently check the repair for loose edges."
+          }
+        ],
+        "imageName": "small_tears_holes_illustration"
+      }
+    },
+    {
+      "id": "missing_buttons",
+      "problem": {
+        "name": "Missing Buttons",
+        "description": "Missing button."
+      },
+      "repair": {
+        "title": "BUTTONS & SEAMS.",
+        "summary": "Reattach a button or secure a loose seam with simple hand stitches.",
+        "bestFor": "Garments with sturdy fabric around the button or seam.",
+        "beforeYouBegin": "Handle needles carefully and make sure the fabric around the repair is strong.",
+        "materials": [
+          "Spare button",
+          "Needle",
+          "Thread",
+          "Pins"
+        ],
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "For a loose seam, turn the garment inside out and align the edges."
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "For a button, place the replacement where the original sat."
+          },
+          {
+            "stepNumber": 3,
+            "instruction": "Stitch through the holes several times and knot the thread securely."
+          },
+          {
+            "stepNumber": 4,
+            "instruction": "For a seam, use small backstitches and secure both ends."
+          }
+        ],
+        "imageName": "missing_buttons_illustration"
+      }
+    }
+  ]
+}
