@@ -1,32 +1,29 @@
-
 import SwiftUI
 import UIKit
 
 struct RestyleAlternativesView: View {
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.rewearReturnHome) private var returnHome
 
-    // MARK: - Recommendation Data
-
+    let startingPiece: String
     let alternatives: [String]
     let recommendations: [OCMCFRecommendation]
 
-    // MARK: - State
-
     @State private var selectedItem: String?
-    @State private var showComplementaryPiece = false
-
-    // MARK: - Initializer
+    @State private var showGenerating = false
+    @State private var showLeaveConfirmation = false
+    @State private var shouldReturnHome = false
 
     init(
+        startingPiece: String = "Your piece",
         alternatives: [String] = [],
         recommendations: [OCMCFRecommendation] = []
     ) {
+        self.startingPiece = startingPiece
         self.alternatives = alternatives
         self.recommendations = recommendations
     }
-
-    // MARK: - Properties
 
     private var hasModelRecommendations: Bool {
         !recommendations.isEmpty
@@ -42,35 +39,20 @@ struct RestyleAlternativesView: View {
         selectedItem != nil
     }
 
-    private var selectedCategory: String {
-        guard let selectedRecommendation else {
-            return selectedItem ?? "Clothing"
-        }
-
-        switch selectedRecommendation.garment.category {
-        case "tops":
-            return "Top"
-        case "bottoms":
-            return "Bottom"
-        case "outerwear":
-            return "Outerwear"
-        default:
-            return "Clothing"
-        }
+    private var selectedGarmentName: String {
+        selectedRecommendation?.garment.name
+        ?? selectedItem
+        ?? "Clothing"
     }
-
-    // MARK: - Main View
 
     var body: some View {
 
         VStack(spacing: 0) {
 
             header
-
             progressBar
 
             ScrollView {
-
                 VStack(alignment: .leading, spacing: 0) {
 
                     titleSection
@@ -78,7 +60,6 @@ struct RestyleAlternativesView: View {
 
                     alternativesSection
                         .padding(.top, 28)
-
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 24)
@@ -86,28 +67,43 @@ struct RestyleAlternativesView: View {
             .scrollIndicators(.hidden)
 
             continueButton
-
         }
         .background(
             RestyleColors.background.ignoresSafeArea()
         )
         .navigationBarBackButtonHidden(true)
 
-        // MARK: - Next Screen
-
         .navigationDestination(
-            isPresented: $showComplementaryPiece
+            isPresented: $showGenerating
         ) {
-            RestyleComplementaryPieceView(
-                selectedItem: selectedCategory
+            RestyleGeneratingView(
+                startingPiece: startingPiece,
+                complementaryPiece: selectedGarmentName
             )
+        }
+
+        .sheet(
+            isPresented: $showLeaveConfirmation,
+            onDismiss: {
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
+            }
+        ) {
+            RestyleLeaveChallengeSheet {
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
         }
     }
 
     // MARK: - Header
 
     private var header: some View {
-
         HStack {
 
             Button {
@@ -119,7 +115,7 @@ struct RestyleAlternativesView: View {
             Spacer()
 
             Button {
-                dismiss()
+                showLeaveConfirmation = true
             } label: {
                 headerIcon("xmark")
             }
@@ -128,40 +124,22 @@ struct RestyleAlternativesView: View {
         .padding(.top, 12)
     }
 
-    private func headerIcon(
-        _ name: String
-    ) -> some View {
-
+    private func headerIcon(_ name: String) -> some View {
         Image(systemName: name)
-            .font(
-                .system(
-                    size: 20,
-                    weight: .medium
-                )
-            )
-            .foregroundStyle(
-                RestyleColors.textPrimary
-            )
-            .frame(
-                width: 48,
-                height: 48
-            )
+            .font(.system(size: 20, weight: .medium))
+            .foregroundStyle(RestyleColors.textPrimary)
+            .frame(width: 48, height: 48)
             .background(
                 Color(hex: 0xF2F1F3),
-                in: RoundedRectangle(
-                    cornerRadius: 16
-                )
+                in: RoundedRectangle(cornerRadius: 16)
             )
     }
 
     // MARK: - Progress
 
     private var progressBar: some View {
-
         HStack(spacing: 8) {
-
             ForEach(0..<3, id: \.self) { index in
-
                 Capsule()
                     .fill(
                         index < 2
@@ -178,16 +156,11 @@ struct RestyleAlternativesView: View {
     // MARK: - Title
 
     private var titleSection: some View {
-
         VStack(alignment: .leading, spacing: 12) {
 
             Text("WHAT ELSE\nDO YOU OWN?")
-                .font(
-                    RestyleTypography.editorial(40)
-                )
-                .foregroundStyle(
-                    RestyleColors.textPrimary
-                )
+                .font(RestyleTypography.editorial(40))
+                .foregroundStyle(RestyleColors.textPrimary)
                 .fixedSize(
                     horizontal: false,
                     vertical: true
@@ -197,25 +170,13 @@ struct RestyleAlternativesView: View {
                 "Here are other pieces OCMCF ranked for your outfit."
             )
             .font(RestyleTypography.body)
-            .foregroundStyle(
-                RestyleColors.textSecondary
-            )
-            .fixedSize(
-                horizontal: false,
-                vertical: true
-            )
+            .foregroundStyle(RestyleColors.textSecondary)
 
             Text(
                 "Choose one that looks similar to something you already own."
             )
             .font(.system(size: 13))
-            .foregroundStyle(
-                RestyleColors.textSecondary
-            )
-            .fixedSize(
-                horizontal: false,
-                vertical: true
-            )
+            .foregroundStyle(RestyleColors.textSecondary)
         }
     }
 
@@ -233,12 +194,8 @@ struct RestyleAlternativesView: View {
                 ) { index, recommendation in
 
                     Button {
-
-                        selectedItem =
-                            recommendation.garment.id
-
+                        selectedItem = recommendation.garment.id
                     } label: {
-
                         recommendationRow(
                             recommendation,
                             rank: index + 2
@@ -249,16 +206,10 @@ struct RestyleAlternativesView: View {
 
             } else if !alternatives.isEmpty {
 
-                // Backward compatibility with old screens.
-
                 ForEach(alternatives, id: \.self) { item in
-
                     Button {
-
                         selectedItem = item
-
                     } label: {
-
                         legacyAlternativeRow(item)
                     }
                     .buttonStyle(.plain)
@@ -277,7 +228,7 @@ struct RestyleAlternativesView: View {
         }
     }
 
-    // MARK: - OCMCF Recommendation Row
+    // MARK: - Model Recommendation Row
 
     private func recommendationRow(
         _ recommendation: OCMCFRecommendation,
@@ -288,8 +239,6 @@ struct RestyleAlternativesView: View {
             selectedItem == recommendation.garment.id
 
         return HStack(spacing: 14) {
-
-            // Actual garment image
 
             if let image =
                 RestyleOCMCFRecommendationService.shared.image(
@@ -309,9 +258,7 @@ struct RestyleAlternativesView: View {
 
                 Image(systemName: "hanger")
                     .font(.system(size: 30))
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
+                    .foregroundStyle(RestyleColors.textSecondary)
                     .frame(width: 86, height: 100)
                     .background(
                         Color(hex: 0xEEEEEE),
@@ -319,32 +266,16 @@ struct RestyleAlternativesView: View {
                     )
             }
 
-            // Recommendation details
-
             VStack(alignment: .leading, spacing: 8) {
 
                 Text("OCMCF PICK #\(rank)")
-                    .font(
-                        .system(
-                            size: 10,
-                            weight: .semibold
-                        )
-                    )
+                    .font(.system(size: 10, weight: .semibold))
                     .tracking(0.4)
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
+                    .foregroundStyle(RestyleColors.textSecondary)
 
                 Text(recommendation.garment.name)
-                    .font(
-                        .system(
-                            size: 15,
-                            weight: .semibold
-                        )
-                    )
-                    .foregroundStyle(
-                        RestyleColors.textPrimary
-                    )
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(RestyleColors.textPrimary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(3)
 
@@ -352,9 +283,7 @@ struct RestyleAlternativesView: View {
                     "Compatibility score: \(recommendation.score, specifier: "%.3f")"
                 )
                 .font(.system(size: 11))
-                .foregroundStyle(
-                    RestyleColors.textSecondary
-                )
+                .foregroundStyle(RestyleColors.textSecondary)
             }
 
             Spacer(minLength: 4)
@@ -370,7 +299,6 @@ struct RestyleAlternativesView: View {
                 ? RestyleColors.lime
                 : Color(hex: 0xD5D7D5)
             )
-
         }
         .padding(12)
         .frame(maxWidth: .infinity)
@@ -379,7 +307,6 @@ struct RestyleAlternativesView: View {
             in: RoundedRectangle(cornerRadius: 18)
         )
         .overlay {
-
             RoundedRectangle(cornerRadius: 18)
                 .stroke(
                     isSelected
@@ -405,9 +332,7 @@ struct RestyleAlternativesView: View {
 
             Image(systemName: "hanger")
                 .font(.system(size: 30))
-                .foregroundStyle(
-                    RestyleColors.textSecondary
-                )
+                .foregroundStyle(RestyleColors.textSecondary)
                 .frame(width: 72, height: 72)
                 .background(
                     Color(hex: 0xEEEEEE),
@@ -415,15 +340,8 @@ struct RestyleAlternativesView: View {
                 )
 
             Text(item)
-                .font(
-                    .system(
-                        size: 17,
-                        weight: .semibold
-                    )
-                )
-                .foregroundStyle(
-                    RestyleColors.textPrimary
-                )
+                .font(.system(size: 17, weight: .semibold))
+                .foregroundStyle(RestyleColors.textPrimary)
 
             Spacer()
 
@@ -445,32 +363,19 @@ struct RestyleAlternativesView: View {
             Color.white,
             in: RoundedRectangle(cornerRadius: 18)
         )
-        .contentShape(
-            RoundedRectangle(cornerRadius: 18)
-        )
     }
 
-    // MARK: - Continue Button
+    // MARK: - Continue
 
     private var continueButton: some View {
 
         Button {
-
-            guard canContinue else {
-                return
-            }
-
-            showComplementaryPiece = true
-
+            guard canContinue else { return }
+            showGenerating = true
         } label: {
 
             Text("Continue")
-                .font(
-                    .system(
-                        size: 18,
-                        weight: .semibold
-                    )
-                )
+                .font(.system(size: 18, weight: .semibold))
                 .foregroundStyle(
                     canContinue
                     ? Color.black
@@ -490,18 +395,12 @@ struct RestyleAlternativesView: View {
         .padding(.horizontal, 24)
         .padding(.top, 12)
         .padding(.bottom, 12)
-        .background(
-            RestyleColors.background
-        )
+        .background(RestyleColors.background)
     }
 }
 
-// MARK: - Preview
-
 #Preview {
-
     NavigationStack {
-
         RestyleAlternativesView(
             alternatives: [
                 "Trousers",

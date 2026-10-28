@@ -1,4 +1,3 @@
-
 import SwiftUI
 import Foundation
 
@@ -6,9 +5,11 @@ struct GuideCompleteView: View {
 
     @Binding var path: NavigationPath
 
-   
+    // Return to Choose Your Path
+    @Environment(\.rewearReturnHome) private var returnHome
 
     var body: some View {
+
         VStack(alignment: .leading, spacing: 0) {
 
             Spacer()
@@ -33,10 +34,16 @@ struct GuideCompleteView: View {
 
             Spacer(minLength: 10)
 
+            // MARK: - Done Button
+
             Button {
-                // Return directly to the three cards
-                path = NavigationPath()
+
+                // Return directly to the home page
+                // ChooseYourPathView
+                returnHome()
+
             } label: {
+
                 Text("Done")
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundStyle(.black)
@@ -66,4 +73,3 @@ struct GuideCompleteView: View {
         )
     }
 }
-

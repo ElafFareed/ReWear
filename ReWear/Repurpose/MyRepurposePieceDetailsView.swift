@@ -1,16 +1,17 @@
-
 import SwiftUI
 
 struct MyRepurposePieceDetailsView: View {
 
+    // MARK: - Environment
+
     @EnvironmentObject private var wardrobeStore: WardrobeStore
+
+    // MARK: - Properties
 
     @Binding var garment: RepurposeGarment
 
     let onBack: () -> Void
     let onContinue: () -> Void
-
-    @State private var showWardrobe = false
 
     // MARK: - Category Options
 
@@ -32,6 +33,41 @@ struct MyRepurposePieceDetailsView: View {
         "Nylon", "Mixed", "Other"
     ]
 
+    // MARK: - Damage Options
+
+    private let damageOptions: [
+        (id: String, title: String, detail: String)
+    ] = [
+        (
+            "severe-bleach-damage",
+            "Severe Bleach Damage",
+            "Extensive discoloration or weakened areas."
+        ),
+        (
+            "permanent-stains",
+            "Permanent Stains",
+            "Large marks unsuitable for regular wear."
+        ),
+        (
+            "large-tears-holes",
+            "Large Tears & Holes",
+            "Damage that prevents wearing as usual."
+        ),
+        (
+            "worn-out-fabric",
+            "Worn-Out Fabric",
+            "Fabric that has become thin or weak."
+        )
+    ]
+
+    // MARK: - Selected Damage
+
+    private var selectedDamage: String {
+        damageOptions.first {
+            $0.id == garment.damageType
+        }?.title ?? ""
+    }
+
     // MARK: - Selected Wardrobe Garment
 
     private var selectedWardrobeGarment: Garment? {
@@ -45,7 +81,8 @@ struct MyRepurposePieceDetailsView: View {
         }
     }
 
-    // Prefer the specific garment type.
+    // MARK: - Selected Category
+
     private var selectedCategory: String {
         garment.subcategory.isEmpty
             ? garment.category
@@ -64,7 +101,9 @@ struct MyRepurposePieceDetailsView: View {
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .isEmpty
 
-        return hasCategory && hasMaterial
+        let hasDamage = !selectedDamage.isEmpty
+
+        return hasCategory && hasMaterial && hasDamage
     }
 
     // MARK: - Body
@@ -73,7 +112,7 @@ struct MyRepurposePieceDetailsView: View {
 
         VStack(alignment: .leading, spacing: 0) {
 
-            // MARK: Back Button
+            // MARK: - Back Button
 
             Button(action: onBack) {
 
@@ -88,7 +127,7 @@ struct MyRepurposePieceDetailsView: View {
             }
             .buttonStyle(.plain)
 
-            // MARK: Main Content
+            // MARK: - Main Content
 
             ScrollView {
 
@@ -105,7 +144,7 @@ struct MyRepurposePieceDetailsView: View {
                     .font(.system(size: 14))
                     .foregroundStyle(RestyleColors.textSecondary)
 
-                    // MARK: Illustration
+                    // MARK: - Illustration
 
                     Image("Repurposeit")
                         .resizable()
@@ -113,63 +152,7 @@ struct MyRepurposePieceDetailsView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 210)
 
-                    // MARK: Choose From My Wardrobe
-
-                    Button {
-                        showWardrobe = true
-                    } label: {
-
-                        HStack(spacing: 10) {
-
-                            Image(systemName: "hanger")
-                                .font(.system(size: 16))
-
-                            VStack(
-                                alignment: .leading,
-                                spacing: 3
-                            ) {
-
-                                Text(
-                                    selectedWardrobeGarment?.name
-                                        ?? "Choose from My Wardrobe"
-                                )
-                                .font(
-                                    .system(
-                                        size: 13,
-                                        weight: .semibold
-                                    )
-                                )
-
-                                if selectedWardrobeGarment != nil {
-
-                                    Text("Selected wardrobe piece")
-                                        .font(.system(size: 11))
-                                        .foregroundStyle(
-                                            RestyleColors.textSecondary
-                                        )
-                                }
-                            }
-
-                            Spacer()
-
-                            Image(systemName: "chevron.right")
-                                .font(
-                                    .system(
-                                        size: 13,
-                                        weight: .semibold
-                                    )
-                                )
-                        }
-                        .foregroundStyle(RestyleColors.textPrimary)
-                        .padding(14)
-                        .background(
-                            RestyleColors.lime.opacity(0.16),
-                            in: RoundedRectangle(cornerRadius: 14)
-                        )
-                    }
-                    .buttonStyle(.plain)
-
-                    // MARK: Category Dropdown
+                    // MARK: - Category Dropdown
 
                     dropdown(
                         "Category",
@@ -184,7 +167,7 @@ struct MyRepurposePieceDetailsView: View {
                         garment.wardrobeGarmentID = nil
                     }
 
-                    // MARK: Material Dropdown
+                    // MARK: - Material Dropdown
 
                     dropdown(
                         "Material",
@@ -197,6 +180,10 @@ struct MyRepurposePieceDetailsView: View {
                         // Do not modify the original wardrobe item.
                         garment.wardrobeGarmentID = nil
                     }
+
+                    // MARK: - Damage Dropdown
+
+                    damageDropdown()
                 }
                 .padding(.bottom, 20)
             }
@@ -204,7 +191,7 @@ struct MyRepurposePieceDetailsView: View {
         }
         .padding(.horizontal, 20)
 
-        // MARK: Continue Button
+        // MARK: - Continue Button
 
         .safeAreaInset(edge: .bottom) {
 
@@ -236,26 +223,67 @@ struct MyRepurposePieceDetailsView: View {
         .background(
             RestyleColors.background.ignoresSafeArea()
         )
+    }
 
-        // MARK: Existing My Wardrobe
+    // MARK: - Damage Dropdown
 
-        .sheet(isPresented: $showWardrobe) {
+    private func damageDropdown() -> some View {
 
-            NavigationStack {
+        Menu {
 
-                MyWardrobeView(
-                    onSelectGarment: { saved in
+            ForEach(damageOptions.indices, id: \.self) { index in
 
-                        // Copy the selected item's information
-                        // into our separate Repurpose model.
-                        garment = RepurposeGarment(from: saved)
+                let damage = damageOptions[index]
 
-                        // Close the wardrobe sheet.
-                        showWardrobe = false
-                    }
-                )
+                Button {
+                    garment.damageType = damage.id
+                    garment.condition = "damaged"
+                } label: {
+                    Text(damage.title)
+                    Text(damage.detail)
+                }
             }
-            .environmentObject(wardrobeStore)
+
+        } label: {
+
+            HStack {
+
+                Text("Damage")
+                    .fontWeight(.medium)
+
+                Spacer()
+
+                Text(
+                    selectedDamage.isEmpty
+                        ? "Select"
+                        : selectedDamage
+                )
+                .foregroundStyle(RestyleColors.textSecondary)
+                .lineLimit(1)
+
+                Image(systemName: "chevron.down")
+                    .font(
+                        .system(
+                            size: 12,
+                            weight: .semibold
+                        )
+                    )
+            }
+            .font(.system(size: 14))
+            .foregroundStyle(RestyleColors.textPrimary)
+            .padding(.horizontal, 16)
+            .frame(height: 52)
+            .background(
+                Color.white,
+                in: RoundedRectangle(cornerRadius: 14)
+            )
+            .overlay {
+
+                RoundedRectangle(cornerRadius: 14)
+                    .strokeBorder(
+                        RestyleColors.border.opacity(0.5)
+                    )
+            }
         }
     }
 

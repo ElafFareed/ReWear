@@ -1,33 +1,29 @@
-
 import SwiftUI
 import UIKit
 
 struct RestyleOwnershipView: View {
 
     @Environment(\.dismiss) private var dismiss
-
-    // MARK: - Recommendation Data
+    @Environment(\.rewearReturnHome) private var returnHome
 
     let suggestedItem: String
+    let startingPiece: String
     let recommendations: [OCMCFRecommendation]
 
-    // MARK: - State
-
     @State private var showAlternatives = false
+    @State private var showGenerating = false
     @State private var showLeaveConfirmation = false
-    @State private var showNextStepAlert = false
-
-    // MARK: - Initializer
+    @State private var shouldReturnHome = false
 
     init(
         suggestedItem: String,
+        startingPiece: String = "Your piece",
         recommendations: [OCMCFRecommendation] = []
     ) {
         self.suggestedItem = suggestedItem
+        self.startingPiece = startingPiece
         self.recommendations = recommendations
     }
-
-    // MARK: - Computed Properties
 
     private var bestRecommendation: OCMCFRecommendation? {
         recommendations.first
@@ -35,10 +31,6 @@ struct RestyleOwnershipView: View {
 
     private var otherRecommendations: [OCMCFRecommendation] {
         Array(recommendations.dropFirst())
-    }
-
-    private var alternativeNames: [String] {
-        otherRecommendations.map { $0.garment.name }
     }
 
     private var suggestedCategory: String {
@@ -58,13 +50,11 @@ struct RestyleOwnershipView: View {
         }
     }
 
-    // MARK: - Main View
-
     var body: some View {
 
         VStack(spacing: 0) {
 
-            // MARK: - Header
+            // MARK: Header
 
             HStack {
 
@@ -85,12 +75,10 @@ struct RestyleOwnershipView: View {
             .padding(.horizontal, 24)
             .padding(.top, 12)
 
-            // MARK: - Progress Bar
+            // MARK: Progress
 
             HStack(spacing: 8) {
-
                 ForEach(0..<3, id: \.self) { index in
-
                     Capsule()
                         .fill(
                             index < 2
@@ -103,7 +91,7 @@ struct RestyleOwnershipView: View {
             .padding(.horizontal, 24)
             .padding(.top, 24)
 
-            // MARK: - Main Content
+            // MARK: Content
 
             ScrollView {
 
@@ -111,9 +99,7 @@ struct RestyleOwnershipView: View {
 
                     Text("DO YOU OWN\nSOMETHING SIMILAR?")
                         .font(RestyleTypography.editorial(38))
-                        .foregroundStyle(
-                            RestyleColors.textPrimary
-                        )
+                        .foregroundStyle(RestyleColors.textPrimary)
                         .fixedSize(
                             horizontal: false,
                             vertical: true
@@ -123,11 +109,9 @@ struct RestyleOwnershipView: View {
                         "OCMCF recommended this \(suggestedCategory) for your outfit."
                     )
                     .font(RestyleTypography.body)
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
+                    .foregroundStyle(RestyleColors.textSecondary)
 
-                    // MARK: - Recommended Garment
+                    // MARK: Recommendation Card
 
                     VStack(spacing: 14) {
 
@@ -162,22 +146,14 @@ struct RestyleOwnershipView: View {
                                     weight: .semibold
                                 )
                             )
-                            .foregroundStyle(
-                                RestyleColors.textPrimary
-                            )
+                            .foregroundStyle(RestyleColors.textPrimary)
                             .multilineTextAlignment(.center)
-                            .fixedSize(
-                                horizontal: false,
-                                vertical: true
-                            )
 
                         Text(
                             "You don't need this exact item. A similar piece from your wardrobe works too."
                         )
                         .font(.system(size: 13))
-                        .foregroundStyle(
-                            RestyleColors.textSecondary
-                        )
+                        .foregroundStyle(RestyleColors.textSecondary)
                         .multilineTextAlignment(.center)
                         .fixedSize(
                             horizontal: false,
@@ -195,13 +171,7 @@ struct RestyleOwnershipView: View {
                         "We'll only build your styling challenge around garments you confirm you own."
                     )
                     .font(RestyleTypography.body)
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
-                    .fixedSize(
-                        horizontal: false,
-                        vertical: true
-                    )
+                    .foregroundStyle(RestyleColors.textSecondary)
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 32)
@@ -209,12 +179,12 @@ struct RestyleOwnershipView: View {
             }
             .scrollIndicators(.hidden)
 
-            // MARK: - Yes / No Buttons
+            // MARK: Buttons
 
             VStack(spacing: 12) {
 
                 Button {
-                    showNextStepAlert = true
+                    showGenerating = true
                 } label: {
 
                     Text("Yes, I have something similar")
@@ -244,9 +214,7 @@ struct RestyleOwnershipView: View {
                                 weight: .semibold
                             )
                         )
-                        .foregroundStyle(
-                            RestyleColors.textPrimary
-                        )
+                        .foregroundStyle(RestyleColors.textPrimary)
                         .frame(maxWidth: .infinity)
                         .frame(height: 60)
                         .background(
@@ -275,70 +243,58 @@ struct RestyleOwnershipView: View {
         )
         .navigationBarBackButtonHidden(true)
 
-        // MARK: - Alternatives Navigation
+        // MARK: Alternatives
 
         .navigationDestination(
             isPresented: $showAlternatives
         ) {
             RestyleAlternativesView(
+                startingPiece: startingPiece,
                 recommendations: otherRecommendations
             )
         }
 
-        // MARK: - Leave Confirmation
+        // MARK: Creating Your Restyle
 
-        .confirmationDialog(
-            "Leave Restyle?",
-            isPresented: $showLeaveConfirmation,
-            titleVisibility: .visible
+        .navigationDestination(
+            isPresented: $showGenerating
         ) {
-
-            Button("Go Back") {
-                dismiss()
-            }
-
-            Button("Keep Styling", role: .cancel) {}
-
-        } message: {
-
-            Text(
-                "Your current Restyle session will remain on the previous screen."
+            RestyleGeneratingView(
+                startingPiece: startingPiece,
+                complementaryPiece: suggestedItem
             )
         }
 
-        // MARK: - Ownership Confirmation
+        // MARK: Leave Confirmation
 
-        .alert(
-            "Piece Confirmed",
-            isPresented: $showNextStepAlert
+        .sheet(
+            isPresented: $showLeaveConfirmation,
+            onDismiss: {
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
+            }
         ) {
-
-            Button("OK", role: .cancel) {}
-
-        } message: {
-
-            Text(
-                "Great! We'll use the similar piece you own for your styling challenge."
-            )
+            RestyleLeaveChallengeSheet {
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
         }
     }
 
-    // MARK: - Header Button
+    // MARK: Header Icon
 
     private func headerButton(
         _ symbol: String
     ) -> some View {
 
         Image(systemName: symbol)
-            .font(
-                .system(
-                    size: 20,
-                    weight: .medium
-                )
-            )
-            .foregroundStyle(
-                RestyleColors.textPrimary
-            )
+            .font(.system(size: 20, weight: .medium))
+            .foregroundStyle(RestyleColors.textPrimary)
             .frame(width: 48, height: 48)
             .background(
                 Color(hex: 0xF2F1F3),
@@ -347,12 +303,8 @@ struct RestyleOwnershipView: View {
     }
 }
 
-// MARK: - Preview
-
 #Preview {
-
     NavigationStack {
-
         RestyleOwnershipView(
             suggestedItem: "Black V-Neck Sweater"
         )

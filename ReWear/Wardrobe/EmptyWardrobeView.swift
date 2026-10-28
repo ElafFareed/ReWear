@@ -1,17 +1,26 @@
-
 import SwiftUI
 
 struct EmptyWardrobeView: View {
+
+    // MARK: - Environment
+
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var wardrobeStore: WardrobeStore
+
+    // MARK: - Body
+
     var body: some View {
+
         VStack(alignment: .leading, spacing: 0) {
 
-            // Back button
+            // MARK: - Back Button
+
             HStack {
-                    Button {
-                        dismiss()
-                    } label: {
+
+                Button {
+                    dismiss()
+                } label: {
+
                     Image(systemName: "chevron.left")
                         .font(.system(size: 14, weight: .medium))
                         .foregroundStyle(RestyleColors.textPrimary)
@@ -26,52 +35,56 @@ struct EmptyWardrobeView: View {
             }
             .padding(.top, 8)
 
-            // Heading
+            // MARK: - Heading
+
             Text("MY WARDROBE.")
-                .font(RestyleTypography.editorial(23))
+                .font(RestyleTypography.editorial(36))
                 .foregroundStyle(RestyleColors.textPrimary)
-                .padding(.top, 22)
-            
-            Text("Saved items: \(wardrobeStore.garments.count)")
-                .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(.red)
-                .padding(.top, 8)
+                .padding(.top, 26)
 
             Text("Your saved clothing will show up here.")
-                .font(.system(size: 11))
+                .font(.system(size: 14))
                 .foregroundStyle(RestyleColors.textSecondary)
                 .padding(.top, 8)
 
             Spacer(minLength: 12)
 
-            // Wardrobe illustration
+            // MARK: - Wardrobe Illustration
+
             Image("wardrobe")
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: .infinity)
-                .frame(maxHeight: 310)
+                .frame(maxHeight: 438)
 
-            // Empty wardrobe message
+            // MARK: - Empty Wardrobe Message
+
             VStack(alignment: .leading, spacing: 5) {
+
                 Text("EVERY PIECE STARTS HERE.")
-                    .font(RestyleTypography.editorial(20))
+                    .font(RestyleTypography.editorial(26))
                     .foregroundStyle(RestyleColors.textPrimary)
 
                 Text(
                     "Save the clothes you own and use them for future creative challenges."
                 )
-                .font(.system(size: 11))
+                .font(.system(size: 15))
                 .foregroundStyle(RestyleColors.textSecondary)
-                .fixedSize(horizontal: false, vertical: true)
+                .fixedSize(
+                    horizontal: false,
+                    vertical: true
+                )
             }
-            .padding(.top, 8)
+            .padding(.top, 20)
 
             Spacer(minLength: 20)
 
-            // Add first piece
+            // MARK: - Add First Piece Button
+
             NavigationLink {
                 WardrobeCategoriesView()
             } label: {
+
                 Text("Add Your First Piece")
                     .font(.system(size: 12, weight: .medium))
                     .foregroundStyle(RestyleColors.primaryActionText)
@@ -88,16 +101,24 @@ struct EmptyWardrobeView: View {
                 .frame(height: 20)
         }
         .padding(.horizontal, RestyleSpacing.screenPadding)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(RestyleColors.background.ignoresSafeArea())
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity
+        )
+        .background(
+            RestyleColors.background.ignoresSafeArea()
+        )
         .toolbar(.hidden, for: .navigationBar)
     }
 }
 
+// MARK: - Preview
+
 #Preview {
+
     NavigationStack {
+
         EmptyWardrobeView()
     }
     .environmentObject(WardrobeStore())
 }
-

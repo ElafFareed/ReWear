@@ -6,7 +6,7 @@ struct ChooseYourPathView: View {
     // MARK: - Navigation State
 
     @State private var showRepurpose = false
-
+    @State private var repairPath = NavigationPath()
     // MARK: - Path Model
 
     private struct PathOption: Identifiable {
@@ -140,6 +140,7 @@ struct ChooseYourPathView: View {
 
     // MARK: - Path Navigation
 
+
     private func pathCard(_ path: PathOption) -> some View {
 
         Group {
@@ -147,9 +148,18 @@ struct ChooseYourPathView: View {
             if path.id == "restyle" {
 
                 // Restyle It
-
                 NavigationLink {
                     ChooseYourPieceView()
+                } label: {
+                    cardContent(path)
+                }
+                .buttonStyle(.plain)
+
+            } else if path.id == "repair" {
+
+                // Repair & Rewear
+                NavigationLink {
+                    RepairView(path: $repairPath)
                 } label: {
                     cardContent(path)
                 }
@@ -158,20 +168,12 @@ struct ChooseYourPathView: View {
             } else if path.id == "repurpose" {
 
                 // Repurpose It
-
                 Button {
                     showRepurpose = true
                 } label: {
                     cardContent(path)
                 }
                 .buttonStyle(.plain)
-
-            } else {
-
-                // Repair & Rewear
-                // Preserve current behavior
-
-                cardContent(path)
             }
         }
     }

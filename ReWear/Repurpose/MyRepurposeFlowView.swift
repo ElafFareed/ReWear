@@ -1,15 +1,20 @@
-
 import SwiftUI
 
 struct MyRepurposeFlowView: View {
 
+    // MARK: - Environment
+
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var wardrobeStore: WardrobeStore
+
+    // MARK: - State
 
     @State private var garment = RepurposeGarment()
     @State private var selectedGuide: MyRepurposeGuide?
     @State private var screen: Screen = .piece
     @State private var showLeave = false
+
+    // MARK: - Screen Navigation
 
     private enum Screen {
         case piece
@@ -21,7 +26,9 @@ struct MyRepurposeFlowView: View {
 
     // MARK: - Damage Options
 
-    private let damageOptions: [(id: String, title: String, detail: String)] = [
+    private let damageOptions: [
+        (id: String, title: String, detail: String)
+    ] = [
         (
             "severe-bleach-damage",
             "Severe Bleach Damage",
@@ -44,14 +51,13 @@ struct MyRepurposeFlowView: View {
         )
     ]
 
-    // Recommendations are already personalized by:
-    // category, material, condition and damage type.
+    // MARK: - Personalized Recommendations
 
     private var recommendations: [MyRepurposeGuide] {
         MyRepurposeLibrary.recommendations(for: garment)
     }
 
-    // MARK: - Main Flow
+    // MARK: - Main Body
 
     var body: some View {
 
@@ -60,33 +66,38 @@ struct MyRepurposeFlowView: View {
             switch screen {
 
             case .piece:
+
                 MyRepurposePieceDetailsView(
                     garment: $garment,
                     onBack: {
                         dismiss()
                     },
                     onContinue: {
-                        screen = .damage
+                        screen = .ideas
                     }
                 )
 
             case .damage:
+
                 damageScreen
 
             case .ideas:
+
                 ideasScreen
 
             case .guide:
+
                 if let selectedGuide {
                     guideScreen(selectedGuide)
                 }
 
             case .complete:
+
                 completionScreen
             }
         }
 
-        // MARK: Custom Leave Guide Sheet
+        // MARK: - Leave Guide Sheet
 
         .sheet(isPresented: $showLeave) {
 
@@ -114,14 +125,25 @@ struct MyRepurposeFlowView: View {
 
                     Text("WHAT'S THE\nDAMAGE?")
                         .font(RestyleTypography.editorial(42))
-                        .foregroundStyle(RestyleColors.textPrimary)
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
                         .padding(.top, 35)
 
-                    Text("Select the type of damage on your piece.")
-                        .font(.system(size: 14))
-                        .foregroundStyle(RestyleColors.textSecondary)
+                    Text(
+                        "Select the type of damage on your piece."
+                    )
+                    .font(.system(size: 14))
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
 
-                    ForEach(damageOptions.indices, id: \.self) { index in
+                    // MARK: - Damage Cards
+
+                    ForEach(
+                        damageOptions.indices,
+                        id: \.self
+                    ) { index in
 
                         let damage = damageOptions[index]
 
@@ -166,22 +188,26 @@ struct MyRepurposeFlowView: View {
 
                                 Spacer()
 
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(
-                                        RestyleColors.textPrimary
-                                    )
+                                Image(
+                                    systemName: "chevron.right"
+                                )
+                                .foregroundStyle(
+                                    RestyleColors.textPrimary
+                                )
                             }
                             .padding(.horizontal, 14)
                             .frame(minHeight: 90)
                             .background(
                                 Color.white,
-                                in: RoundedRectangle(cornerRadius: 16)
+                                in: RoundedRectangle(
+                                    cornerRadius: 16
+                                )
                             )
                         }
                         .buttonStyle(.plain)
                     }
 
-                    // MARK: RISE Statistics
+                    // MARK: - RISE Statistics
 
                     if let outcomes = GarmentOutcomes.shared,
                        let stat = outcomes.overall(
@@ -205,14 +231,32 @@ struct MyRepurposeFlowView: View {
         )
     }
 
-    // MARK: - Personalized Recommendations Screen
+    // MARK: - Personalized Repurpose Ideas
 
     private var ideasScreen: some View {
 
         VStack(alignment: .leading, spacing: 0) {
 
-            backButton {
-                screen = .damage
+            // MARK: - Header
+
+            HStack {
+
+                backButton {
+                    screen = .piece
+                }
+
+                Spacer()
+
+                Button {
+                    dismiss()
+                } label: {
+
+                    Image(systemName: "xmark")
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
+                        .frame(width: 44, height: 44)
+                }
             }
 
             ScrollView {
@@ -220,66 +264,43 @@ struct MyRepurposeFlowView: View {
                 VStack(alignment: .leading, spacing: 14) {
 
                     Text("YOUR REPURPOSE\nIDEAS.")
-                        .font(RestyleTypography.editorial(36))
-                        .foregroundStyle(RestyleColors.textPrimary)
+                        .font(
+                            RestyleTypography.editorial(36)
+                        )
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
                         .padding(.top, 30)
 
                     Text(
                         "Ideas matched to your garment type, material and damage."
                     )
                     .font(.system(size: 14))
-                    .foregroundStyle(RestyleColors.textSecondary)
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
 
                     Text(
                         "\(garment.subcategory.isEmpty ? garment.category : garment.subcategory) · \(garment.material)"
                     )
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundStyle(RestyleColors.textPrimary)
+                    .font(
+                        .system(
+                            size: 12,
+                            weight: .medium
+                        )
+                    )
+                    .foregroundStyle(
+                        RestyleColors.textPrimary
+                    )
                     .padding(.vertical, 8)
 
-                    // MARK: No Matching Projects
+                    // MARK: - Recommendation Results
 
                     if recommendations.isEmpty {
 
-                        VStack(
-                            alignment: .leading,
-                            spacing: 12
-                        ) {
-
-                            Text("NO SUITABLE PROJECTS YET.")
-                                .font(
-                                    RestyleTypography.editorial(22)
-                                )
-
-                            Text(
-                                "There isn't a matching guide for this garment and damage combination. Try another piece or check that its type and material are correct."
-                            )
-                            .font(.system(size: 13))
-                            .foregroundStyle(
-                                RestyleColors.textSecondary
-                            )
-
-                            Text(
-                                "Available offline guides: \(MyRepurposeLibrary.guides.count)"
-                            )
-                            .font(.caption)
-                            .foregroundStyle(
-                                RestyleColors.textSecondary
-                            )
-                        }
-                        .padding(20)
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: .leading
-                        )
-                        .background(
-                            Color.white,
-                            in: RoundedRectangle(cornerRadius: 16)
-                        )
+                        noRecommendationsCard
 
                     } else {
-
-                        // MARK: Recommended Projects
 
                         ForEach(recommendations) { guide in
 
@@ -290,75 +311,7 @@ struct MyRepurposeFlowView: View {
 
                             } label: {
 
-                                HStack(spacing: 14) {
-
-                                    Image(systemName: guide.symbol)
-                                        .font(.system(size: 24))
-                                        .foregroundStyle(
-                                            RestyleColors.textPrimary
-                                        )
-                                        .frame(width: 42, height: 42)
-                                        .background(
-                                            RestyleColors.lime.opacity(0.4),
-                                            in: RoundedRectangle(
-                                                cornerRadius: 12
-                                            )
-                                        )
-
-                                    VStack(
-                                        alignment: .leading,
-                                        spacing: 6
-                                    ) {
-
-                                        Text(guide.title)
-                                            .font(
-                                                .system(
-                                                    size: 15,
-                                                    weight: .semibold
-                                                )
-                                            )
-                                            .foregroundStyle(
-                                                RestyleColors.textPrimary
-                                            )
-
-                                        Text(guide.summary)
-                                            .font(.system(size: 12))
-                                            .foregroundStyle(
-                                                RestyleColors.textSecondary
-                                            )
-                                            .fixedSize(
-                                                horizontal: false,
-                                                vertical: true
-                                            )
-
-                                        Text(
-                                            "\(guide.minutes) min · \(guide.difficulty.capitalized) · \(guide.noSew ? "No sew" : "Sewing")"
-                                        )
-                                        .font(
-                                            .system(
-                                                size: 11,
-                                                weight: .medium
-                                            )
-                                        )
-                                        .foregroundStyle(
-                                            RestyleColors.textSecondary
-                                        )
-                                    }
-
-                                    Spacer(minLength: 0)
-
-                                    Image(systemName: "chevron.right")
-                                        .foregroundStyle(
-                                            RestyleColors.textPrimary
-                                        )
-                                }
-                                .padding(14)
-                                .background(
-                                    Color.white,
-                                    in: RoundedRectangle(
-                                        cornerRadius: 16
-                                    )
-                                )
+                                recommendationCard(guide)
                             }
                             .buttonStyle(.plain)
                         }
@@ -374,7 +327,123 @@ struct MyRepurposeFlowView: View {
         )
     }
 
-    // MARK: - Step-by-Step Guide Screen
+    // MARK: - No Matching Projects
+
+    private var noRecommendationsCard: some View {
+
+        VStack(
+            alignment: .leading,
+            spacing: 12
+        ) {
+
+            Text("NO SUITABLE PROJECTS YET.")
+                .font(
+                    RestyleTypography.editorial(22)
+                )
+
+            Text(
+                "There isn't a matching guide for this garment and damage combination. Try another piece or check that its type and material are correct."
+            )
+            .font(.system(size: 13))
+            .foregroundStyle(
+                RestyleColors.textSecondary
+            )
+
+            Text(
+                "Available offline guides: \(MyRepurposeLibrary.guides.count)"
+            )
+            .font(.caption)
+            .foregroundStyle(
+                RestyleColors.textSecondary
+            )
+        }
+        .padding(20)
+        .frame(
+            maxWidth: .infinity,
+            alignment: .leading
+        )
+        .background(
+            Color.white,
+            in: RoundedRectangle(cornerRadius: 16)
+        )
+    }
+
+    // MARK: - Recommendation Card
+
+    private func recommendationCard(
+        _ guide: MyRepurposeGuide
+    ) -> some View {
+
+        HStack(spacing: 14) {
+
+            Image(systemName: guide.symbol)
+                .font(.system(size: 24))
+                .foregroundStyle(
+                    RestyleColors.textPrimary
+                )
+                .frame(width: 42, height: 42)
+                .background(
+                    RestyleColors.lime.opacity(0.4),
+                    in: RoundedRectangle(
+                        cornerRadius: 12
+                    )
+                )
+
+            VStack(
+                alignment: .leading,
+                spacing: 6
+            ) {
+
+                Text(guide.title)
+                    .font(
+                        .system(
+                            size: 15,
+                            weight: .semibold
+                        )
+                    )
+                    .foregroundStyle(
+                        RestyleColors.textPrimary
+                    )
+
+                Text(guide.summary)
+                    .font(.system(size: 12))
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
+                    .fixedSize(
+                        horizontal: false,
+                        vertical: true
+                    )
+
+                Text(
+                    "\(guide.minutes) min · \(guide.difficulty.capitalized) · \(guide.noSew ? "No sew" : "Sewing")"
+                )
+                .font(
+                    .system(
+                        size: 11,
+                        weight: .medium
+                    )
+                )
+                .foregroundStyle(
+                    RestyleColors.textSecondary
+                )
+            }
+
+            Spacer(minLength: 0)
+
+            Image(systemName: "chevron.right")
+                .foregroundStyle(
+                    RestyleColors.textPrimary
+                )
+        }
+        .padding(14)
+        .background(
+            Color.white,
+            in: RoundedRectangle(cornerRadius: 16)
+        )
+    }
+
+    // MARK: - Step-by-Step Guide
 
     private func guideScreen(
         _ guide: MyRepurposeGuide
@@ -382,41 +451,56 @@ struct MyRepurposeFlowView: View {
 
         VStack(alignment: .leading, spacing: 0) {
 
+            // MARK: - Header
+
             HStack {
 
-                // Back button opens custom bottom sheet
                 backButton {
-                    showLeave = true
+                    screen = .ideas
                 }
 
                 Spacer()
 
-                // Close button also opens custom bottom sheet
                 Button {
-                    showLeave = true
+                    dismiss()
                 } label: {
 
                     Image(systemName: "xmark")
-                        .foregroundStyle(RestyleColors.textPrimary)
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
                         .frame(width: 44, height: 44)
                 }
             }
 
             ScrollView {
 
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(
+                    alignment: .leading,
+                    spacing: 16
+                ) {
 
                     Text(guide.title.uppercased())
-                        .font(RestyleTypography.editorial(28))
-                        .foregroundStyle(RestyleColors.textPrimary)
+                        .font(
+                            RestyleTypography.editorial(28)
+                        )
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
 
                     Text(guide.summary)
                         .font(.system(size: 13))
-                        .foregroundStyle(RestyleColors.textSecondary)
+                        .foregroundStyle(
+                            RestyleColors.textSecondary
+                        )
 
-                    garmentPhoto
+                    Image("Mend in plain sight")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 150)
 
-                    // MARK: Materials and Tools
+                    // MARK: - Materials and Tools
 
                     Text("YOU WILL NEED")
                         .font(
@@ -436,7 +520,8 @@ struct MyRepurposeFlowView: View {
 
                         ForEach(
                             Array(
-                                (guide.materials + guide.tools).enumerated()
+                                (guide.materials + guide.tools)
+                                    .enumerated()
                             ),
                             id: \.offset
                         ) { _, item in
@@ -457,7 +542,7 @@ struct MyRepurposeFlowView: View {
                         }
                     }
 
-                    // MARK: Instructions
+                    // MARK: - Instructions
 
                     Text("STEP-BY-STEP")
                         .font(
@@ -473,72 +558,13 @@ struct MyRepurposeFlowView: View {
                         id: \.offset
                     ) { index, step in
 
-                        VStack(
-                            alignment: .leading,
-                            spacing: 9
-                        ) {
-
-                            HStack(spacing: 10) {
-
-                                Text("\(index + 1)")
-                                    .font(
-                                        .system(
-                                            size: 14,
-                                            weight: .bold
-                                        )
-                                    )
-                                    .frame(width: 30, height: 30)
-                                    .background(
-                                        RestyleColors.lime,
-                                        in: Circle()
-                                    )
-
-                                Text(step.title)
-                                    .font(
-                                        .system(
-                                            size: 14,
-                                            weight: .semibold
-                                        )
-                                    )
-
-                                Spacer()
-                            }
-
-                            Text(step.heading)
-                                .font(
-                                    .system(
-                                        size: 12,
-                                        weight: .semibold
-                                    )
-                                )
-
-                            Text(step.detail)
-                                .font(.system(size: 13))
-                                .fixedSize(
-                                    horizontal: false,
-                                    vertical: true
-                                )
-
-                            Text("TIP: \(step.tip)")
-                                .font(.system(size: 12))
-                                .foregroundStyle(
-                                    RestyleColors.textSecondary
-                                )
-                        }
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: .leading
-                        )
-                        .padding(14)
-                        .background(
-                            Color.white,
-                            in: RoundedRectangle(
-                                cornerRadius: 14
-                            )
+                        guideStepCard(
+                            step,
+                            number: index + 1
                         )
                     }
 
-                    // MARK: Sustainability Benefit
+                    // MARK: - Sustainability Benefit
 
                     Text(guide.benefit)
                         .font(.system(size: 12))
@@ -554,6 +580,8 @@ struct MyRepurposeFlowView: View {
         }
         .padding(.horizontal, 20)
 
+        // MARK: - Finish Guide
+
         .safeAreaInset(edge: .bottom) {
 
             primaryButton("I Finished This Guide") {
@@ -562,6 +590,76 @@ struct MyRepurposeFlowView: View {
         }
         .background(
             RestyleColors.background.ignoresSafeArea()
+        )
+    }
+
+    // MARK: - Individual Guide Step
+
+    private func guideStepCard(
+        _ step: MyRepurposeStep,
+        number: Int
+    ) -> some View {
+
+        VStack(
+            alignment: .leading,
+            spacing: 9
+        ) {
+
+            HStack(spacing: 10) {
+
+                Text("\(number)")
+                    .font(
+                        .system(
+                            size: 14,
+                            weight: .bold
+                        )
+                    )
+                    .frame(width: 30, height: 30)
+                    .background(
+                        RestyleColors.lime,
+                        in: Circle()
+                    )
+
+                Text(step.title)
+                    .font(
+                        .system(
+                            size: 14,
+                            weight: .semibold
+                        )
+                    )
+
+                Spacer()
+            }
+
+            Text(step.heading)
+                .font(
+                    .system(
+                        size: 12,
+                        weight: .semibold
+                    )
+                )
+
+            Text(step.detail)
+                .font(.system(size: 13))
+                .fixedSize(
+                    horizontal: false,
+                    vertical: true
+                )
+
+            Text("TIP: \(step.tip)")
+                .font(.system(size: 12))
+                .foregroundStyle(
+                    RestyleColors.textSecondary
+                )
+        }
+        .frame(
+            maxWidth: .infinity,
+            alignment: .leading
+        )
+        .padding(14)
+        .background(
+            Color.white,
+            in: RoundedRectangle(cornerRadius: 14)
         )
     }
 
@@ -577,7 +675,9 @@ struct MyRepurposeFlowView: View {
                    let saved = wardrobeStore.garments.first(
                        where: { $0.id == id }
                    ),
-                   let photo = wardrobeStore.image(for: saved) {
+                   let photo = wardrobeStore.image(
+                       for: saved
+                   ) {
 
                     Image(uiImage: photo)
                         .resizable()
@@ -589,11 +689,14 @@ struct MyRepurposeFlowView: View {
             .frame(height: 150)
     }
 
-    // MARK: - Project Completion Screen
+    // MARK: - Completion Screen
 
     private var completionScreen: some View {
 
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(
+            alignment: .leading,
+            spacing: 20
+        ) {
 
             Spacer()
 
@@ -609,18 +712,22 @@ struct MyRepurposeFlowView: View {
                 )
 
             Text("NEW PURPOSE.\nSAME FABRIC.")
-                .font(RestyleTypography.editorial(42))
+                .font(
+                    RestyleTypography.editorial(42)
+                )
                 .foregroundStyle(
                     RestyleColors.textPrimary
                 )
 
             if let selectedGuide {
 
-                Text("You completed: \(selectedGuide.title)")
-                    .font(.system(size: 14))
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
+                Text(
+                    "You completed: \(selectedGuide.title)"
+                )
+                .font(.system(size: 14))
+                .foregroundStyle(
+                    RestyleColors.textSecondary
+                )
             }
 
             Spacer()
@@ -632,6 +739,8 @@ struct MyRepurposeFlowView: View {
                 .frame(height: 240)
 
             Spacer()
+
+            // Returns to Choose Your Path
 
             primaryButton("Done") {
                 dismiss()
@@ -650,7 +759,10 @@ struct MyRepurposeFlowView: View {
         source: GarmentOutcomes.Source
     ) -> some View {
 
-        VStack(alignment: .leading, spacing: 7) {
+        VStack(
+            alignment: .leading,
+            spacing: 7
+        ) {
 
             Text("FROM REAL DONATIONS")
                 .font(
@@ -665,10 +777,14 @@ struct MyRepurposeFlowView: View {
 
             Text(
                 stat.counts.noLongerWornShare.formatted(
-                    .percent.precision(.fractionLength(0))
+                    .percent.precision(
+                        .fractionLength(0)
+                    )
                 )
             )
-            .font(RestyleTypography.editorial(30))
+            .font(
+                RestyleTypography.editorial(30)
+            )
 
             Text(
                 "of damaged garments in this dataset were remade, recycled, or sent for energy recovery."
@@ -698,13 +814,17 @@ struct MyRepurposeFlowView: View {
         )
     }
 
-    // MARK: - Custom Leave Guide Bottom Sheet
+    // MARK: - Leave Guide Bottom Sheet
 
     private var leaveGuideSheet: some View {
 
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(
+            alignment: .leading,
+            spacing: 0
+        ) {
 
-            // Lime accent bar
+            // MARK: - Lime Accent
+
             Capsule()
                 .fill(RestyleColors.lime)
                 .frame(width: 104, height: 10)
@@ -723,7 +843,9 @@ struct MyRepurposeFlowView: View {
                 .padding(.top, 16)
 
             Text("Pause this project?")
-                .font(RestyleTypography.editorial(34))
+                .font(
+                    RestyleTypography.editorial(34)
+                )
                 .foregroundStyle(
                     RestyleColors.textPrimary
                 )
@@ -744,7 +866,7 @@ struct MyRepurposeFlowView: View {
 
             Spacer(minLength: 20)
 
-            // MARK: Keep Creating Button
+            // MARK: - Keep Creating
 
             Button {
 
@@ -771,13 +893,13 @@ struct MyRepurposeFlowView: View {
             }
             .buttonStyle(.plain)
 
-            // MARK: Leave Guide Button
+            // MARK: - Leave Guide
 
             Button {
 
                 showLeave = false
 
-                // Return to personalized Repurpose ideas
+                // Return to personalized ideas
                 screen = .ideas
 
             } label: {
@@ -789,9 +911,7 @@ struct MyRepurposeFlowView: View {
                             weight: .semibold
                         )
                     )
-                    .foregroundStyle(
-                        Color.red
-                    )
+                    .foregroundStyle(.red)
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
                     .background(
@@ -868,8 +988,6 @@ struct MyRepurposeFlowView: View {
         .buttonStyle(.plain)
         .padding(.horizontal, 20)
         .padding(.vertical, 10)
-        .background(
-            RestyleColors.background
-        )
+        .background(RestyleColors.background)
     }
 }

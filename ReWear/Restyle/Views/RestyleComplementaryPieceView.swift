@@ -1,33 +1,44 @@
 import SwiftUI
 import PhotosUI
+import UIKit
 
 struct RestyleComplementaryPieceView: View {
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.rewearReturnHome) private var returnHome
 
     let selectedItem: String
+    var startingPiece: String = "Your piece"
 
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var garmentImage: UIImage?
-
     @State private var itemDescription = ""
+
     @State private var showPhotoError = false
-    @State private var showNextStepNotice = false
+    @State private var showGenerating = false
+    @State private var showLeaveConfirmation = false
+    @State private var shouldReturnHome = false
+
+    private var confirmedPieceName: String {
+        let description = itemDescription.trimmingCharacters(
+            in: .whitespacesAndNewlines
+        )
+
+        return description.isEmpty ? selectedItem : description
+    }
 
     var body: some View {
+
         VStack(spacing: 0) {
 
             header
-
             progressBar
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
 
                     titleSection
-
                     uploadSection
-
                     manualSection
                 }
                 .padding(.horizontal, 24)
@@ -42,11 +53,22 @@ struct RestyleComplementaryPieceView: View {
             RestyleColors.background.ignoresSafeArea()
         )
         .navigationBarBackButtonHidden(true)
+
         .onChange(of: selectedPhoto) { _, newPhoto in
             Task {
                 await loadPhoto(newPhoto)
             }
         }
+
+        .navigationDestination(
+            isPresented: $showGenerating
+        ) {
+            RestyleGeneratingView(
+                startingPiece: startingPiece,
+                complementaryPiece: confirmedPieceName
+            )
+        }
+
         .alert(
             "Photo Error",
             isPresented: $showPhotoError
@@ -55,21 +77,30 @@ struct RestyleComplementaryPieceView: View {
         } message: {
             Text("We couldn't load that photo. Please try again.")
         }
-        .alert(
-            "Piece confirmed",
-            isPresented: $showNextStepNotice
+
+        .sheet(
+            isPresented: $showLeaveConfirmation,
+            onDismiss: {
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
+            }
         ) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(
-                "Your \(selectedItem.lowercased()) are ready for the next Restyle step. Compatibility scoring has not run yet."
-            )
+            RestyleLeaveChallengeSheet {
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
         }
     }
 
     // MARK: - Header
 
     private var header: some View {
+
         HStack {
 
             Button {
@@ -81,7 +112,7 @@ struct RestyleComplementaryPieceView: View {
             Spacer()
 
             Button {
-                dismiss()
+                showLeaveConfirmation = true
             } label: {
                 headerIcon("xmark")
             }
@@ -91,6 +122,7 @@ struct RestyleComplementaryPieceView: View {
     }
 
     private func headerIcon(_ symbol: String) -> some View {
+
         Image(systemName: symbol)
             .font(.system(size: 20, weight: .medium))
             .foregroundStyle(RestyleColors.textPrimary)
@@ -104,8 +136,11 @@ struct RestyleComplementaryPieceView: View {
     // MARK: - Progress
 
     private var progressBar: some View {
+
         HStack(spacing: 8) {
+
             ForEach(0..<3, id: \.self) { index in
+
                 Capsule()
                     .fill(
                         index < 2
@@ -122,6 +157,7 @@ struct RestyleComplementaryPieceView: View {
     // MARK: - Title
 
     private var titleSection: some View {
+
         VStack(alignment: .leading, spacing: 14) {
 
             Text("CHOOSE YOUR\nPIECE.")
@@ -141,6 +177,7 @@ struct RestyleComplementaryPieceView: View {
     // MARK: - Upload Photo
 
     private var uploadSection: some View {
+
         VStack(alignment: .leading, spacing: 14) {
 
             Text("Add a piece")
@@ -152,6 +189,7 @@ struct RestyleComplementaryPieceView: View {
                 matching: .images,
                 photoLibrary: .shared()
             ) {
+
                 VStack(spacing: 14) {
 
                     if let garmentImage {
@@ -176,7 +214,9 @@ struct RestyleComplementaryPieceView: View {
 
                         Image(systemName: "photo.badge.plus")
                             .font(.system(size: 28))
-                            .foregroundStyle(Color(hex: 0xA5A5A5))
+                            .foregroundStyle(
+                                Color(hex: 0xA5A5A5)
+                            )
                             .frame(width: 68, height: 68)
                             .background(
                                 Color(hex: 0xE9E9EB),
@@ -187,10 +227,12 @@ struct RestyleComplementaryPieceView: View {
                             .font(.system(size: 19))
                             .foregroundStyle(RestyleColors.textSecondary)
 
-                        Text("Choose a photo of your clothing item.")
-                            .font(.system(size: 15))
-                            .foregroundStyle(RestyleColors.textSecondary)
-                            .multilineTextAlignment(.center)
+                        Text(
+                            "Choose a photo of your clothing item."
+                        )
+                        .font(.system(size: 15))
+                        .foregroundStyle(RestyleColors.textSecondary)
+                        .multilineTextAlignment(.center)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -215,6 +257,7 @@ struct RestyleComplementaryPieceView: View {
     // MARK: - Manual Description
 
     private var manualSection: some View {
+
         VStack(alignment: .leading, spacing: 14) {
 
             Text("Describe it manually")
@@ -253,12 +296,11 @@ struct RestyleComplementaryPieceView: View {
     // MARK: - Continue
 
     private var continueButton: some View {
-        Button {
-            // Photo remains optional on this screen.
-            // No Core ML scoring happens here.
-            showNextStepNotice = true
 
+        Button {
+            showGenerating = true
         } label: {
+
             Text("Continue")
                 .font(.system(size: 19, weight: .semibold))
                 .foregroundStyle(.black)
@@ -279,7 +321,9 @@ struct RestyleComplementaryPieceView: View {
     // MARK: - Load Photo
 
     @MainActor
-    private func loadPhoto(_ photo: PhotosPickerItem?) async {
+    private func loadPhoto(
+        _ photo: PhotosPickerItem?
+    ) async {
 
         guard let photo else { return }
 
@@ -307,4 +351,3 @@ struct RestyleComplementaryPieceView: View {
         )
     }
 }
-

@@ -1,10 +1,10 @@
-
 import SwiftUI
 
 struct RestyleWhatChangedView: View {
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.rewearReturnHome) private var returnHome
+
     let startingPiece: String
     let complementaryPiece: String
 
@@ -13,6 +13,7 @@ struct RestyleWhatChangedView: View {
 
     @State private var showChallengeComplete = false
     @State private var showLeaveConfirmation = false
+    @State private var shouldReturnHome = false
 
     private let reflectionOptions = [
         "Change the balance of your look",
@@ -20,16 +21,15 @@ struct RestyleWhatChangedView: View {
         "Not yet"
     ]
 
-    // MARK: - Main View
-
     var body: some View {
+
         VStack(spacing: 0) {
 
             header
-
             progressBar
 
             ScrollView {
+
                 VStack(alignment: .leading, spacing: 0) {
 
                     titleSection
@@ -53,7 +53,7 @@ struct RestyleWhatChangedView: View {
         )
         .navigationBarBackButtonHidden(true)
 
-        // MARK: - Challenge Complete Navigation
+        // MARK: - Challenge Complete
 
         .navigationDestination(
             isPresented: $showChallengeComplete
@@ -61,26 +61,32 @@ struct RestyleWhatChangedView: View {
             RestyleChallengeCompleteView()
         }
 
-        // MARK: - Leave Confirmation
+        // MARK: - Leave Challenge
 
-        .confirmationDialog(
-            "Leave Restyle?",
+        .sheet(
             isPresented: $showLeaveConfirmation,
-            titleVisibility: .visible
-        ) {
-            Button("Keep Styling", role: .cancel) {}
+            onDismiss: {
 
-            Button("Leave Challenge", role: .destructive) {
-                dismiss()
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
             }
-        } message: {
-            Text("Your current challenge may not be saved.")
+        ) {
+            RestyleLeaveChallengeSheet {
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
         }
     }
 
     // MARK: - Header
 
     private var header: some View {
+
         HStack {
 
             Button {
@@ -103,7 +109,10 @@ struct RestyleWhatChangedView: View {
 
     // MARK: - Header Icon
 
-    private func headerIcon(_ symbol: String) -> some View {
+    private func headerIcon(
+        _ symbol: String
+    ) -> some View {
+
         Image(systemName: symbol)
             .font(.system(size: 18, weight: .medium))
             .foregroundStyle(RestyleColors.textPrimary)
@@ -114,12 +123,14 @@ struct RestyleWhatChangedView: View {
             )
     }
 
-    // MARK: - Progress Bar
+    // MARK: - Progress
 
     private var progressBar: some View {
+
         HStack(spacing: 8) {
 
             ForEach(0..<3, id: \.self) { _ in
+
                 Capsule()
                     .fill(Color(hex: 0x4F74FF))
                     .frame(height: 5)
@@ -129,9 +140,10 @@ struct RestyleWhatChangedView: View {
         .padding(.top, 22)
     }
 
-    // MARK: - Title Section
+    // MARK: - Title
 
     private var titleSection: some View {
+
         VStack(alignment: .leading, spacing: 10) {
 
             Text("WHAT CHANGED?")
@@ -157,6 +169,7 @@ struct RestyleWhatChangedView: View {
     // MARK: - Illustration
 
     private var illustration: some View {
+
         Image("whatchanged")
             .resizable()
             .scaledToFit()
@@ -165,9 +178,10 @@ struct RestyleWhatChangedView: View {
             .accessibilityHidden(true)
     }
 
-    // MARK: - Reflection Section
+    // MARK: - Reflection
 
     private var reflectionSection: some View {
+
         VStack(alignment: .leading, spacing: 14) {
 
             Text(
@@ -248,6 +262,7 @@ struct RestyleWhatChangedView: View {
             in: RoundedRectangle(cornerRadius: 16)
         )
         .overlay {
+
             RoundedRectangle(cornerRadius: 16)
                 .strokeBorder(
                     RestyleColors.border.opacity(0.8)
@@ -255,9 +270,10 @@ struct RestyleWhatChangedView: View {
         }
     }
 
-    // MARK: - Finish Challenge Button
+    // MARK: - Finish Challenge
 
     private var finishButton: some View {
+
         Button {
             showChallengeComplete = true
         } label: {
@@ -286,8 +302,6 @@ struct RestyleWhatChangedView: View {
         .background(RestyleColors.background)
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     NavigationStack {

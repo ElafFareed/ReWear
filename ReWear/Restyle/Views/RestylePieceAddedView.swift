@@ -1,10 +1,12 @@
-
 import SwiftUI
 import UIKit
 
 struct RestylePieceAddedView: View {
 
+    // MARK: - Environment
+
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.rewearReturnHome) private var returnHome
     @EnvironmentObject private var wardrobeStore: WardrobeStore
 
     // MARK: - Starting Piece
@@ -13,12 +15,21 @@ struct RestylePieceAddedView: View {
     let pieceImage: UIImage?
     var startingGarment: Garment? = nil
 
+    // Category selected by user
+    let selectedCategory: String
+
     // MARK: - State
 
     @State private var isScoring = false
-    @State private var recommendedPieces: [OCMCFRecommendation] = []
+
+    @State private var recommendedPieces:
+        [OCMCFRecommendation] = []
+
     @State private var scoreError: String?
     @State private var showOwnership = false
+
+    @State private var showLeaveConfirmation = false
+    @State private var shouldReturnHome = false
 
     // MARK: - Best Recommendation
 
@@ -26,150 +37,110 @@ struct RestylePieceAddedView: View {
         recommendedPieces.first
     }
 
-    // MARK: - Main View
+    private var canContinue: Bool {
+        bestRecommendation != nil && !isScoring
+    }
+
+    // MARK: - Body
 
     var body: some View {
 
         VStack(spacing: 0) {
 
-            // MARK: - Header
+            header
 
-            HStack {
-
-                Button {
-                    dismiss()
-                } label: {
-                    headerIcon("chevron.left")
-                }
-
-                Spacer()
-
-                Button {
-                    dismiss()
-                } label: {
-                    headerIcon("xmark")
-                }
-            }
-            .padding(.horizontal, 24)
-            .padding(.top, 12)
-
-            // MARK: - Progress Bar
-
-            HStack(spacing: 8) {
-
-                ForEach(0..<3, id: \.self) { index in
-
-                    Capsule()
-                        .fill(
-                            index < 2
-                            ? RestyleColors.coral
-                            : Color(hex: 0xCAC9CC)
-                        )
-                        .frame(height: 5)
-                }
-            }
-            .padding(.horizontal, 24)
-            .padding(.top, 24)
-
-            // MARK: - Main Content
+            progressBar
 
             ScrollView {
 
-                VStack(alignment: .leading, spacing: 18) {
+                VStack(
+                    alignment: .leading,
+                    spacing: 18
+                ) {
 
                     Text("Piece added!")
-                        .font(RestyleTypography.editorial(42))
-                        .foregroundStyle(RestyleColors.textPrimary)
+                        .font(
+                            RestyleTypography.editorial(42)
+                        )
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
                         .frame(
                             maxWidth: .infinity,
                             alignment: .leading
                         )
+
+                    // Figma Illustration
 
                     Image("finished")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: .infinity)
                         .frame(height: 220)
+                        .accessibilityHidden(true)
 
-                    // MARK: - Recommendation State
+                    Text(
+                        "Your piece is ready for a new look!"
+                    )
+                    .font(
+                        .system(
+                            size: 20,
+                            weight: .semibold
+                        )
+                    )
+                    .foregroundStyle(
+                        RestyleColors.textPrimary
+                    )
+                    .frame(maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+
+                    Text(
+                        "Let's find a complementary piece for your outfit."
+                    )
+                    .font(RestyleTypography.body)
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
+                    .frame(maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+
+                    // Model runs without displaying
+                    // the recommended garment here.
 
                     if isScoring {
 
-                        loadingSection
+                        ProgressView()
+                            .tint(Color(hex: 0x4478FF))
+                            .padding(.top, 16)
+                            .frame(maxWidth: .infinity)
 
-                    } else if let recommendation = bestRecommendation {
+                        Text("Preparing your next step...")
+                            .font(.system(size: 13))
+                            .foregroundStyle(
+                                RestyleColors.textSecondary
+                            )
+                            .frame(maxWidth: .infinity)
+                            .multilineTextAlignment(.center)
 
-                        recommendationSection(recommendation)
+                    } else if let scoreError {
 
-                    } else {
-
-                        Text(
-                            scoreError ??
-                            "You're one step closer to new looks"
-                        )
-                        .font(RestyleTypography.body)
-                        .foregroundStyle(
-                            RestyleColors.textSecondary
-                        )
-                        .frame(maxWidth: .infinity)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(
-                            horizontal: false,
-                            vertical: true
-                        )
-                        .padding(.vertical, 12)
+                        Text(scoreError)
+                            .font(.system(size: 13))
+                            .foregroundStyle(
+                                RestyleColors.textSecondary
+                            )
+                            .frame(maxWidth: .infinity)
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 10)
                     }
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 40)
                 .padding(.bottom, 24)
             }
+            .scrollIndicators(.hidden)
 
-            // MARK: - Continue Button
-
-            Button {
-
-                guard bestRecommendation != nil,
-                      !isScoring else {
-                    return
-                }
-
-                showOwnership = true
-
-            } label: {
-
-                Text(
-                    isScoring
-                    ? "Finding a match..."
-                    : "Continue"
-                )
-                .font(
-                    .system(
-                        size: 19,
-                        weight: .semibold
-                    )
-                )
-                .foregroundStyle(
-                    bestRecommendation != nil
-                    ? Color.black
-                    : RestyleColors.textSecondary
-                )
-                .frame(maxWidth: .infinity)
-                .frame(height: 60)
-                .background(
-                    bestRecommendation != nil
-                    ? RestyleColors.lime
-                    : Color(hex: 0xEFEFEA),
-                    in: Capsule()
-                )
-            }
-            .buttonStyle(.plain)
-            .disabled(
-                bestRecommendation == nil || isScoring
-            )
-            .padding(.horizontal, 24)
-            .padding(.bottom, 10)
-
+            continueButton
         }
         .background(
             RestyleColors.background.ignoresSafeArea()
@@ -186,150 +157,154 @@ struct RestylePieceAddedView: View {
 
                 RestyleOwnershipView(
                     suggestedItem: recommendation.garment.name,
+                    startingPiece: pieceName,
                     recommendations: recommendedPieces
                 )
             }
         }
 
-        // MARK: - Run OCMCF Recommendation
+        // MARK: - Run OCMCF
 
-        .task(id: startingGarment?.id) {
+        .task(id: selectedCategory) {
             await findRecommendation()
         }
-    }
 
-    // MARK: - Loading Section
+        // MARK: - Leave Challenge
 
-    private var loadingSection: some View {
+        .sheet(
+            isPresented: $showLeaveConfirmation,
+            onDismiss: {
 
-        VStack(spacing: 14) {
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
+            }
+        ) {
 
-            ProgressView()
-                .scaleEffect(1.2)
+            RestyleLeaveChallengeSheet {
 
-            Text("Finding your complementary piece...")
-                .font(RestyleTypography.body)
-                .foregroundStyle(
-                    RestyleColors.textSecondary
-                )
-                .multilineTextAlignment(.center)
-
-            Text("OCMCF is comparing your garment with pieces from our offline fashion catalog.")
-                .font(.system(size: 13))
-                .foregroundStyle(
-                    RestyleColors.textSecondary
-                )
-                .multilineTextAlignment(.center)
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 24)
     }
 
-    // MARK: - Recommended Garment Section
+    // MARK: - Header
 
-    private func recommendationSection(
-        _ recommendation: OCMCFRecommendation
-    ) -> some View {
+    private var header: some View {
 
-        VStack(spacing: 14) {
+        HStack {
 
-            Text("RECOMMENDED FOR YOUR OUTFIT")
-                .font(
-                    .system(
-                        size: 12,
-                        weight: .semibold
-                    )
-                )
-                .tracking(0.5)
-                .foregroundStyle(
-                    RestyleColors.textSecondary
-                )
-
-            // Actual garment image from offline catalog
-
-            if let image =
-                RestyleOCMCFRecommendationService.shared.image(
-                    for: recommendation.garment
-                ) {
-
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 180)
-                    .frame(maxWidth: .infinity)
-                    .clipShape(
-                        RoundedRectangle(cornerRadius: 16)
-                    )
-                    .accessibilityLabel(
-                        recommendation.garment.name
-                    )
-
-            } else {
-
-                Image(systemName: "hanger")
-                    .font(.system(size: 45))
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
-                    .frame(height: 150)
+            Button {
+                dismiss()
+            } label: {
+                headerIcon("chevron.left")
             }
 
-            // Model selected garment name
+            Spacer()
 
-            Text(recommendation.garment.name)
-                .font(
-                    .system(
-                        size: 20,
-                        weight: .semibold
-                    )
-                )
-                .foregroundStyle(
-                    RestyleColors.textPrimary
-                )
-                .multilineTextAlignment(.center)
-                .fixedSize(
-                    horizontal: false,
-                    vertical: true
-                )
-
-            // Recommendation explanation
-
-            Text(
-                "OCMCF selected this piece to complement your starting garment."
-            )
-            .font(.system(size: 13))
-            .foregroundStyle(
-                RestyleColors.textSecondary
-            )
-            .multilineTextAlignment(.center)
-            .fixedSize(
-                horizontal: false,
-                vertical: true
-            )
-
-            Text(
-                "Next, we'll check whether you already own something similar."
-            )
-            .font(.system(size: 13))
-            .foregroundStyle(
-                RestyleColors.textSecondary
-            )
-            .multilineTextAlignment(.center)
-            .fixedSize(
-                horizontal: false,
-                vertical: true
-            )
-
+            Button {
+                showLeaveConfirmation = true
+            } label: {
+                headerIcon("xmark")
+            }
         }
-        .frame(maxWidth: .infinity)
-        .padding(18)
-        .background(
-            Color.white,
-            in: RoundedRectangle(cornerRadius: 22)
-        )
+        .padding(.horizontal, 24)
+        .padding(.top, 12)
     }
 
-    // MARK: - Find OCMCF Recommendation
+    private func headerIcon(
+        _ name: String
+    ) -> some View {
+
+        Image(systemName: name)
+            .font(
+                .system(
+                    size: 20,
+                    weight: .medium
+                )
+            )
+            .foregroundStyle(
+                RestyleColors.textPrimary
+            )
+            .frame(width: 48, height: 48)
+            .background(
+                Color(hex: 0xF2F1F3),
+                in: RoundedRectangle(cornerRadius: 16)
+            )
+    }
+
+    // MARK: - Progress Bar
+
+    private var progressBar: some View {
+
+        HStack(spacing: 8) {
+
+            ForEach(0..<3, id: \.self) { index in
+
+                Capsule()
+                    .fill(
+                        index < 2
+                        ? RestyleColors.coral
+                        : Color(hex: 0xCAC9CC)
+                    )
+                    .frame(height: 5)
+            }
+        }
+        .padding(.horizontal, 24)
+        .padding(.top, 24)
+    }
+
+    // MARK: - Continue
+
+    private var continueButton: some View {
+
+        Button {
+
+            guard canContinue else {
+                return
+            }
+
+            showOwnership = true
+
+        } label: {
+
+            Text(
+                isScoring
+                ? "Preparing..."
+                : "Continue"
+            )
+            .font(
+                .system(
+                    size: 19,
+                    weight: .semibold
+                )
+            )
+            .foregroundStyle(
+                canContinue
+                ? Color.black
+                : RestyleColors.textSecondary
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 60)
+            .background(
+                canContinue
+                ? RestyleColors.lime
+                : Color(hex: 0xEFEFEA),
+                in: Capsule()
+            )
+        }
+        .buttonStyle(.plain)
+        .disabled(!canContinue)
+        .padding(.horizontal, 24)
+        .padding(.bottom, 10)
+    }
+
+    // MARK: - Real OCMCF Recommendation
 
     @MainActor
     private func findRecommendation() async {
@@ -338,7 +313,7 @@ struct RestylePieceAddedView: View {
         scoreError = nil
         isScoring = true
 
-        // STEP 1: Get actual selected garment image
+        // STEP 1: Get the starting garment image
 
         let selectedImage: UIImage? = pieceImage ?? {
             guard let startingGarment else {
@@ -352,73 +327,31 @@ struct RestylePieceAddedView: View {
 
         guard let selectedImage else {
 
-            scoreError = """
-            Please select a garment with a photo to receive a recommendation.
-            """
+            scoreError =
+                "Please select a garment with a photo."
 
             isScoring = false
             return
         }
 
-        // STEP 2: Determine garment category
+        // STEP 2: Use the actual selected category
 
-        let categoryText = [
-            startingGarment.map {
-                String(describing: $0.category)
-            } ?? "",
-            startingGarment?.subcategory ?? "",
-            pieceName
-        ]
-        .joined(separator: " ")
-        .lowercased()
+        guard selectedCategory == "tops" ||
+              selectedCategory == "bottoms" else {
 
-        let bottomKeywords = [
-            "bottom",
-            "skirt",
-            "jean",
-            "trouser",
-            "pant",
-            "short",
-            "legging"
-        ]
-
-        let topKeywords = [
-            "top",
-            "shirt",
-            "blouse",
-            "sweater",
-            "tee",
-            "tshirt",
-            "t-shirt",
-            "tank",
-            "hoodie"
-        ]
-
-        let workflow: String
-
-        if bottomKeywords.contains(
-            where: categoryText.contains
-        ) {
-
-            workflow = "bottoms"
-
-        } else if topKeywords.contains(
-            where: categoryText.contains
-        ) {
-
-            workflow = "tops"
-
-        } else {
-
-            scoreError = """
-            For this demo, please choose a top or bottom garment.
-            """
+            scoreError =
+                "Please choose Tops or Bottoms."
 
             isScoring = false
             return
         }
 
-        // STEP 3: Load offline garment catalog
+        print("===== SELECTED GARMENT =====")
+        print("Piece:", pieceName)
+        print("Category:", selectedCategory)
+        print("============================")
+
+        // STEP 3: Load the offline OCMCF catalog
 
         do {
 
@@ -440,8 +373,9 @@ struct RestylePieceAddedView: View {
             return
         }
 
-        // STEP 4: Run the real Core ML models
-        // in the background so the UI stays responsive.
+        // STEP 4: Run Core ML inference
+
+        let category = selectedCategory
 
         let results: Result<
             [OCMCFRecommendation],
@@ -459,9 +393,9 @@ struct RestylePieceAddedView: View {
 
                     let ranked: [OCMCFRecommendation]
 
-                    if workflow == "bottoms" {
+                    if category == "bottoms" {
 
-                        // Bottom -> Top
+                        // Bottom -> Top recommendations
 
                         ranked = try engine.recommendTops(
                             forImage: selectedImage,
@@ -470,7 +404,7 @@ struct RestylePieceAddedView: View {
 
                     } else {
 
-                        // Top -> Outerwear
+                        // Top -> Outerwear recommendations
 
                         ranked = try engine.recommendOuterwear(
                             forImage: selectedImage,
@@ -496,7 +430,7 @@ struct RestylePieceAddedView: View {
             return
         }
 
-        // STEP 5: Display highest-ranked garment
+        // STEP 5: Save the real ranked results
 
         switch results {
 
@@ -505,29 +439,31 @@ struct RestylePieceAddedView: View {
             recommendedPieces = ranked
 
             if ranked.isEmpty {
-                scoreError = "No complementary pieces were found."
-            }
 
-            if let best = ranked.first {
+                scoreError =
+                    "No complementary pieces were found."
 
-                print("")
-                print("===== OCMCF RECOMMENDATION =====")
+            } else if let best = ranked.first {
+
+                print("===== OCMCF RECOMMENDATIONS =====")
                 print("Starting piece:", pieceName)
-                print("Workflow:", workflow)
+                print("Starting category:", category)
                 print("Recommended:", best.garment.name)
-                print("Model score:", best.score)
+                print("Score:", best.score)
 
-                print("Other ranked alternatives:")
+                print("Alternative recommendations:")
 
-                for result in ranked.dropFirst() {
+                for (index, result) in ranked.dropFirst().enumerated() {
+
                     print(
+                        "\(index + 2).",
                         result.garment.name,
-                        "|",
+                        "| score:",
                         result.score
                     )
                 }
 
-                print("===============================")
+                print("================================")
             }
 
         case .failure(let error):
@@ -545,46 +481,19 @@ struct RestylePieceAddedView: View {
 
         isScoring = false
     }
-
-    // MARK: - Header Icon
-
-    private func headerIcon(
-        _ name: String
-    ) -> some View {
-
-        Image(systemName: name)
-            .font(
-                .system(
-                    size: 20,
-                    weight: .medium
-                )
-            )
-            .foregroundStyle(
-                RestyleColors.textPrimary
-            )
-            .frame(
-                width: 48,
-                height: 48
-            )
-            .background(
-                Color(hex: 0xF2F1F3),
-                in: RoundedRectangle(
-                    cornerRadius: 16
-                )
-            )
-    }
 }
 
 // MARK: - Preview
 
 #Preview {
+
     NavigationStack {
+
         RestylePieceAddedView(
             pieceName: "Skirt",
-            pieceImage: nil
+            pieceImage: nil,
+            selectedCategory: "bottoms"
         )
-        .environmentObject(
-            WardrobeStore()
-        )
+        .environmentObject(WardrobeStore())
     }
 }

@@ -2,13 +2,17 @@ import SwiftUI
 
 struct RestyleChallengeCompleteView: View {
 
+    @Environment(\.rewearReturnHome) private var returnHome
+
     var body: some View {
+
         VStack(spacing: 0) {
 
             Spacer()
                 .frame(height: 40)
 
             VStack(alignment: .leading, spacing: 10) {
+
                 Text("THAT LOOK WAS ALL YOU")
                     .font(.system(size: 11, weight: .semibold))
                     .tracking(0.6)
@@ -17,7 +21,10 @@ struct RestyleChallengeCompleteView: View {
                 Text("CHALLENGE\nCOMPLETE")
                     .font(RestyleTypography.editorial(36))
                     .foregroundStyle(RestyleColors.textPrimary)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .fixedSize(
+                        horizontal: false,
+                        vertical: true
+                    )
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 24)
@@ -37,6 +44,7 @@ struct RestyleChallengeCompleteView: View {
                 NavigationLink {
                     ChooseYourPieceView()
                 } label: {
+
                     Text("Try Another Challenge")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundStyle(RestyleColors.textPrimary)
@@ -48,17 +56,22 @@ struct RestyleChallengeCompleteView: View {
                         )
                         .overlay {
                             Capsule()
-                                .strokeBorder(RestyleColors.border.opacity(0.8))
+                                .strokeBorder(
+                                    RestyleColors.border.opacity(0.8)
+                                )
                         }
                 }
                 .buttonStyle(.plain)
 
-                NavigationLink {
-                    ChooseYourPathView()
+                Button {
+                    returnHome()
                 } label: {
+
                     Text("Home")
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(RestyleColors.primaryActionText)
+                        .foregroundStyle(
+                            RestyleColors.primaryActionText
+                        )
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)
                         .background(
@@ -72,7 +85,9 @@ struct RestyleChallengeCompleteView: View {
             .padding(.bottom, 22)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(RestyleColors.background.ignoresSafeArea())
+        .background(
+            RestyleColors.background.ignoresSafeArea()
+        )
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .navigationBar)
     }

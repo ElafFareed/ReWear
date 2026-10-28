@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct RestyleFlipLookView: View {
@@ -21,18 +20,19 @@ struct RestyleFlipLookView: View {
     ]
 
     var body: some View {
+
         VStack(spacing: 0) {
 
             header
             progressBar
 
             ScrollView {
+
                 VStack(alignment: .leading, spacing: 20) {
 
                     titleSection
                     illustration
                     nudgeSection
-
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 30)
@@ -47,7 +47,7 @@ struct RestyleFlipLookView: View {
         )
         .navigationBarBackButtonHidden(true)
 
-        // Next screen
+        // MARK: - Next Screen
 
         .navigationDestination(
             isPresented: $showWhatChanged
@@ -58,11 +58,12 @@ struct RestyleFlipLookView: View {
             )
         }
 
-        // Custom Leave Challenge Sheet
+        // MARK: - Leave Challenge
 
         .sheet(
             isPresented: $showLeaveConfirmation,
             onDismiss: {
+
                 if shouldReturnHome {
                     shouldReturnHome = false
                     returnHome()
@@ -76,11 +77,13 @@ struct RestyleFlipLookView: View {
             .presentationDetents([.height(390)])
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(28)
-        }    }
+        }
+    }
 
     // MARK: - Header
 
     private var header: some View {
+
         HStack {
 
             Button {
@@ -101,7 +104,12 @@ struct RestyleFlipLookView: View {
         .padding(.top, 12)
     }
 
-    private func headerIcon(_ symbol: String) -> some View {
+    // MARK: - Header Icon
+
+    private func headerIcon(
+        _ symbol: String
+    ) -> some View {
+
         Image(systemName: symbol)
             .font(.system(size: 20, weight: .medium))
             .foregroundStyle(RestyleColors.textPrimary)
@@ -112,12 +120,14 @@ struct RestyleFlipLookView: View {
             )
     }
 
-    // MARK: - Progress Bar
+    // MARK: - Progress
 
     private var progressBar: some View {
+
         HStack(spacing: 8) {
 
             ForEach(0..<3, id: \.self) { index in
+
                 Capsule()
                     .fill(
                         index < 2
@@ -134,15 +144,20 @@ struct RestyleFlipLookView: View {
     // MARK: - Title
 
     private var titleSection: some View {
+
         Text("FLIP THE LOOK.")
             .font(RestyleTypography.editorial(42))
             .foregroundStyle(RestyleColors.textPrimary)
-            .fixedSize(horizontal: false, vertical: true)
+            .fixedSize(
+                horizontal: false,
+                vertical: true
+            )
     }
 
     // MARK: - Illustration
 
     private var illustration: some View {
+
         Image("flip")
             .resizable()
             .scaledToFit()
@@ -154,6 +169,7 @@ struct RestyleFlipLookView: View {
     // MARK: - Creative Nudges
 
     private var nudgeSection: some View {
+
         VStack(alignment: .leading, spacing: 12) {
 
             VStack(alignment: .leading, spacing: 4) {
@@ -161,25 +177,33 @@ struct RestyleFlipLookView: View {
                 Text("CHOOSE A CREATIVE NUDGE")
                     .font(.system(size: 12, weight: .semibold))
                     .tracking(0.4)
-                    .foregroundStyle(RestyleColors.textSecondary)
+                    .foregroundStyle(
+                        RestyleColors.textSecondary
+                    )
 
                 Text(
                     "Optional inspiration — pick one or make your own."
                 )
                 .font(.system(size: 13))
-                .foregroundStyle(RestyleColors.textSecondary)
+                .foregroundStyle(
+                    RestyleColors.textSecondary
+                )
             }
 
             VStack(spacing: 8) {
 
                 ForEach(nudges, id: \.self) { nudge in
+
                     Button {
+
                         if selectedNudge == nudge {
                             selectedNudge = nil
                         } else {
                             selectedNudge = nudge
                         }
+
                     } label: {
+
                         nudgeRow(nudge)
                     }
                     .buttonStyle(.plain)
@@ -190,7 +214,9 @@ struct RestyleFlipLookView: View {
 
     // MARK: - Nudge Row
 
-    private func nudgeRow(_ nudge: String) -> some View {
+    private func nudgeRow(
+        _ nudge: String
+    ) -> some View {
 
         let isSelected = selectedNudge == nudge
 
@@ -199,12 +225,16 @@ struct RestyleFlipLookView: View {
             Text(nudge.uppercased())
                 .font(.system(size: 11, weight: .bold))
                 .tracking(0.3)
-                .foregroundStyle(RestyleColors.textPrimary)
+                .foregroundStyle(
+                    RestyleColors.textPrimary
+                )
                 .frame(width: 65, alignment: .leading)
 
             Text(descriptionForNudge(nudge))
                 .font(.system(size: 12))
-                .foregroundStyle(RestyleColors.textSecondary)
+                .foregroundStyle(
+                    RestyleColors.textSecondary
+                )
                 .fixedSize(
                     horizontal: false,
                     vertical: true
@@ -233,6 +263,7 @@ struct RestyleFlipLookView: View {
             in: RoundedRectangle(cornerRadius: 14)
         )
         .overlay {
+
             RoundedRectangle(cornerRadius: 14)
                 .stroke(
                     Color(hex: 0xE8E8E8),
@@ -248,7 +279,9 @@ struct RestyleFlipLookView: View {
 
     // MARK: - Nudge Description
 
-    private func descriptionForNudge(_ nudge: String) -> String {
+    private func descriptionForNudge(
+        _ nudge: String
+    ) -> String {
 
         switch nudge {
 
@@ -266,15 +299,21 @@ struct RestyleFlipLookView: View {
         }
     }
 
-    // MARK: - Continue
+    // MARK: - Continue Button
 
     private var continueButton: some View {
+
         Button {
             showWhatChanged = true
         } label: {
 
             Text("I've tried this look")
-                .font(.system(size: 19, weight: .semibold))
+                .font(
+                    .system(
+                        size: 19,
+                        weight: .semibold
+                    )
+                )
                 .foregroundStyle(.black)
                 .frame(maxWidth: .infinity)
                 .frame(height: 60)

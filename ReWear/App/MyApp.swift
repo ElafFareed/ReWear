@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 // MARK: - Return Home Environment Action
@@ -20,19 +19,16 @@ extension EnvironmentValues {
 struct MyApp: App {
 
     @StateObject private var wardrobeStore = WardrobeStore()
-
     @State private var navigationID = UUID()
 
     var body: some Scene {
         WindowGroup {
-
             NavigationStack {
                 ContentView()
             }
             .id(navigationID)
             .environmentObject(wardrobeStore)
             .environment(\.rewearReturnHome) {
-                // Reset the NavigationStack to its root.
                 navigationID = UUID()
             }
         }

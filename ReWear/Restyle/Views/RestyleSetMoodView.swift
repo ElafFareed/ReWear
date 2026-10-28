@@ -1,32 +1,32 @@
-
 import SwiftUI
 
 struct RestyleSetMoodView: View {
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.rewearReturnHome) private var returnHome
-    // Garments selected earlier in the Restyle flow
+
     let startingPiece: String
     let complementaryPiece: String
 
-    @State private var showNextLook = false
+    @State private var showFlipLook = false
     @State private var showLeaveConfirmation = false
+    @State private var shouldReturnHome = false
 
     var body: some View {
+
         VStack(spacing: 0) {
 
             header
-
             progressBar
 
             ScrollView {
+
                 VStack(alignment: .leading, spacing: 24) {
 
                     titleSection
-
                     illustration
-
                     actionCard
+
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 38)
@@ -41,38 +41,42 @@ struct RestyleSetMoodView: View {
         )
         .navigationBarBackButtonHidden(true)
 
-        // MARK: - Leave Confirmation
+        // MARK: Next Screen
 
-        .confirmationDialog(
-            "Leave Restyle?",
-            isPresented: $showLeaveConfirmation
+        .navigationDestination(
+            isPresented: $showFlipLook
         ) {
-            Button("Keep Styling", role: .cancel) {}
-
-            Button("Go Back", role: .destructive) {
-                dismiss()
-            }
-        } message: {
-            Text("Do you want to leave this styling challenge?")
+            RestyleFlipLookView(
+                startingPiece: startingPiece,
+                complementaryPiece: complementaryPiece
+            )
         }
 
-        // MARK: - Temporary Completion Alert
+        // MARK: Leave Challenge
 
-        .alert(
-            "Look Complete!",
-            isPresented: $showNextLook
+        .sheet(
+            isPresented: $showLeaveConfirmation,
+            onDismiss: {
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
+            }
         ) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(
-                "Great! Let's explore another way to style your outfit."
-            )
+            RestyleLeaveChallengeSheet {
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
         }
     }
 
-    // MARK: - Header
+    // MARK: Header
 
     private var header: some View {
+
         HStack {
 
             Button {
@@ -94,6 +98,7 @@ struct RestyleSetMoodView: View {
     }
 
     private func headerIcon(_ symbol: String) -> some View {
+
         Image(systemName: symbol)
             .font(.system(size: 20, weight: .medium))
             .foregroundStyle(RestyleColors.textPrimary)
@@ -104,11 +109,14 @@ struct RestyleSetMoodView: View {
             )
     }
 
-    // MARK: - Progress Bar
+    // MARK: Progress
 
     private var progressBar: some View {
+
         HStack(spacing: 8) {
+
             ForEach(0..<3, id: \.self) { _ in
+
                 Capsule()
                     .fill(Color(hex: 0x4478FF))
                     .frame(height: 5)
@@ -118,9 +126,10 @@ struct RestyleSetMoodView: View {
         .padding(.top, 24)
     }
 
-    // MARK: - Title
+    // MARK: Title
 
     private var titleSection: some View {
+
         VStack(alignment: .leading, spacing: 12) {
 
             Text("SET THE MOOD.")
@@ -131,19 +140,22 @@ struct RestyleSetMoodView: View {
                     vertical: true
                 )
 
-            Text("Create a fresh look with the pieces you own.")
-                .font(RestyleTypography.body)
-                .foregroundStyle(RestyleColors.textSecondary)
-                .fixedSize(
-                    horizontal: false,
-                    vertical: true
-                )
+            Text(
+                "Create a fresh look with the pieces you own."
+            )
+            .font(RestyleTypography.body)
+            .foregroundStyle(RestyleColors.textSecondary)
+            .fixedSize(
+                horizontal: false,
+                vertical: true
+            )
         }
     }
 
-    // MARK: - Illustration
+    // MARK: Illustration
 
     private var illustration: some View {
+
         Image("setmood")
             .resizable()
             .scaledToFit()
@@ -151,9 +163,10 @@ struct RestyleSetMoodView: View {
             .frame(height: 300)
     }
 
-    // MARK: - Your Action Card
+    // MARK: Action
 
     private var actionCard: some View {
+
         VStack(alignment: .leading, spacing: 12) {
 
             Text("YOUR ACTION")
@@ -182,11 +195,12 @@ struct RestyleSetMoodView: View {
         )
     }
 
-    // MARK: - Continue Button
+    // MARK: Continue
 
     private var continueButton: some View {
+
         Button {
-            showNextLook = true
+            showFlipLook = true
         } label: {
 
             Text("I've tried this look")
@@ -212,8 +226,6 @@ struct RestyleSetMoodView: View {
     }
 }
 
-// MARK: - Preview
-
 #Preview {
     NavigationStack {
         RestyleSetMoodView(
@@ -222,4 +234,3 @@ struct RestyleSetMoodView: View {
         )
     }
 }
-

@@ -4,10 +4,11 @@
 import SwiftUI
 
 struct DamageDetailView: View {
-
+    @Environment(\.rewearReturnHome) private var returnHome
     let guideID: String
     @Binding var path: NavigationPath
     @Environment(\.dismiss) private var dismiss
+    @State private var shouldReturnHome = false
 
     // Control the Leave Guide sheet
     @State private var showLeaveGuide = false
@@ -230,7 +231,15 @@ struct DamageDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
 
         // Leave Guide Sheet
-        .sheet(isPresented: $showLeaveGuide) {
+        .sheet(
+            isPresented: $showLeaveGuide,
+            onDismiss: {
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
+                }
+            }
+        ) {
             VStack(alignment: .leading, spacing: 24) {
 
                 // Blue progress line
@@ -269,10 +278,9 @@ struct DamageDetailView: View {
                 // Leave Guide Button
                 Button {
                     showLeaveGuide = false
-                    dismiss()
+                    returnHome()
                 } label: {
-                    Text("Leave Guide")
-                        .font(.system(size: 16, weight: .medium))
+                    Text("Leave Guide")                        .font(.system(size: 16, weight: .medium))
                         .foregroundStyle(.red.opacity(0.7))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 17)

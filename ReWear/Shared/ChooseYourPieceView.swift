@@ -1,28 +1,12 @@
-
 import SwiftUI
 import PhotosUI
+import UIKit
 
 // MARK: - Piece Source
 
 private enum PieceSource {
     case wardrobe
     case photo
-    case manual
-
-    var isWardrobe: Bool {
-        if case .wardrobe = self { return true }
-        return false
-    }
-
-    var isPhoto: Bool {
-        if case .photo = self { return true }
-        return false
-    }
-
-    var isManual: Bool {
-        if case .manual = self { return true }
-        return false
-    }
 }
 
 // MARK: - Choose Your Piece
@@ -30,6 +14,7 @@ private enum PieceSource {
 struct ChooseYourPieceView: View {
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.rewearReturnHome) private var returnHome
     @EnvironmentObject private var wardrobeStore: WardrobeStore
 
     // Selected photo
@@ -38,78 +23,40 @@ struct ChooseYourPieceView: View {
 
     // Selected garment
     @State private var selectedGarment: Garment?
-    @State private var itemDescription = ""
     @State private var selectedSource: PieceSource?
+
+    // User-selected OCMCF category
+    @State private var selectedCategory: String?
 
     // Navigation
     @State private var showWardrobePicker = false
     @State private var showPieceAdded = false
     @State private var showPhotoError = false
-
-    // Clothing types
-    private let itemTypes = [
-        "T-Shirts", "Blouses", "Tank Tops",
-        "Sweaters", "Cardigans", "Men's T-Shirts",
-        "Men's Casual Shirts", "Sweatshirts", "Hoodies",
-        "Jeans", "Pants", "Shorts", "Skirts",
-        "Skinny Jeans", "Boyfriend Jeans",
-        "Straight Leg Jeans", "Leggings",
-        "Activewear Pants", "Men's Jeans",
-        "Men's Casual Pants", "Capri & Cropped Pants",
-        "Dresses", "Day Dresses", "Cocktail Dresses",
-        "Gowns", "Rompers",
-        "Jackets", "Coats", "Blazers", "Vests",
-        "Men's Jackets",
-        "Boots", "Ankle Booties", "Knee High Boots",
-        "Over-The-Knee Boots", "Pumps", "Sandals",
-        "Flats", "Sneakers", "Men's Sneakers",
-        "Loafers & Moccasins", "Oxfords",
-        "Bags", "Handbags", "Tote Bags",
-        "Shoulder Bags", "Clutches", "Backpacks",
-        "Messenger Bags", "Belts", "Hats",
-        "Men's Hats", "Sunglasses", "Men's Sunglasses",
-        "Jewelry", "Watches", "Men's Watches",
-        "Necklaces", "Earrings", "Rings",
-        "Bracelets & Bangles", "Scarves", "Socks",
-        "Gloves", "Hair Accessories"
-    ]
+    @State private var showLeaveConfirmation = false
+    @State private var shouldReturnHome = false
 
     // MARK: - Validation
 
     private var canContinue: Bool {
-
-        switch selectedSource {
-
-        case .wardrobe, .photo:
-            return startingImage != nil
-
-        case .manual:
-            return !itemDescription.isEmpty
-
-        case nil:
-            return false
-        }
+        startingImage != nil && selectedCategory != nil
     }
 
     private var selectedPieceName: String {
-
-        switch selectedSource {
-
-        case .wardrobe:
+        if selectedSource == .wardrobe {
             return selectedGarment?.name ?? "Your piece"
+        }
 
-        case .photo:
+        switch selectedCategory {
+        case "tops":
+            return "Top"
+        case "bottoms":
+            return "Bottom"
+        default:
             return "Your uploaded piece"
-
-        case .manual:
-            return itemDescription
-
-        case nil:
-            return "Your piece"
         }
     }
 
-    // MARK: - Main View
+    // MARK: - Body
 
     var body: some View {
 
@@ -134,7 +81,11 @@ struct ChooseYourPieceView: View {
 
                     uploadSection
 
-                    manualSection
+                    // Category appears only after a piece
+                    // has been selected or uploaded.
+                    if startingImage != nil {
+                        categorySection
+                    }
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 24)
@@ -159,26 +110,32 @@ struct ChooseYourPieceView: View {
 
                     selectedGarment = garment
                     startingImage = image
-                    itemDescription = garment.subcategory
 
                     selectedSource = .wardrobe
                     selectedPhoto = nil
+
+                    // Ask the user to confirm the category.
+                    selectedCategory = nil
                 }
             }
             .environmentObject(wardrobeStore)
         }
 
-        // MARK: - NGNN Navigation
+        // MARK: - Piece Added Navigation
 
         .navigationDestination(
             isPresented: $showPieceAdded
         ) {
 
-            RestylePieceAddedView(
-                pieceName: selectedPieceName,
-                pieceImage: startingImage,
-                startingGarment: selectedGarment
-            )
+            if let category = selectedCategory {
+
+                RestylePieceAddedView(
+                    pieceName: selectedPieceName,
+                    pieceImage: startingImage,
+                    startingGarment: selectedGarment,
+                    selectedCategory: category
+                )
+            }
         }
 
         // MARK: - Photo Selection
@@ -200,74 +157,34 @@ struct ChooseYourPieceView: View {
             "Photo Error",
             isPresented: $showPhotoError
         ) {
-
             Button("OK", role: .cancel) {}
-
         } message: {
-
             Text(
                 "The selected photo could not be loaded."
             )
         }
 
-        // MARK: - Temporary OCMCF Catalog Verification
+        // MARK: - Leave Challenge
 
-        
-        .onAppear {
-            do {
-                let service = RestyleOCMCFRecommendationService.shared
+        .sheet(
+            isPresented: $showLeaveConfirmation,
+            onDismiss: {
 
-                // STEP 1: Load all 300 catalog garments
-                try service.loadCatalog()
-
-                print("OCMCF catalog loaded:", service.catalog.count)
-                print("Tops:", service.garments(in: "tops").count)
-                print("Bottoms:", service.garments(in: "bottoms").count)
-                print("Outerwear:", service.garments(in: "outerwear").count)
-
-                // STEP 2: Select a starting bottom
-                guard let bottom = service.garments(in: "bottoms").first else {
-                    print("OCMCF: No bottom garment found")
-                    return
+                if shouldReturnHome {
+                    shouldReturnHome = false
+                    returnHome()
                 }
-
-                // STEP 3: Run all 100 candidates in the background
-                DispatchQueue.global(qos: .userInitiated).async {
-                    do {
-                        let engine = OCMCFRecommendationEngine.shared
-
-                        let recommendations = try engine.recommendTops(
-                            for: bottom,
-                            limit: 5
-                        )
-
-                        print("\n===== REAL OCMCF TOP 5 =====")
-                        print("Starting bottom:", bottom.name)
-
-                        for (index, result) in recommendations.enumerated() {
-                            print(
-                                "\(index + 1).",
-                                result.garment.name,
-                                "| score:",
-                                result.score
-                            )
-                        }
-
-                        print("============================")
-
-                    } catch {
-                        print(
-                            "OCMCF ranking failed:",
-                            error.localizedDescription
-                        )
-                    }
-                }
-
-            } catch {
-                print("OCMCF catalog error:", error.localizedDescription)
             }
-        }
+        ) {
+            RestyleLeaveChallengeSheet {
 
+                shouldReturnHome = true
+                showLeaveConfirmation = false
+            }
+            .presentationDetents([.height(390)])
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
+        }
     }
 
     // MARK: - Header
@@ -279,30 +196,40 @@ struct ChooseYourPieceView: View {
             Button {
                 dismiss()
             } label: {
-
-                Image(systemName: "chevron.left")
-                    .font(
-                        .system(
-                            size: 20,
-                            weight: .medium
-                        )
-                    )
-                    .foregroundStyle(
-                        RestyleColors.textPrimary
-                    )
-                    .frame(width: 48, height: 48)
-                    .background(
-                        Color(hex: 0xF2F1F3),
-                        in: RoundedRectangle(
-                            cornerRadius: 16
-                        )
-                    )
+                headerIcon("chevron.left")
             }
 
             Spacer()
+
+            Button {
+                showLeaveConfirmation = true
+            } label: {
+                headerIcon("xmark")
+            }
         }
         .padding(.horizontal, 24)
         .padding(.top, 12)
+    }
+
+    private func headerIcon(
+        _ symbol: String
+    ) -> some View {
+
+        Image(systemName: symbol)
+            .font(
+                .system(
+                    size: 20,
+                    weight: .medium
+                )
+            )
+            .foregroundStyle(
+                RestyleColors.textPrimary
+            )
+            .frame(width: 48, height: 48)
+            .background(
+                Color(hex: 0xF2F1F3),
+                in: RoundedRectangle(cornerRadius: 16)
+            )
     }
 
     // MARK: - Progress Bar
@@ -390,7 +317,7 @@ struct ChooseYourPieceView: View {
                     ) {
 
                         Text(
-                            selectedSource?.isWardrobe == true
+                            selectedSource == .wardrobe
                             ? selectedPieceName
                             : "Choose a piece you already own"
                         )
@@ -399,12 +326,10 @@ struct ChooseYourPieceView: View {
                             RestyleColors.textSecondary
                         )
 
-                        if selectedSource?.isWardrobe == true {
+                        if selectedSource == .wardrobe {
 
                             Text("Piece selected")
-                                .font(
-                                    .system(size: 12)
-                                )
+                                .font(.system(size: 12))
                                 .foregroundStyle(
                                     RestyleColors.textPrimary
                                 )
@@ -413,18 +338,16 @@ struct ChooseYourPieceView: View {
 
                     Spacer()
 
-                    Image(
-                        systemName: "chevron.right"
-                    )
-                    .font(
-                        .system(
-                            size: 17,
-                            weight: .semibold
+                    Image(systemName: "chevron.right")
+                        .font(
+                            .system(
+                                size: 17,
+                                weight: .semibold
+                            )
                         )
-                    )
-                    .foregroundStyle(
-                        RestyleColors.textPrimary
-                    )
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
                 }
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity)
@@ -437,13 +360,11 @@ struct ChooseYourPieceView: View {
                 )
                 .overlay {
 
-                    RoundedRectangle(
-                        cornerRadius: 22
-                    )
-                    .stroke(
-                        Color(hex: 0xE8E8E8),
-                        lineWidth: 1
-                    )
+                    RoundedRectangle(cornerRadius: 22)
+                        .stroke(
+                            Color(hex: 0xE8E8E8),
+                            lineWidth: 1
+                        )
                 }
             }
             .buttonStyle(.plain)
@@ -457,9 +378,7 @@ struct ChooseYourPieceView: View {
         HStack(spacing: 16) {
 
             Rectangle()
-                .fill(
-                    Color(hex: 0xDDDDDD)
-                )
+                .fill(Color(hex: 0xDDDDDD))
                 .frame(height: 1)
 
             Text("OR")
@@ -474,9 +393,7 @@ struct ChooseYourPieceView: View {
                 )
 
             Rectangle()
-                .fill(
-                    Color(hex: 0xDDDDDD)
-                )
+                .fill(Color(hex: 0xDDDDDD))
                 .frame(height: 1)
         }
         .padding(.horizontal, 4)
@@ -511,7 +428,7 @@ struct ChooseYourPieceView: View {
 
                 VStack(spacing: 14) {
 
-                    if selectedSource?.isPhoto == true,
+                    if selectedSource == .photo,
                        let image = startingImage {
 
                         Image(uiImage: image)
@@ -525,45 +442,35 @@ struct ChooseYourPieceView: View {
                             )
 
                         Text("Photo added")
-                            .font(
-                                RestyleTypography.body
-                            )
+                            .font(RestyleTypography.body)
                             .foregroundStyle(
                                 RestyleColors.textPrimary
                             )
 
                         Text("Tap to change the photo.")
-                            .font(
-                                .system(size: 13)
-                            )
+                            .font(.system(size: 13))
                             .foregroundStyle(
                                 RestyleColors.textSecondary
                             )
 
                     } else {
 
-                        Image(
-                            systemName: "photo.badge.plus"
-                        )
-                        .font(
-                            .system(size: 27)
-                        )
-                        .foregroundStyle(
-                            Color(hex: 0xA5A5A5)
-                        )
-                        .frame(
-                            width: 68,
-                            height: 68
-                        )
-                        .background(
-                            Color(hex: 0xE9E9EB),
-                            in: Circle()
-                        )
+                        Image(systemName: "photo.badge.plus")
+                            .font(.system(size: 27))
+                            .foregroundStyle(
+                                Color(hex: 0xA5A5A5)
+                            )
+                            .frame(
+                                width: 68,
+                                height: 68
+                            )
+                            .background(
+                                Color(hex: 0xE9E9EB),
+                                in: Circle()
+                            )
 
                         Text("Upload a photo")
-                            .font(
-                                .system(size: 19)
-                            )
+                            .font(.system(size: 19))
                             .foregroundStyle(
                                 RestyleColors.textSecondary
                             )
@@ -571,9 +478,7 @@ struct ChooseYourPieceView: View {
                         Text(
                             "Choose a photo of the clothing item."
                         )
-                        .font(
-                            .system(size: 15)
-                        )
+                        .font(.system(size: 15))
                         .foregroundStyle(
                             RestyleColors.textSecondary
                         )
@@ -591,103 +496,130 @@ struct ChooseYourPieceView: View {
                 )
                 .overlay {
 
-                    RoundedRectangle(
-                        cornerRadius: 24
-                    )
-                    .stroke(
-                        Color(hex: 0xE8E8E8),
-                        lineWidth: 1
-                    )
+                    RoundedRectangle(cornerRadius: 24)
+                        .stroke(
+                            Color(hex: 0xE8E8E8),
+                            lineWidth: 1
+                        )
                 }
             }
             .buttonStyle(.plain)
         }
     }
 
-    // MARK: - Manual Description
+    // MARK: - Choose Category
 
-    private var manualSection: some View {
+    private var categorySection: some View {
 
         VStack(
             alignment: .leading,
             spacing: 14
         ) {
 
-            Text("Describe it manually")
-                .font(RestyleTypography.body)
+            Text("Choose the category of your piece")
+                .font(.system(size: 18, weight: .semibold))
                 .foregroundStyle(
-                    RestyleColors.textSecondary
+                    RestyleColors.textPrimary
                 )
-                .padding(.leading, 6)
 
-            Menu {
+            Text(
+                "Select the category so we can find a complementary garment."
+            )
+            .font(.system(size: 13))
+            .foregroundStyle(
+                RestyleColors.textSecondary
+            )
 
-                ForEach(itemTypes, id: \.self) { type in
+            categoryRow(
+                title: "Tops",
+                description: "T-shirts, blouses, sweaters, hoodies",
+                category: "tops"
+            )
 
-                    Button(type) {
-
-                        itemDescription = type
-                        selectedSource = .manual
-
-                        selectedGarment = nil
-                        startingImage = nil
-                        selectedPhoto = nil
-                    }
-                }
-
-            } label: {
-
-                HStack {
-
-                    Text(
-                        selectedSource?.isManual == true
-                        ? itemDescription
-                        : "Choose the item's details instead."
-                    )
-                    .font(
-                        .system(size: 16)
-                    )
-                    .foregroundStyle(
-                        RestyleColors.textSecondary
-                    )
-
-                    Spacer()
-
-                    Image(
-                        systemName: "chevron.right"
-                    )
-                    .font(
-                        .system(
-                            size: 17,
-                            weight: .semibold
-                        )
-                    )
-                    .foregroundStyle(
-                        RestyleColors.textPrimary
-                    )
-                }
-                .padding(.horizontal, 20)
-                .frame(maxWidth: .infinity)
-                .frame(height: 92)
-                .background(
-                    Color.white,
-                    in: RoundedRectangle(
-                        cornerRadius: 22
-                    )
-                )
-                .overlay {
-
-                    RoundedRectangle(
-                        cornerRadius: 22
-                    )
-                    .stroke(
-                        Color(hex: 0xE8E8E8),
-                        lineWidth: 1
-                    )
-                }
-            }
-            .buttonStyle(.plain)
+            categoryRow(
+                title: "Bottoms",
+                description: "Jeans, skirts, trousers, shorts",
+                category: "bottoms"
+            )
         }
+    }
+
+    // MARK: - Category Row
+
+    private func categoryRow(
+        title: String,
+        description: String,
+        category: String
+    ) -> some View {
+
+        let isSelected = selectedCategory == category
+
+        return Button {
+
+            selectedCategory = category
+
+        } label: {
+
+            HStack(spacing: 14) {
+
+                VStack(
+                    alignment: .leading,
+                    spacing: 6
+                ) {
+
+                    Text(title)
+                        .font(
+                            .system(
+                                size: 17,
+                                weight: .semibold
+                            )
+                        )
+                        .foregroundStyle(
+                            RestyleColors.textPrimary
+                        )
+
+                    Text(description)
+                        .font(.system(size: 12))
+                        .foregroundStyle(
+                            RestyleColors.textSecondary
+                        )
+                        .multilineTextAlignment(.leading)
+                }
+
+                Spacer()
+
+                Image(
+                    systemName: isSelected
+                    ? "checkmark.circle.fill"
+                    : "circle"
+                )
+                .font(.system(size: 24))
+                .foregroundStyle(
+                    isSelected
+                    ? RestyleColors.lime
+                    : Color(hex: 0xCAC9CC)
+                )
+            }
+            .padding(18)
+            .frame(maxWidth: .infinity)
+            .background(
+                Color.white,
+                in: RoundedRectangle(
+                    cornerRadius: 18
+                )
+            )
+            .overlay {
+
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(
+                        isSelected
+                        ? RestyleColors.lime
+                        : Color(hex: 0xE8E8E8),
+                        lineWidth: isSelected ? 2 : 1
+                    )
+            }
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Continue Button
@@ -726,12 +658,11 @@ struct ChooseYourPieceView: View {
                 )
         }
         .disabled(!canContinue)
+        .buttonStyle(.plain)
         .padding(.horizontal, 24)
         .padding(.top, 12)
         .padding(.bottom, 10)
-        .background(
-            RestyleColors.background
-        )
+        .background(RestyleColors.background)
     }
 
     // MARK: - Load Photo
@@ -747,10 +678,11 @@ struct ChooseYourPieceView: View {
 
         do {
 
-            guard let data = try await photo.loadTransferable(
-                type: Data.self
-            ),
-            let image = UIImage(data: data) else {
+            guard let data =
+                try await photo.loadTransferable(
+                    type: Data.self
+                ),
+                let image = UIImage(data: data) else {
 
                 showPhotoError = true
                 return
@@ -758,8 +690,10 @@ struct ChooseYourPieceView: View {
 
             startingImage = image
             selectedGarment = nil
-            itemDescription = ""
             selectedSource = .photo
+
+            // A new photo requires category selection.
+            selectedCategory = nil
 
         } catch {
 
@@ -771,12 +705,8 @@ struct ChooseYourPieceView: View {
 // MARK: - Preview
 
 #Preview {
-
     NavigationStack {
-
         ChooseYourPieceView()
-            .environmentObject(
-                WardrobeStore()
-            )
+            .environmentObject(WardrobeStore())
     }
 }
