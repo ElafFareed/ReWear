@@ -13,18 +13,15 @@ struct RestyleChallengeCompleteView: View {
 
             VStack(alignment: .leading, spacing: 10) {
 
-                Text("THAT LOOK WAS ALL YOU")
+                Text("A NEW LOOK, ALL YOURS")
                     .font(.system(size: 11, weight: .semibold))
                     .tracking(0.6)
                     .foregroundStyle(RestyleColors.textSecondary)
 
-                Text("CHALLENGE\nCOMPLETE")
+                Text("LOOK\nCOMPLETE")
                     .font(RestyleTypography.editorial(36))
                     .foregroundStyle(RestyleColors.textPrimary)
-                    .fixedSize(
-                        horizontal: false,
-                        vertical: true
-                    )
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 24)
@@ -45,7 +42,7 @@ struct RestyleChallengeCompleteView: View {
                     ChooseYourPieceView()
                 } label: {
 
-                    Text("Try Another Challenge")
+                    Text("Restyle Another Piece")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundStyle(RestyleColors.textPrimary)
                         .frame(maxWidth: .infinity)

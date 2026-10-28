@@ -8,7 +8,7 @@ struct RestyleSetMoodView: View {
     let startingPiece: String
     let complementaryPiece: String
 
-    @State private var showFlipLook = false
+    @State private var showChallengeComplete = false
     @State private var showLeaveConfirmation = false
     @State private var shouldReturnHome = false
 
@@ -26,7 +26,6 @@ struct RestyleSetMoodView: View {
                     titleSection
                     illustration
                     actionCard
-
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 38)
@@ -41,18 +40,15 @@ struct RestyleSetMoodView: View {
         )
         .navigationBarBackButtonHidden(true)
 
-        // MARK: Next Screen
+        // MARK: - Look Complete Navigation
 
         .navigationDestination(
-            isPresented: $showFlipLook
+            isPresented: $showChallengeComplete
         ) {
-            RestyleFlipLookView(
-                startingPiece: startingPiece,
-                complementaryPiece: complementaryPiece
-            )
+            RestyleChallengeCompleteView()
         }
 
-        // MARK: Leave Challenge
+        // MARK: - Leave Confirmation
 
         .sheet(
             isPresented: $showLeaveConfirmation,
@@ -73,7 +69,7 @@ struct RestyleSetMoodView: View {
         }
     }
 
-    // MARK: Header
+    // MARK: - Header
 
     private var header: some View {
 
@@ -97,6 +93,8 @@ struct RestyleSetMoodView: View {
         .padding(.top, 12)
     }
 
+    // MARK: - Header Icon
+
     private func headerIcon(_ symbol: String) -> some View {
 
         Image(systemName: symbol)
@@ -109,14 +107,12 @@ struct RestyleSetMoodView: View {
             )
     }
 
-    // MARK: Progress
+    // MARK: - Progress Bar
 
     private var progressBar: some View {
 
         HStack(spacing: 8) {
-
             ForEach(0..<3, id: \.self) { _ in
-
                 Capsule()
                     .fill(Color(hex: 0x4478FF))
                     .frame(height: 5)
@@ -126,7 +122,7 @@ struct RestyleSetMoodView: View {
         .padding(.top, 24)
     }
 
-    // MARK: Title
+    // MARK: - Title
 
     private var titleSection: some View {
 
@@ -135,24 +131,14 @@ struct RestyleSetMoodView: View {
             Text("SET THE MOOD.")
                 .font(RestyleTypography.editorial(42))
                 .foregroundStyle(RestyleColors.textPrimary)
-                .fixedSize(
-                    horizontal: false,
-                    vertical: true
-                )
 
-            Text(
-                "Create a fresh look with the pieces you own."
-            )
-            .font(RestyleTypography.body)
-            .foregroundStyle(RestyleColors.textSecondary)
-            .fixedSize(
-                horizontal: false,
-                vertical: true
-            )
+            Text("Create a fresh look with the pieces you own.")
+                .font(RestyleTypography.body)
+                .foregroundStyle(RestyleColors.textSecondary)
         }
     }
 
-    // MARK: Illustration
+    // MARK: - Illustration
 
     private var illustration: some View {
 
@@ -163,7 +149,7 @@ struct RestyleSetMoodView: View {
             .frame(height: 300)
     }
 
-    // MARK: Action
+    // MARK: - Action Card
 
     private var actionCard: some View {
 
@@ -179,15 +165,9 @@ struct RestyleSetMoodView: View {
             )
             .font(RestyleTypography.body)
             .foregroundStyle(RestyleColors.textPrimary)
-            .fixedSize(
-                horizontal: false,
-                vertical: true
-            )
+            .fixedSize(horizontal: false, vertical: true)
         }
-        .frame(
-            maxWidth: .infinity,
-            alignment: .leading
-        )
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(22)
         .background(
             Color(hex: 0xFEE8ED),
@@ -195,21 +175,16 @@ struct RestyleSetMoodView: View {
         )
     }
 
-    // MARK: Continue
+    // MARK: - Continue Button
 
     private var continueButton: some View {
 
         Button {
-            showFlipLook = true
+            showChallengeComplete = true
         } label: {
 
-            Text("I've tried this look")
-                .font(
-                    .system(
-                        size: 19,
-                        weight: .semibold
-                    )
-                )
+            Text("I've styled my look")
+                .font(.system(size: 19, weight: .semibold))
                 .foregroundStyle(.black)
                 .frame(maxWidth: .infinity)
                 .frame(height: 60)

@@ -20,7 +20,7 @@ final class RestyleOCMCFRecommendationService {
 
     private(set) var catalog: [OCMCFGarment] = []
 
-    private let catalogFolder = "Restyle-Garment-Catalog"
+    private let catalogFolder = "Restyle-Garment-Catalog-Expanded"
 
     private init() {}
 
