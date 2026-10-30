@@ -20,6 +20,7 @@ struct RestylePieceAddedView: View {
 
     // MARK: - State
 
+    @State private var selectedTarget: String? = nil
     @State private var isScoring = false
 
     @State private var recommendedPieces:
@@ -104,8 +105,10 @@ struct RestylePieceAddedView: View {
                     .frame(maxWidth: .infinity)
                     .multilineTextAlignment(.center)
 
-                    // Model runs without displaying
-                    // the recommended garment here.
+                    // The user chooses the recommendation task first.
+                    recommendationTaskSelector
+
+                    // Model runs only after a task is selected.
 
                     if isScoring {
 
@@ -165,7 +168,8 @@ struct RestylePieceAddedView: View {
 
         // MARK: - Run OCMCF
 
-        .task(id: selectedCategory) {
+        .task(id: selectedTarget) {
+            guard selectedTarget != nil else { return }
             await findRecommendation()
         }
 
@@ -259,6 +263,70 @@ struct RestylePieceAddedView: View {
         .padding(.top, 24)
     }
 
+    // MARK: - Choose Recommendation Task
+
+    private var recommendationTaskSelector: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("What would you like to match it with?")
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(RestyleColors.textPrimary)
+
+            if selectedCategory == "tops" {
+                taskButton(title: "A matching bottom",
+                           subtitle: "Trousers, jeans, skirts or shorts",
+                           target: "bottoms")
+                taskButton(title: "Matching outerwear",
+                           subtitle: "Blazers, jackets, coats or cardigans",
+                           target: "outerwear")
+            } else if selectedCategory == "bottoms" {
+                taskButton(title: "A matching top",
+                           subtitle: "Blouses, shirts or sweaters",
+                           target: "tops")
+            }
+        }
+        .padding(.top, 12)
+    }
+
+    private func taskButton(
+        title: String,
+        subtitle: String,
+        target: String
+    ) -> some View {
+        let isSelected = selectedTarget == target
+
+        return Button {
+            guard selectedTarget != target else { return }
+            // Invalidate the old recommendation immediately.
+            recommendedPieces = []
+            scoreError = nil
+            isScoring = true
+            selectedTarget = target
+        } label: {
+            HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(RestyleColors.textPrimary)
+                    Text(subtitle)
+                        .font(.system(size: 13))
+                        .foregroundStyle(RestyleColors.textSecondary)
+                }
+                Spacer()
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .font(.system(size: 23))
+                    .foregroundStyle(isSelected ? RestyleColors.lime : Color(hex: 0xCAC9CC))
+            }
+            .padding(16)
+            .background(Color.white, in: RoundedRectangle(cornerRadius: 18))
+            .overlay {
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(isSelected ? RestyleColors.lime : Color(hex: 0xE8E8E8),
+                            lineWidth: isSelected ? 2 : 1)
+            }
+        }
+        .buttonStyle(.plain)
+    }
+
     // MARK: - Continue
 
     private var continueButton: some View {
@@ -309,6 +377,7 @@ struct RestylePieceAddedView: View {
     @MainActor
     private func findRecommendation() async {
 
+        guard let target = selectedTarget else { return }
         recommendedPieces = []
         scoreError = nil
         isScoring = true
@@ -376,6 +445,7 @@ struct RestylePieceAddedView: View {
         // STEP 4: Run Core ML inference
 
         let category = selectedCategory
+        print("Requested complementary category:", target)
 
         let results: Result<
             [OCMCFRecommendation],
@@ -393,23 +463,21 @@ struct RestylePieceAddedView: View {
 
                     let ranked: [OCMCFRecommendation]
 
-                    if category == "bottoms" {
-
-                        // Bottom -> Top recommendations
-
+                    if category == "bottoms" && target == "tops" {
                         ranked = try engine.recommendTops(
-                            forImage: selectedImage,
-                            limit: 5
+                            forImage: selectedImage, limit: 5
                         )
-
-                    } else {
-
-                        // Top -> Outerwear recommendations
-
+                    } else if category == "tops" && target == "bottoms" {
+                        // Candidate-first order: [bottom, top].
+                        ranked = try engine.recommendBottoms(
+                            forImage: selectedImage, limit: 5
+                        )
+                    } else if category == "tops" && target == "outerwear" {
                         ranked = try engine.recommendOuterwear(
-                            forImage: selectedImage,
-                            limit: 5
+                            forImage: selectedImage, limit: 5
                         )
+                    } else {
+                        throw OCMCFRecommendationEngine.EngineError.invalidCategory
                     }
 
                     continuation.resume(
@@ -425,8 +493,7 @@ struct RestylePieceAddedView: View {
             }
         }
 
-        guard !Task.isCancelled else {
-            isScoring = false
+        guard !Task.isCancelled, selectedTarget == target else {
             return
         }
 
@@ -448,6 +515,7 @@ struct RestylePieceAddedView: View {
                 print("===== OCMCF RECOMMENDATIONS =====")
                 print("Starting piece:", pieceName)
                 print("Starting category:", category)
+                print("Recommended category:", target)
                 print("Recommended:", best.garment.name)
                 print("Score:", best.score)
 

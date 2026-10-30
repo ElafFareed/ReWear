@@ -188,6 +188,48 @@ final class OCMCFRecommendationEngine {
         )
     }
 
+    // MARK: - Recommend Bottoms From User Top Image
+
+    func recommendBottoms(
+        forImage image: UIImage,
+        limit: Int = 5
+    ) throws -> [OCMCFRecommendation] {
+
+        let topEmbedding = try embedding(forImage: image)
+        let candidates = catalogService.garments(in: "bottoms")
+
+        return try rank(
+            candidates: candidates,
+            model: bottomTopModel,
+            anchorEmbeddings: [topEmbedding],
+            limit: limit,
+            candidateFirst: true
+        )
+    }
+
+    // MARK: - Recommend Bottoms From Catalog Top
+
+    func recommendBottoms(
+        for top: OCMCFGarment,
+        limit: Int = 5
+    ) throws -> [OCMCFRecommendation] {
+
+        guard top.category == "tops" else {
+            throw EngineError.invalidCategory
+        }
+
+        let topEmbedding = try embedding(for: top)
+        let candidates = catalogService.garments(in: "bottoms")
+
+        return try rank(
+            candidates: candidates,
+            model: bottomTopModel,
+            anchorEmbeddings: [topEmbedding],
+            limit: limit,
+            candidateFirst: true
+        )
+    }
+
     // MARK: - Encode User Image
 
     private func embedding(
@@ -236,7 +278,8 @@ final class OCMCFRecommendationEngine {
         candidates: [OCMCFGarment],
         model: MLModel,
         anchorEmbeddings: [[Float]],
-        limit: Int
+        limit: Int,
+        candidateFirst: Bool = false
     ) throws -> [OCMCFRecommendation] {
 
         var results: [OCMCFRecommendation] = []
@@ -247,8 +290,11 @@ final class OCMCFRecommendationEngine {
                 for: candidate
             )
 
-            let allEmbeddings =
-                anchorEmbeddings + [candidateEmbedding]
+            // BottomTop expects [bottom, top]. When recommending
+            // bottoms, the candidate must come before the top.
+            let allEmbeddings = candidateFirst
+                ? [candidateEmbedding] + anchorEmbeddings
+                : anchorEmbeddings + [candidateEmbedding]
 
             let score = try compatibilityScore(
                 model: model,
